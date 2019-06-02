@@ -86,6 +86,10 @@ class ComposerStaticInit9480c3b3bca507138d72acb741f188af
         array (
             'Matrix\\' => 7,
         ),
+        'F' => 
+        array (
+            'FormsEngine\\' => 12,
+        ),
         'C' => 
         array (
             'Complex\\' => 8,
@@ -124,6 +128,10 @@ class ComposerStaticInit9480c3b3bca507138d72acb741f188af
         'Matrix\\' => 
         array (
             0 => __DIR__ . '/..' . '/markbaker/matrix/classes/src',
+        ),
+        'FormsEngine\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'Complex\\' => 
         array (

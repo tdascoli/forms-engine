@@ -14,5 +14,6 @@ return array(
     'ParseCsv\\extensions\\' => array($vendorDir . '/parsecsv/php-parsecsv/src/extensions'),
     'ParseCsv\\' => array($vendorDir . '/parsecsv/php-parsecsv/src'),
     'Matrix\\' => array($vendorDir . '/markbaker/matrix/classes/src'),
+    'FormsEngine\\' => array($baseDir . '/src'),
     'Complex\\' => array($vendorDir . '/markbaker/complex/classes/src'),
 );

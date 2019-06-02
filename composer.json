@@ -1,4 +1,18 @@
 {
+  "name": "apollo29/forms-engine",
+  "description": "Forms Engine",
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "Thomas D'Ascoli",
+          "homepage": "https://github.com/tdascoli"
+      }
+  ],
+  "autoload": {
+      "psr-4": {
+          "FormsEngine\\": "src"
+      }
+  },
     "require": {
         "phpoffice/phpspreadsheet": "^1.6",
         "phpoffice/phpword": "^0.16.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab0190fe880d1539ca9270e4a4f03c9b",
+    "content-hash": "9140bca9927d106ecc37e98f81fec448",
     "packages": [
         {
             "name": "avbdr/php-bootstrap-form",
