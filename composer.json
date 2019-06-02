@@ -1,0 +1,9 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.6",
+        "phpoffice/phpword": "^0.16.0",
+        "ext-json": "^1.5",
+        "avbdr/php-bootstrap-form": "4.0",
+        "parsecsv/php-parsecsv": "^1.1"
+    }
+}
