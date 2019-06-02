@@ -1,5 +1,9 @@
 <?php
-namespace FormsEngine\Questions;
+namespace FormsEngine\questions;
+
+require __DIR__ . '/../../vendor/autoload.php';
+
+use MyCLabs\Enum\Enum;
 
 /**
  * Class FieldType
@@ -10,8 +14,8 @@ class FieldType extends Enum {
     const EMAIL = 'email';
     const DATE = 'date';
     const NUMBER = 'number';
-    const NUMBER = 'checkbox';
-    const NUMBER = 'radio';
-    const NUMBER = 'select';
+    const CHECKBOX = 'checkbox';
+    const RADIO = 'radio';
+    const SELECT = 'select';
 }
 ?>

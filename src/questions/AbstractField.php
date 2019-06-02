@@ -1,5 +1,7 @@
 <?php
-namespace FormsEngine\Questions;
+namespace FormsEngine\questions;
+
+require __DIR__ . '/../../vendor/autoload.php';
 
 /**
  * Class AbstractField
@@ -32,9 +34,6 @@ abstract class AbstractField {
 
   /** @var string */
   private $inputmask;
-
-  /** @var boolean */
-  private $hidden;
 
   /** @var style */
   private $style;
@@ -77,4 +76,5 @@ abstract class AbstractField {
           "label" => $this->getLabel()
       ];
   }
+}
 ?>
