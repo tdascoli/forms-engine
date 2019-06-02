@@ -84,6 +84,7 @@ class ComposerStaticInit9480c3b3bca507138d72acb741f188af
         ),
         'M' => 
         array (
+            'MyCLabs\\Enum\\' => 13,
             'Matrix\\' => 7,
         ),
         'F' => 
@@ -124,6 +125,10 @@ class ComposerStaticInit9480c3b3bca507138d72acb741f188af
         'ParseCsv\\' => 
         array (
             0 => __DIR__ . '/..' . '/parsecsv/php-parsecsv/src',
+        ),
+        'MyCLabs\\Enum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
         ),
         'Matrix\\' => 
         array (

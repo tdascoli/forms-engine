@@ -13,6 +13,7 @@ return array(
     'PhpOffice\\Common\\' => array($vendorDir . '/phpoffice/common/src/Common'),
     'ParseCsv\\extensions\\' => array($vendorDir . '/parsecsv/php-parsecsv/src/extensions'),
     'ParseCsv\\' => array($vendorDir . '/parsecsv/php-parsecsv/src'),
+    'MyCLabs\\Enum\\' => array($vendorDir . '/myclabs/php-enum/src'),
     'Matrix\\' => array($vendorDir . '/markbaker/matrix/classes/src'),
     'FormsEngine\\' => array($baseDir . '/src'),
     'Complex\\' => array($vendorDir . '/markbaker/complex/classes/src'),
