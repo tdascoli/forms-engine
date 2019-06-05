@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "acb85d2f3d9f5c43e6e436ae106a0e87",
+    "content-hash": "a8430c964ca860f211b5c4bb6e0028e4",
     "packages": [
         {
-            "name": "avbdr/php-bootstrap-form",
-            "version": "v4.0",
+            "name": "apollo29/php-bootstrap-form",
+            "version": "4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/avbdr/php-bootstrap-form.git",
-                "reference": "ca6200524951c32870b18f915c1a0cce3375a59d"
+                "url": "https://github.com/tdascoli/php-bootstrap-form.git",
+                "reference": "4443f11dabf4330268c29acf5c777c5144fcc1e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avbdr/php-bootstrap-form/zipball/ca6200524951c32870b18f915c1a0cce3375a59d",
-                "reference": "ca6200524951c32870b18f915c1a0cce3375a59d",
+                "url": "https://api.github.com/repos/tdascoli/php-bootstrap-form/zipball/4443f11dabf4330268c29acf5c777c5144fcc1e1",
+                "reference": "4443f11dabf4330268c29acf5c777c5144fcc1e1",
                 "shasum": ""
             },
             "require": {
@@ -25,9 +25,9 @@
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "PFBC/Form.php"
-                ]
+                "psr-4": {
+                    "PFBC\\": "PFBC/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -45,10 +45,15 @@
                     "email": "ajporterfield@gmail.com",
                     "homepage": "http://code.google.com/p/php-form-builder-class/",
                     "role": "Initial Developer"
+                },
+                {
+                    "name": "Thomas D'Ascoli",
+                    "homepage": "https://dasco.li",
+                    "role": "Developer"
                 }
             ],
             "description": "PHP Bootstrap Form Helper",
-            "time": "2016-05-11T13:55:02+00:00"
+            "time": "2019-06-05T15:27:36+00:00"
         },
         {
             "name": "markbaker/complex",

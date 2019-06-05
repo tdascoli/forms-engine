@@ -18,7 +18,7 @@
         "phpoffice/phpspreadsheet": "^1.6",
         "phpoffice/phpword": "^0.16.0",
         "ext-json": "^1.5",
-        "avbdr/php-bootstrap-form": "4.0",
+        "apollo29/php-bootstrap-form": "4.1",
         "parsecsv/php-parsecsv": "^1.1",
         "myclabs/php-enum": "^1.7"
     }
