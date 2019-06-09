@@ -7,11 +7,10 @@ use PhpCollection\Sequence;
 class Renderer {
 
   private $twig;
-
   private $elements;
 
   public function __construct(){
-    $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/Templates/');
+    $loader = new \Twig\Loader\FilesystemLoader(Config::$templateDir);
     $this->twig = new \Twig\Environment($loader);
     $this->elements = new Sequence();
   }
@@ -31,5 +30,7 @@ class Renderer {
     }
     return $rawElements;
   }
+
+  // todo add config functions
 }
 ?>

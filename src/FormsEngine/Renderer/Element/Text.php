@@ -5,10 +5,9 @@ use FormsEngine\Questions\FieldType;
 
 class Text extends Element {
 
-  public function __construct(
-                            $label,
-                            $placeholder = null,
-                            $helptext = null) {
+  public function __construct($label,
+                              $placeholder = null,
+                              $helptext = null) {
       parent::__construct($label);
       $this->type = FieldType::TEXT();
       $this->label = $label;
