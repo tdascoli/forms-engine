@@ -1,0 +1,11 @@
+<form>
+  <fieldset>
+    {% if legend|length > 0 %}
+      <legend>{{ legend }}</legend>
+    {% endif %}
+
+    {% for element in elements %}
+      {{ element|raw }}
+    {% endfor %}
+  </fieldset>
+</form>

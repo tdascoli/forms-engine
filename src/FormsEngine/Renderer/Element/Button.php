@@ -1,0 +1,36 @@
+<?php
+namespace FormsEngine\Renderer\Element;
+
+use FormsEngine\Questions\FieldType;
+
+class Button extends Element {
+
+  private $primary;
+
+  public function __construct(
+                            $label,
+                            $primary = false) {
+      $this->type = FieldType::BUTTON();
+      $this->label = $label;
+      $this->primary = $primary;
+  }
+
+  public function render($twig){
+    $template = $twig->load('button.html');
+    return $template->render($this->prepare());
+  }
+
+  public function prepare(){
+    $vars = parent::prepare();
+    $vars['class'] = $this->btnClass();
+    return $vars;
+  }
+
+  private function btnClass(){
+    if ($this->primary){
+      return 'btn-primary';
+    }
+    return 'btn-secondary';
+  }
+}
+?>

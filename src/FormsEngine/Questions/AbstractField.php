@@ -1,7 +1,5 @@
 <?php
-namespace FormsEngine\questions;
-
-require __DIR__ . '/../../vendor/autoload.php';
+namespace FormsEngine\Questions;
 
 /**
  * Class AbstractField
