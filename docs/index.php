@@ -7,8 +7,8 @@ use FormsEngine\Renderer\Element as Element;
 
 $r = new Renderer();
 $r->add(new Element\Text('test label','placeholder','helptext'));
-$r->add(new Element\Text('new label','','helptext'));
-$r->add(new Element\Text('other label'));
+$r->add(new Element\Email('new label','','helptext'));
+$r->add(new Element\Number('other label'));
 $r->add(new Element\Button('send',true));
 $r->add(new Element\Button('cancel'));
 
