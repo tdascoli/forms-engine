@@ -15,10 +15,14 @@ class Renderer {
     $this->elements = new Sequence();
   }
 
-  public function render($legend=null){
+  public function render($dir=null){
+    if ($dir!=null){
+      $this->setTemplateDir($dir);
+    }
+
     echo $this->twig->
                   render('form.html',
-                    ['legend' => $legend, 'elements' => $this->rawElements()]);
+                    ['elements' => $this->rawElements()]);
   }
 
   public function add($element){

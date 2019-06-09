@@ -54,7 +54,7 @@ $r->add(new Element\Button('cancel'));
 <div class="container">
     <h3 class="mt-3">FormsEngine</h3>
     <?php
-      $r->render('legend');
+      $r->render();
     ?>
 </div>
 
