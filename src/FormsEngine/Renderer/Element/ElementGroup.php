@@ -10,5 +10,7 @@ class ElementGroup {
   public function __construct($elements) {
     $this->elements = $elements;
   }
+
+  // todo analog renderer. pass array of "elements" as string -> see constructor
 }
 ?>

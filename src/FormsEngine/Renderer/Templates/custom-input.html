@@ -1,8 +1,10 @@
-<div class="custom-control custom-{{ type }}">
-  <input
-    type="{{ type }}"
-    class="custom-control-input"
-    id="{{ id }}"
-    {% if name|length > 0 %}name="{{ name }}"{% endif %}>
-  <label class="custom-control-label" for="{{ id }}">{{ label }}</label>
+<div class="form-group">
+  <div class="custom-control custom-{{ type }}">
+    <input
+      type="{{ type }}"
+      class="custom-control-input"
+      id="{{ id }}"
+      {% if name|length > 0 %}name="{{ name }}"{% endif %}>
+    <label class="custom-control-label" for="{{ id }}">{{ label }}</label>
+  </div>
 </div>
