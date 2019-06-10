@@ -1,16 +1,31 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\FieldType;
+use PhpCollection\Sequence;
 
-class ElementGroup {
+abstract class ElementGroup {
 
   private $elements;
 
   public function __construct($elements) {
-    $this->elements = $elements;
+    $this->elements = new Sequence();
+    if (\is_array($elements)){
+      foreach ($elements as $element) {
+        $this->elements->add($element);
+      }
+    }
   }
 
-  // todo analog renderer. pass array of "elements" as string -> see constructor
+  public function render($twig){
+    $rawElements = '';
+    foreach($this->elements as $element){
+      $rawElements .= $element->render($twig);
+    }
+    return $rawElements;
+  }
+
+  public function elements(){
+    return $this->elements;
+  }
 }
 ?>

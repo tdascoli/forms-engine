@@ -12,6 +12,8 @@ $r->add(new Element\Number('other label'));
 $r->add(new Element\CustomCheckbox('custom checkbox label', true));
 $r->add(new Element\CustomRadio('Yes (custom)', 'yes', 'yesno'));
 $r->add(new Element\CustomRadio('No (custom)', 'no', 'yesno'));
+$r->add(new Element\YesNo('yesno2'));
+$r->add(new Element\YesNo('yesno3',true));
 $r->add(new Element\Button('send',true));
 $r->add(new Element\Button('cancel'));
 
