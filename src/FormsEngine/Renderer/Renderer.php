@@ -37,7 +37,6 @@ class Renderer {
     return $rawElements;
   }
 
-  // todo add config functions
   public function setTemplateDir($dir){
     Config::updateTemplateDir($dir);
     $loader = new \Twig\Loader\FilesystemLoader(Config::$templateDir);

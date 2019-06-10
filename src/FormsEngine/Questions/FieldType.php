@@ -11,6 +11,7 @@ class FieldType extends Enum {
     const TEXT = 'text';
     const EMAIL = 'email';
     const DATE = 'date';
+    const DATETIME = 'datetime-local';
     const NUMBER = 'number';
     const CHECKBOX = 'checkbox';
     const RADIO = 'radio';

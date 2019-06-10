@@ -9,6 +9,8 @@ $r = new Renderer();
 $r->add(new Element\Text('test label','placeholder','helptext'));
 $r->add(new Element\Email('new label','','helptext'));
 $r->add(new Element\Number('other label'));
+$r->add(new Element\Date('test date','placeholder'));
+$r->add(new Element\DateTime('test datetime','placeholder'));
 $r->add(new Element\Checkbox('custom checkbox label', true));
 $r->add(new Element\Radio('Yes (custom)', 'yes', 'yesno'));
 $r->add(new Element\Radio('No (custom)', 'no', 'yesno'));
