@@ -3,7 +3,7 @@ namespace FormsEngine\Renderer\Element;
 
 use FormsEngine\Questions\FieldType;
 
-class CustomCheckbox extends Element {
+class Checkbox extends Element {
 
   public function __construct($label, $value) {
       parent::__construct($label);

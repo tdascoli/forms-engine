@@ -3,7 +3,7 @@ namespace FormsEngine\Renderer\Element;
 
 use FormsEngine\Questions\FieldType;
 
-class CustomRadio extends Element {
+class Radio extends Element {
 
   private $name;
 

@@ -18,8 +18,8 @@ class YesNo extends ElementGroup {
       }
 
       $this->yesno = array(
-        new Element\CustomRadio('Ja', true, $values['Yes']),
-        new Element\CustomRadio('Nein', true, $values['No'])
+        new Element\Radio('Ja', true, $values['Yes']),
+        new Element\Radio('Nein', true, $values['No'])
       );
   }
 
