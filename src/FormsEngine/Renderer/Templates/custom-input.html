@@ -3,8 +3,8 @@
     <input
       type="{{ type }}"
       class="custom-control-input"
-      id="{{ id }}"
+      id="{{ id }}-{{ name }}"
       {% if name|length > 0 %}name="{{ name }}"{% endif %}>
-    <label class="custom-control-label" for="{{ id }}">{{ label }}</label>
+    <label class="custom-control-label" for="{{ id }}-{{ name }}">{{ label }}</label>
   </div>
 </div>

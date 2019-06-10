@@ -5,10 +5,11 @@ use FormsEngine\Questions\FieldType;
 
 class Checkbox extends Element {
 
-  public function __construct($label, $value) {
+  public function __construct($label, $value, $checked = false) {
       parent::__construct($label);
       $this->type = FieldType::CHECKBOX()->getValue();
       $this->value = $value;
+      // todo checked
   }
 
   public function render($twig){

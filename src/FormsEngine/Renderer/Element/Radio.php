@@ -7,11 +7,12 @@ class Radio extends Element {
 
   private $name;
 
-  public function __construct($label, $value, $name) {
+  public function __construct($label, $value, $name, $checked = false) {
       parent::__construct($label);
       $this->type = FieldType::RADIO()->getValue();
       $this->value = $value;
       $this->name = $name;
+      // todo checked
   }
 
   public function render($twig){
