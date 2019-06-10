@@ -21,8 +21,14 @@ abstract class Element {
   /** @var string */
   private $value;
 
-  public function __construct($id) {
-    $this->setId($id);
+  public function __construct($label,$placeholderLabel=false) {
+    $this->setId($label);
+    if (!$placeholderLabel){
+      $this->label = $label;
+    }
+    else {
+      $this->placeholder = $label;
+    }
   }
 
   public function prepare(){

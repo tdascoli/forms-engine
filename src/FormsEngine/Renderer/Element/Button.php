@@ -11,7 +11,6 @@ class Button extends Element {
                             $label,
                             $primary = false) {
       $this->type = FieldType::BUTTON();
-      $this->label = $label;
       $this->primary = $primary;
   }
 

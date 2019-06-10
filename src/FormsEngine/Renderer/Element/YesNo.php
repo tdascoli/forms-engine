@@ -7,11 +7,10 @@ class YesNo extends ElementGroup {
 
   private $yesno;
 
-  private static $yesnoBooleans = array('Yes' => true,'No' => false);
-  private static $yesnoStrings = array('Yes' => 'Ja','No' => 'Nein');
+  private $yesnoBooleans = array('Yes' => true,'No' => false);
+  private $yesnoStrings = array('Yes' => 'Ja','No' => 'Nein');
 
   public function __construct($name, $booleans = false) {
-      parent::__construct($label);
       $values = $this->yesnoStrings;
       if ($booleans){
         $values = $this->yesnoBooleans;

@@ -8,7 +8,6 @@ class Checkbox extends Element {
   public function __construct($label, $value) {
       parent::__construct($label);
       $this->type = FieldType::CHECKBOX()->getValue();
-      $this->label = $label;
       $this->value = $value;
   }
 

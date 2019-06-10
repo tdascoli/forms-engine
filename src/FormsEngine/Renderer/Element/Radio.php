@@ -10,7 +10,6 @@ class Radio extends Element {
   public function __construct($label, $value, $name) {
       parent::__construct($label);
       $this->type = FieldType::RADIO()->getValue();
-      $this->label = $label;
       $this->value = $value;
       $this->name = $name;
   }

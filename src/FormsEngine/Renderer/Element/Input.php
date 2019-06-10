@@ -9,7 +9,6 @@ class Input extends Element {
                               $placeholder = null,
                               $helptext = null) {
       parent::__construct($label);
-      $this->label = $label;
       if ($placeholder!=null){
         $this->placeholder = $placeholder;
       }

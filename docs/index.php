@@ -14,6 +14,13 @@ $r->add(new Element\Radio('Yes (custom)', 'yes', 'yesno'));
 $r->add(new Element\Radio('No (custom)', 'no', 'yesno'));
 $r->add(new Element\YesNo('yesno2'));
 $r->add(new Element\YesNo('yesno3',true));
+
+$options = new Element\Option();
+$options->add('first',1);
+$options->add('second',2);
+$options->add('third',3);
+$r->add(new Element\Select('custom select',$options,true,'select helptext to show'));
+
 $r->add(new Element\Button('send',true));
 $r->add(new Element\Button('cancel'));
 
