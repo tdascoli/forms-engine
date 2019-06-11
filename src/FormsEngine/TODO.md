@@ -10,6 +10,7 @@
 * required
 * validation
 * privacy (?)
+* rename Config to RenderConfig
 * Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)
 
 ## Questions
@@ -27,6 +28,7 @@
     * plaintext (?)
     * xlsx
     * other?
+* online "viewer"?
 
 ## Presentation
 
@@ -39,5 +41,6 @@
 
 ## other
 
+* Config how to?
 * make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
 
