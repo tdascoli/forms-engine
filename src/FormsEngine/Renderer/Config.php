@@ -5,8 +5,9 @@ class Config {
 
   public static $templateDir = __DIR__ . '/Templates/';
 
+  // todo check
   public static function updateTemplateDir($dir){
-    $this->templadeDir = $dir;
+    $self::templadeDir = $dir;
   }
 }
 ?>

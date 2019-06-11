@@ -6,13 +6,14 @@ use FormsEngine\Questions\FieldType;
 class Radio extends Element {
 
   private $name;
+  private $checked;
 
   public function __construct($label, $value, $name, $checked = false) {
       parent::__construct($label);
       $this->type = FieldType::RADIO()->getValue();
       $this->value = $value;
       $this->name = $name;
-      // todo checked
+      $this->checked = $checked;
   }
 
   public function render($twig){
@@ -23,6 +24,7 @@ class Radio extends Element {
   public function prepare(){
     $vars = parent::prepare();
     $vars['name'] = $this->name;
+    $vars['checked'] = $this->checked;
     return $vars;
   }
 }
