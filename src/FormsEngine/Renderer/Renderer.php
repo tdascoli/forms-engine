@@ -9,7 +9,7 @@ class Renderer {
   private $elements;
 
   public function __construct(){
-    $loader = new \Twig\Loader\FilesystemLoader(Config::$templateDir);
+    $loader = new \Twig\Loader\FilesystemLoader(RenderConfig::$templateDir);
     $this->twig = new \Twig\Environment($loader);
     $this->elements = new Sequence();
   }

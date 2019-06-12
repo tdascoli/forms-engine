@@ -10,7 +10,7 @@ class RenderConfig {
 
   // todo check
   public static function updateTemplateDir($dir){
-    $self::templateDir = $dir;
+    $self::$templateDir = $dir;
   }
 }
 ?>
