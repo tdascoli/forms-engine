@@ -15,6 +15,7 @@ abstract class Element extends AbstractField {
         }
     }
 
+  // todo -> AbstractField
   public function prepare(){
     return \get_object_vars($this);
   }
@@ -33,6 +34,23 @@ abstract class Element extends AbstractField {
     $str = lcfirst($str);
 
     return $str;
+  }
+
+  // todo -> template!!
+  public function required($required = true){
+      $this->required = $required;
+  }
+  // todo -> template!!
+  public function readonly($readonly = true){
+      $this->readonly = $readonly;
+  }
+  // todo -> template!!
+  public function disabled($disabled = true){
+      $this->disabled = $disabled;
+  }
+  // todo -> template!!
+  public function inputmask($inputmask){
+      $this->inputmask = $inputmask;
   }
 }
 ?>

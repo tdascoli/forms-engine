@@ -8,14 +8,15 @@ use MyCLabs\Enum\Enum;
  * @package FormsEngine\Questions
  */
 class FieldType extends Enum {
-    const TEXT = 'text';
-    const EMAIL = 'email';
-    const DATE = 'date';
-    const DATETIME = 'datetime-local';
-    const NUMBER = 'number';
-    const CHECKBOX = 'checkbox';
-    const RADIO = 'radio';
-    const SELECT = 'select';
-    const BUTTON = 'button';
+    const TEXT      = 'text';
+    const HIDDEN    = 'text';
+    const EMAIL     = 'email';
+    const DATE      = 'date';
+    const DATETIME  = 'datetime-local';
+    const NUMBER    = 'number';
+    const CHECKBOX  = 'checkbox';
+    const RADIO     = 'radio';
+    const SELECT    = 'select';
+    const BUTTON    = 'button';
 }
 ?>

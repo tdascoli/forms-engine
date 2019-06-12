@@ -2,17 +2,18 @@
 
 ## Element
 
-* readonly
-* disabled
-* inputmask
-* hidden (own Element?)
-* required
+* ~~readonly~~
+* ~~disabled~~
+* inputmask (check in bootstrap and html5)
+* ~~hidden (own Element?)~~
+* ~~required~~
 * validation (needs work)
 * privacy (?)
-* style (?)
+* style (needs work)
 * options (?)
 * ~~rename Config to RenderConfig~~
 * ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
+* JS -> how? see also Validation
 
 ## Questions
 
@@ -46,4 +47,5 @@
 ## other
 
 * Config how to?
+* I18n -> multilanguage!!!!
 

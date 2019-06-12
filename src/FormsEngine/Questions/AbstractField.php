@@ -52,9 +52,13 @@ abstract class AbstractField {
    * @return array
    */
   public function toSerializedArray() {
+      // todo
+      return \get_object_vars($this);
+      /*
       return [
           "label" => $this->label
       ];
+      */
   }
 }
 ?>
