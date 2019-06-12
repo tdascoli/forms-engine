@@ -1,8 +1,6 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\FieldType;
-
 class Input extends Element {
 
   public function __construct($label,

@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\FieldType;
+use FormsEngine\Questions\Type;
 
 // TODO really extends from Element?
 
@@ -12,7 +12,7 @@ class Button extends Element {
   public function __construct(
                             $label,
                             $primary = false) {
-      $this->type = FieldType::BUTTON();
+      $this->type = Type::BUTTON();
       $this->primary = $primary;
   }
 

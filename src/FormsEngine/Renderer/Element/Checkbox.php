@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\FieldType;
+use FormsEngine\Questions\Type;
 
 class Checkbox extends Element {
 
@@ -9,7 +9,7 @@ class Checkbox extends Element {
 
   public function __construct($label, $value, $checked = false) {
       parent::__construct($label);
-      $this->type = FieldType::CHECKBOX()->getValue();
+      $this->type = Type::CHECKBOX()->getValue();
       $this->value = $value;
       $this->checked = $checked;
   }

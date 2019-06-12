@@ -4,10 +4,10 @@ namespace FormsEngine\Questions;
 use MyCLabs\Enum\Enum;
 
 /**
- * Class FieldType
+ * Class Type
  * @package FormsEngine\Questions
  */
-class FieldType extends Enum {
+class Type extends Enum {
     const TEXT      = 'text';
     const HIDDEN    = 'text';
     const EMAIL     = 'email';

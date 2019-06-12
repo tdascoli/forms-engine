@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\FieldType;
+use FormsEngine\Questions\Type;
 
 class Number extends Input {
 
@@ -9,7 +9,7 @@ class Number extends Input {
                               $placeholder = null,
                               $helptext = null) {
       parent::__construct($label, $placeholder, $helptext);
-      $this->type = FieldType::NUMBER()->getValue();
+      $this->type = Type::NUMBER()->getValue();
   }
 }
 ?>

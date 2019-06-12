@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\FieldType;
+use FormsEngine\Questions\Type;
 
 class Text extends Input {
 
@@ -9,7 +9,7 @@ class Text extends Input {
                               $placeholder = null,
                               $helptext = null) {
       parent::__construct($label, $placeholder, $helptext);
-      $this->type = FieldType::TEXT()->getValue();
+      $this->type = Type::TEXT()->getValue();
   }
 }
 ?>

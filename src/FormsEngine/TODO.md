@@ -17,7 +17,7 @@
 
 ## Questions
 
-* rename FieldType to Type
+* ~~rename FieldType to Type~~
 * where to integrate FormsEngine Wizard?
 * add if/else functionalities for fields
 * add paging (and if/else)

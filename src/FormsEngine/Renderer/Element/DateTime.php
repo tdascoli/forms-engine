@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\FieldType;
+use FormsEngine\Questions\Type;
 
 class DateTime extends Input {
 
@@ -9,7 +9,7 @@ class DateTime extends Input {
                               $placeholder = null,
                               $helptext = null) {
       parent::__construct($label, $placeholder, $helptext);
-      $this->type = FieldType::DATETIME()->getValue();
+      $this->type = Type::DATETIME()->getValue();
   }
 }
 ?>

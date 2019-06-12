@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\FieldType;
+use FormsEngine\Questions\Type;
 
 class Select extends Element {
 
@@ -12,7 +12,7 @@ class Select extends Element {
                               $nullable = false,
                               $helptext = null) {
       parent::__construct($label);
-      $this->type = FieldType::SELECT()->getValue();
+      $this->type = Type::SELECT()->getValue();
       if ($options instanceof Option){
         $this->options = $options->all();
       }

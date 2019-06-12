@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\FieldType;
+use FormsEngine\Questions\Type;
 
 class Radio extends Element {
 
@@ -10,7 +10,7 @@ class Radio extends Element {
 
   public function __construct($label, $value, $name, $checked = false) {
       parent::__construct($label);
-      $this->type = FieldType::RADIO()->getValue();
+      $this->type = Type::RADIO()->getValue();
       $this->value = $value;
       $this->name = $name;
       $this->checked = $checked;
