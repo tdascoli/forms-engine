@@ -5,19 +5,18 @@ use FormsEngine\Questions\AbstractField;
 
 abstract class Element extends AbstractField {
 
-    public function __construct($label,$placeholderLabel=false) {
-        $this->setId($label);
-        if (!$placeholderLabel){
-            $this->label = $label;
-        }
-        else {
-            $this->placeholder = $label;
-        }
-    }
+  public function __construct($label,$placeholderLabel=false) {
+      $this->setId($label);
+      if (!$placeholderLabel){
+          $this->label = $label;
+      }
+      else {
+          $this->placeholder = $label;
+      }
+  }
 
-  // todo -> AbstractField
   public function prepare(){
-    return \get_object_vars($this);
+    return parent::serialize();
   }
 
   private function setId($id){
@@ -36,21 +35,20 @@ abstract class Element extends AbstractField {
     return $str;
   }
 
-  // todo -> template!!
   public function required($required = true){
       $this->required = $required;
   }
-  // todo -> template!!
+
   public function readonly($readonly = true){
       $this->readonly = $readonly;
   }
-  // todo -> template!!
+
   public function disabled($disabled = true){
       $this->disabled = $disabled;
   }
   // todo -> template!!
-  public function inputmask($inputmask){
-      $this->inputmask = $inputmask;
+  public function inputmask($mask,$type = 'mask'){
+      $this->$inputmask = array('type' => $type, 'mask' => $mask);
   }
 }
 ?>

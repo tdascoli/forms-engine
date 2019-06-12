@@ -5,26 +5,16 @@ require __DIR__ . '/../vendor/autoload.php';
 use FormsEngine\Renderer\Renderer as Renderer;
 use FormsEngine\Renderer\Element as Element;
 
+$t = new Renderer();
+$t->add(new Element\Text('test label','placeholder','helptext'));
+$t->add(new Element\Email('new label','','helptext'));
+$t->add(new Element\Button('send',true));
+$t->add(new Element\Button('cancel'));
+$serializedString = $t->serialize();
+
+
 $r = new Renderer();
-$r->add(new Element\Text('test label','placeholder','helptext'));
-$r->add(new Element\Email('new label','','helptext'));
-$r->add(new Element\Number('other label'));
-$r->add(new Element\Date('test date'));
-$r->add(new Element\DateTime('test datetime','placeholder'));
-$r->add(new Element\Checkbox('custom checkbox label', true));
-$r->add(new Element\Radio('Yes (custom)', 'yes', 'yesno'));
-$r->add(new Element\Radio('No (custom)', 'no', 'yesno'));
-$r->add(new Element\YesNo('yesno2'));
-$r->add(new Element\YesNo('yesno3',true));
-
-$options = new Element\Option();
-$options->add('first',1);
-$options->add('second',2);
-$options->add('third',3);
-$r->add(new Element\Select('custom select',$options,true,'select helptext to show'));
-
-$r->add(new Element\Button('send',true));
-$r->add(new Element\Button('cancel'));
+$r->deserialize($serializedString);
 
 ?>
 <!DOCTYPE html>
@@ -68,6 +58,9 @@ $r->add(new Element\Button('cancel'));
 <!-- content -->
 <div class="container">
     <h3 class="mt-3">FormsEngine</h3>
+    <p>
+      <pre><?= $serializedString ?></pre>
+    </p>
     <p>
       <?php
         $r->render();

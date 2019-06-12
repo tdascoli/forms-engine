@@ -7,58 +7,60 @@ namespace FormsEngine\Questions;
  */
 abstract class AbstractField {
   /** @var string */
-  private $id;
+  public $id;
 
   /** @var string */
-  private $label;
+  public $label;
 
   /** @var FieldType */
-  private $type;
+  public $type;
 
   /** @var string */
-  private $placeholder;
+  public $placeholder;
 
   /** @var Validation */
-  private $validation;
+  public $validation;
 
   /** @var string */
-  private $helptext;
+  public $helptext;
 
   /** @var string */
-  private $value;
+  public $value;
 
   /** @var boolean */
-  private $required;
+  public $required;
+
+  /** @var array */
+  public $inputmask;
+
+  /** @var array */
+  public $style;
 
   /** @var boolean */
-  private $hidden;
-
-  /** @var string */
-  private $inputmask;
-
-  /** @var Style */
-  private $style;
+  public $readonly;
 
   /** @var boolean */
-  private $readonly;
-
-  /** @var boolean */
-  private $disabled;
+  public $disabled;
 
   /** @var Privacy */
-  private $privacy;
+  public $privacy;
 
   /**
    * @return array
    */
-  public function toSerializedArray() {
-      // todo
+  public function serialize() {
       return \get_object_vars($this);
-      /*
-      return [
-          "label" => $this->label
-      ];
-      */
+  }
+
+  public function deserialize($string){
+    // todo
+
+  }
+
+  private function toObjectVar($var, $value){
+    if (!empty($value)){
+      $this->$var = $value;
+    }
   }
 }
 ?>

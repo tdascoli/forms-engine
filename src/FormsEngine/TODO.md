@@ -4,7 +4,7 @@
 
 * ~~readonly~~
 * ~~disabled~~
-* inputmask (check in bootstrap and html5)
+* inputmask (needs work)
 * ~~hidden (own Element?)~~
 * ~~required~~
 * validation (needs work)
@@ -49,4 +49,3 @@
 
 * Config how to?
 * I18n -> multilanguage!!!!
-

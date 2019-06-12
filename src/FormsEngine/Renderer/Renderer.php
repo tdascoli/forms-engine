@@ -2,6 +2,7 @@
 namespace FormsEngine\Renderer;
 
 use PhpCollection\Sequence;
+use FormsEngine\Renderer\Element as Element;
 
 class Renderer {
 
@@ -15,6 +16,7 @@ class Renderer {
   }
 
   // todo difference between render and wizard??
+  // todo set dir??
   public function render($dir=null){
     if ($dir!=null){
       $this->setTemplateDir($dir);
@@ -28,7 +30,7 @@ class Renderer {
   }
 
   public function load($form){
-    // todo "json" to Elements wrapper?!
+    // todo deserialize and render
     $this->render();
   }
 
@@ -48,6 +50,29 @@ class Renderer {
     RenderConfig::updateTemplateDir($dir);
     $loader = new \Twig\Loader\FilesystemLoader(RenderConfig::$templateDir);
     $this->twig = new \Twig\Environment($loader);
+  }
+
+  public function serialize() {
+    $serialization = array();
+    foreach ($this->elements as $element) {
+      \array_push($serialization, $element->serialize());
+    }
+    return \json_encode($serialization);
+  }
+
+  public function deserialize($string){
+    $serialization = \json_decode($string);
+    foreach ($serialization as $element) {
+      // todo from element array to element
+      /*
+      $class = 'Element\''.ucfirst($element['type']);
+      new $class();
+      */
+    }
+  }
+
+  private function createElement($element){
+    
   }
 }
 ?>
