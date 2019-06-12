@@ -23,6 +23,7 @@ class Button extends Element {
 
   public function prepare(){
     $vars = parent::prepare();
+    // todo style??
     $vars['class'] = $this->btnClass();
     return $vars;
   }
