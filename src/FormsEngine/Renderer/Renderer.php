@@ -20,9 +20,16 @@ class Renderer {
       $this->setTemplateDir($dir);
     }
 
+    // todo form handler??
+
     echo $this->twig->
                   render('form.html',
                     ['elements' => $this->rawElements()]);
+  }
+
+  public function load($form){
+    // todo "json" to Elements wrapper?!
+    $this->render();
   }
 
   public function add($element){
