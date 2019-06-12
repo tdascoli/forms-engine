@@ -5,9 +5,9 @@
 * readonly
 * disabled
 * inputmask
-* hidden
+* hidden (own Element?)
 * required
-* validation
+* validation (needs work)
 * privacy (?)
 * style (?)
 * options (?)
@@ -18,6 +18,9 @@
 
 * rename FieldType to Type
 * where to integrate FormsEngine Wizard?
+* add if/else functionalities for fields
+* add paging (and if/else)
+* make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
 
 ## Answers
 
@@ -43,5 +46,4 @@
 ## other
 
 * Config how to?
-* make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
 
