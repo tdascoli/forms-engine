@@ -52,9 +52,9 @@ abstract class AbstractField {
       return \get_object_vars($this);
   }
 
-  public function deserialize($string){
+  public static function deserialize($string){
     // todo
-
+    \var_dump($string);
   }
 
   private function toObjectVar($var, $value){

@@ -2,7 +2,6 @@
 namespace FormsEngine\Renderer;
 
 use PhpCollection\Sequence;
-use FormsEngine\Renderer\Element as Element;
 
 class Renderer {
 
@@ -64,15 +63,10 @@ class Renderer {
     $serialization = \json_decode($string);
     foreach ($serialization as $element) {
       // todo from element array to element
-      /*
-      $class = 'Element\''.ucfirst($element['type']);
-      new $class();
-      */
+      $class = 'FormsEngine\Renderer\Element\\'.ucfirst($element->type);
+      $class::deserialize($element);
+      //$this->add($class->deserialize($element));
     }
-  }
-
-  private function createElement($element){
-    
   }
 }
 ?>
