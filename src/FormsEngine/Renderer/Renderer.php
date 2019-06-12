@@ -38,8 +38,8 @@ class Renderer {
   }
 
   public function setTemplateDir($dir){
-    Config::updateTemplateDir($dir);
-    $loader = new \Twig\Loader\FilesystemLoader(Config::$templateDir);
+    RenderConfig::updateTemplateDir($dir);
+    $loader = new \Twig\Loader\FilesystemLoader(RenderConfig::$templateDir);
     $this->twig = new \Twig\Environment($loader);
   }
 }

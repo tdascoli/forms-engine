@@ -3,6 +3,8 @@ namespace FormsEngine\Renderer\Element;
 
 use FormsEngine\Questions\FieldType;
 
+// TODO really extends from Element?
+
 class Button extends Element {
 
   private $primary;

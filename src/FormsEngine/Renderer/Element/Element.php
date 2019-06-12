@@ -1,35 +1,19 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-abstract class Element {
+use FormsEngine\Questions\AbstractField;
 
-  /** @var string */
-  public $id;
+abstract class Element extends AbstractField {
 
-  /** @var string */
-  private $label;
-
-  /** @var fieldType */
-  private $type;
-
-  /** @var string */
-  private $placeholder;
-
-  /** @var string */
-  private $helptext;
-
-  /** @var string */
-  private $value;
-
-  public function __construct($label,$placeholderLabel=false) {
-    $this->setId($label);
-    if (!$placeholderLabel){
-      $this->label = $label;
+    public function __construct($label,$placeholderLabel=false) {
+        $this->setId($label);
+        if (!$placeholderLabel){
+            $this->label = $label;
+        }
+        else {
+            $this->placeholder = $label;
+        }
     }
-    else {
-      $this->placeholder = $label;
-    }
-  }
 
   public function prepare(){
     return \get_object_vars($this);

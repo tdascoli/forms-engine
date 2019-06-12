@@ -4,14 +4,15 @@
 
 * readonly
 * disabled
-* style (custom)
 * inputmask
 * hidden
 * required
 * validation
 * privacy (?)
-* rename Config to RenderConfig
-* Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)
+* style (?)
+* options (?)
+* ~~rename Config to RenderConfig~~
+* ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
 
 ## Questions
 

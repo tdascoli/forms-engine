@@ -7,15 +7,18 @@ namespace FormsEngine\Questions;
  */
 abstract class AbstractField {
   /** @var string */
+  private $id;
+
+  /** @var string */
   private $label;
 
-  /** @var fieldType */
+  /** @var FieldType */
   private $type;
 
   /** @var string */
   private $placeholder;
 
-  /** @var validation */
+  /** @var Validation */
   private $validation;
 
   /** @var string */
@@ -33,7 +36,7 @@ abstract class AbstractField {
   /** @var string */
   private $inputmask;
 
-  /** @var style */
+  /** @var Style */
   private $style;
 
   /** @var boolean */
@@ -42,36 +45,15 @@ abstract class AbstractField {
   /** @var boolean */
   private $disabled;
 
-  /** @var privacy */
+  /** @var Privacy */
   private $privacy;
-
-  /**
-   * @param string $label
-   */
-  public function __construct(string $label){
-      $this->label = $label;
-  }
-
-  /**
- * @param string $label
- */
-  public function setLabel(string $label){
-      $this->label = $label;
-  }
-  /**
-   * @return null|string
-   */
-  public function getLabel() : ?string {
-      return $this->label;
-
-  }
 
   /**
    * @return array
    */
   public function toSerializedArray() {
       return [
-          "label" => $this->getLabel()
+          "label" => $this->label
       ];
   }
 }

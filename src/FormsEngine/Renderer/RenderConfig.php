@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Renderer;
 
-class Config {
+class RenderConfig {
 
   public static $templateDir = __DIR__ . '/Templates/';
 
