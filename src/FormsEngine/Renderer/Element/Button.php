@@ -13,6 +13,7 @@ class Button extends Element {
                             $label,
                             $primary = false) {
       $this->type = Type::BUTTON();
+      $this->label = $label;
       $this->primary = $primary;
   }
 

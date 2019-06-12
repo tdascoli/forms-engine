@@ -67,9 +67,11 @@ $r->add(new Element\Button('cancel'));
 <!-- content -->
 <div class="container">
     <h3 class="mt-3">FormsEngine</h3>
-    <?php
-      $r->render();
-    ?>
+    <p>
+      <?php
+        $r->render();
+      ?>
+    </p>
 </div>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
