@@ -1,7 +1,6 @@
 <?php
 namespace FormsEngine\Renderer;
 
-use FormsEngine\Renderer\Element as Element;
 use PhpCollection\Sequence;
 
 class Renderer {
@@ -15,6 +14,7 @@ class Renderer {
     $this->elements = new Sequence();
   }
 
+  // todo difference between render and wizard??
   public function render($dir=null){
     if ($dir!=null){
       $this->setTemplateDir($dir);

@@ -19,6 +19,7 @@
 
 * ~~rename FieldType to Type~~
 * where to integrate FormsEngine Wizard?
+    * maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public
 * add if/else functionalities for fields
 * add paging (and if/else)
 * make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
