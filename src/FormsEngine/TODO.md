@@ -6,7 +6,7 @@
 * ~~disabled~~
 * inputmask (needs work) including date and dateime(-local)
 * ~~hidden (own Element?)~~
-* ~~required~~
+* required (construct)
 * validation (needs work)
 * privacy (?)
 * ~~style (needs work)~~
