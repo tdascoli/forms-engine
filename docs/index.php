@@ -74,12 +74,7 @@ var_dump(FormsEngine::Answers()->hasSubmitted());
     <h3 class="mt-3">FormsEngine</h3>
     <p>
       <?php
-        if (!FormsEngine::Answers()->hasSubmitted()){
-          $r->render();
-        }
-        else {
-          echo 'has submitted';
-        }
+        $r->render();
       ?>
     </p>
 </div>

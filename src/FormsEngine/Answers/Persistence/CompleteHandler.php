@@ -7,15 +7,25 @@ abstract class CompleteHandler extends Persistence {
   private $hasSubmitted;
 
   public function save(){
-
-    $this->persistenceType = PersistenceType::CSV();
-
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){
-      $this->persist($_POST, $this->persistenceType->getValue());
+      $this->persist($_POST, $this->getPersistenceType());
       $this->hasSubmitted = true;
     }
     $this->hasSubmitted = false;
+  }
+
+  public function setPersistenceType($type){
+    if ($type instanceof PersistenceType){
+      $this->persistenceType = $type->getValue();
+    }
+  }
+
+  private function getPersistenceType(){
+    if (!empty($this->persistenceType)){
+      return $this->persistenceType;
+    }
+    return PersistenceType::CSV();
   }
 
   private function wrapper(){
