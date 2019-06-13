@@ -10,7 +10,7 @@ class Button extends Element {
                             $primary = false) {
       $this->type = Type::BUTTON();
       $this->label = $label;
-      if ($this->primary){
+      if ($primary){
         $this->addStyle('btn-primary');
       }
       else {
