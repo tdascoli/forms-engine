@@ -35,5 +35,16 @@ class Button extends Element {
     }
     return 'btn-secondary';
   }
+
+  /**
+   * @return class
+   */
+  public static function deserialize($object){
+    $class = new Button($object->label, $object->primary);
+    foreach ($object as $key => $value) {
+        $class->toObjectVar($key, $value);
+    }
+    return $class;
+  }
 }
 ?>

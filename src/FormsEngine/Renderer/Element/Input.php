@@ -20,7 +20,7 @@ class Input extends Element {
     return $template->render(parent::prepare());
   }
 
-    /**
+  /**
    * @return class
    */
   public static function deserialize($object){
