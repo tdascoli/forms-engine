@@ -7,40 +7,30 @@ use FormsEngine\Questions\Type;
 
 class Button extends Element {
 
-  private $primary;
-
   public function __construct(
                             $label,
                             $primary = false) {
       $this->type = Type::BUTTON();
       $this->label = $label;
-      $this->primary = $primary;
+
+      if ($this->primary){
+        \array_push($this->style, 'btn-primary');
+      }
+      else {
+        \array_push($this->style, 'btn-secondary');
+      }
   }
 
   public function render($twig){
     $template = $twig->load('button.html');
-    return $template->render($this->prepare());
-  }
-
-  public function prepare(){
-    $vars = parent::prepare();
-    // todo style??
-    $vars['class'] = $this->btnClass();
-    return $vars;
-  }
-
-  private function btnClass(){
-    if ($this->primary){
-      return 'btn-primary';
-    }
-    return 'btn-secondary';
+    return $template->render(parent::prepare());
   }
 
   /**
    * @return class
    */
   public static function deserialize($object){
-    $class = new Button($object->label, $object->primary);
+    $class = new Button($object->label);
     foreach ($object as $key => $value) {
         $class->toObjectVar($key, $value);
     }

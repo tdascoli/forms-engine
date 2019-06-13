@@ -11,6 +11,7 @@
 * privacy (?)
 * style (needs work)
 * options (?)
+* Button: primary to style!!
 * ~~rename Config to RenderConfig~~
 * ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
 * JS -> how? see also Validation

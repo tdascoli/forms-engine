@@ -2,7 +2,7 @@
   <label for="{{ id }}">{{ label }}</label>
   <input
     type="{{ type }}"
-    class="form-control"
+    class="form-control {{ style|join(' ') }}"
     id="{{ id }}"
     {% if helptext|length > 0 %}aria-describedby="{{ id }}-helptext"{% endif %}
     {% if placeholder|length > 0 %}placeholder="{{ placeholder }}"{% endif %}
