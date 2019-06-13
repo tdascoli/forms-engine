@@ -70,6 +70,8 @@ class Renderer {
         $this->add($instance);
       }
     }
+
+    var_dump($this->elements);
   }
 }
 ?>
