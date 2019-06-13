@@ -19,5 +19,17 @@ class Input extends Element {
     $template = $twig->load('input.html');
     return $template->render(parent::prepare());
   }
+
+    /**
+   * @return class
+   */
+  public static function deserialize($object){
+    $class = new Element($object->label);
+    foreach ($object as $key => $value) {
+        $class->toObjectVar($key, $value);
+    }
+    var_dump($class);
+    return __CLASS__;
+  }
 }
 ?>

@@ -59,16 +59,8 @@ abstract class Element extends AbstractElement {
       return \get_object_vars($this);
   }
 
-  /**
-   * @return class
-   */
   public static function deserialize($object){
-    $class = new Element($object->label);
-    foreach ($object as $key => $value) {
-        $class->toObjectVar($key, $value);
-    }
-    var_dump($class);
-    return __CLASS__;
+        echo 'implement method';
   }
 
   public function toObjectVar($key, $value){
