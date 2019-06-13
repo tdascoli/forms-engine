@@ -28,7 +28,7 @@ class Input extends Element {
     foreach ($object as $key => $value) {
         $class->toObjectVar($key, $value);
     }
-    return __CLASS__;
+    return $class;
   }
 }
 ?>
