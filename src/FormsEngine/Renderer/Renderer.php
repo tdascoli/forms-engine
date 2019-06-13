@@ -64,8 +64,9 @@ class Renderer {
     foreach ($serialization as $element) {
       // todo from element array to element
       $class = 'FormsEngine\Renderer\Element\\'.ucfirst($element->type);
-      //$class::deserialize($element);
-      $this->add($class::deserialize($element));
+      $instance = $class::deserialize($element);
+      var_dump($instance);
+      $this->add($instance);
     }
   }
 }
