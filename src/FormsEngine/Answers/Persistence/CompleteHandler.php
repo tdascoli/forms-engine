@@ -25,7 +25,7 @@ abstract class CompleteHandler extends Persistence {
     if (!empty($this->persistenceType)){
       return $this->persistenceType;
     }
-    return PersistenceType::CSV();
+    return PersistenceType::CSV()->getValue();
   }
 
   private function wrapper(){

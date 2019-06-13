@@ -8,14 +8,16 @@ class Button extends Element {
   public function __construct(
                             $label,
                             $primary = false) {
-      $this->type = Type::BUTTON()->getValue();
+      $type = Type::BUTTON()->getValue();
       $this->label = $label;
       if ($primary){
+        $type = Type::SUBMIT()->getValue();
         $this->addStyle('btn-primary');
       }
       else {
         $this->addStyle('btn-secondary');
       }
+      $this->type = $type;
   }
 
   public function render($twig){

@@ -5,8 +5,8 @@ abstract class Persistence {
 
   public function persist($data, $type){
     if (PersistenceType::isValid($type)){
-      // todo $type::persist($data);
-      CSV::persist($data);
+      $class = 'FormsEngine\Answers\Persistence\\'.$type;
+      $class::persist($data);
     }
   }
 }

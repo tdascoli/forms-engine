@@ -18,6 +18,7 @@ class Type extends Enum {
     const RADIO     = 'radio';
     const SELECT    = 'select';
     const BUTTON    = 'button';
+    const SUBMIT    = 'submit';
     const YESNO     = 'yesNo';
 }
 ?>

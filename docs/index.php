@@ -23,7 +23,7 @@ $options->add('second',2);
 $options->add('third',3);
 $r->add(new Element\Select('custom select',$options,true,'select helptext to show'));
 
-$r->add(new Element\Button('send',true));
+$r->add(new Element\Submit('send'));
 $r->add(new Element\Button('cancel'));
 
 // PERSISTENCE

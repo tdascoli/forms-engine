@@ -28,7 +28,7 @@ $options->add('second',2);
 $options->add('third',3);
 $t->add(new Element\Select('custom select',$options,true,'select helptext to show'));
 
-$t->add(new Element\Button('send',true));
+$t->add(new Element\Submit('send'));
 $t->add(new Element\Button('cancel'));
 $serializedString = $t->serialize();
 
