@@ -5,7 +5,7 @@ use PhpCollection\Sequence;
 
 class Option {
 
-  private $options;
+  public $options;
 
   public function __construct(){
     $this->options = new Sequence();
