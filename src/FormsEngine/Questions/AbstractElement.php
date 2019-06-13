@@ -10,6 +10,9 @@ abstract class AbstractElement {
   public $id;
 
   /** @var string */
+  public $name;
+
+  /** @var string */
   public $label;
 
   /** @var FieldType */

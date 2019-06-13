@@ -7,6 +7,7 @@ abstract class Element extends AbstractElement {
 
   public function __construct($label,$placeholderLabel=false) {
       $this->setId($label);
+      $this->setName($label);
       if (!$placeholderLabel){
           $this->label = $label;
       }
@@ -19,8 +20,15 @@ abstract class Element extends AbstractElement {
     return parent::serialize();
   }
 
-  private function setId($id){
+  private function setId($id,$isName = false){
     $this->id = $this::camelCase($id);
+    if ($isName){
+      $this->setName($id);
+    }
+  }
+
+  private function setName($name){
+    $this->name = $this::camelCase($name);
   }
 
   private static function camelCase($str, array $noStrip = []){

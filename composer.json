@@ -11,15 +11,17 @@
   "autoload": {
       "psr-4": {
           "FormsEngine\\": "src/FormsEngine/",
-          "FormsEngine\\Renderer\\": "src/FormsEngine/Renderer"
+          "FormsEngine\\Answers\\": "src/FormsEngine/Answers",
+          "FormsEngine\\Renderer\\": "src/FormsEngine/Renderer",
+          "FormsEngine\\Questions\\": "src/FormsEngine/Questions"
       }
   },
     "require": {
         "phpoffice/phpspreadsheet": "^1.6",
         "ext-json": "^1.5",
-        "parsecsv/php-parsecsv": "^1.1",
         "myclabs/php-enum": "^1.7",
         "twig/twig": "^2.0",
-    "phpcollection/phpcollection": "^0.5.0"
+        "phpcollection/phpcollection": "^0.5.0",
+        "league/csv": "^9.2"
     }
 }

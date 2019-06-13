@@ -1,4 +1,4 @@
-<form>
+<form method="post">
   <fieldset>
     {% if legend|length > 0 %}
       <legend>{{ legend }}</legend>
@@ -7,5 +7,7 @@
     {% for element in elements %}
       {{ element|raw }}
     {% endfor %}
+
+    <input type="submit" value="SUBMIT">
   </fieldset>
 </form>

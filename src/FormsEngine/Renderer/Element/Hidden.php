@@ -7,7 +7,7 @@ class Hidden extends Element {
 
   public function __construct($id) {
       $this->type = Type::HIDDEN()->getValue();
-      $this->$id = $id;
+      $this->setId($id,true);
   }
 
   public function render($twig){

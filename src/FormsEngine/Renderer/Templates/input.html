@@ -4,6 +4,7 @@
     type="{{ type }}"
     class="form-control {{ style|join(' ') }}"
     id="{{ id }}"
+    name="{{ name }}"
     {% if helptext|length > 0 %}aria-describedby="{{ id }}-helptext"{% endif %}
     {% if placeholder|length > 0 %}placeholder="{{ placeholder }}"{% endif %}
     {% if inputmask|length > 0 %}data-inputmask="'{{ inputmask.type }}': '{{ inputmask.mask }}'"{% endif %}

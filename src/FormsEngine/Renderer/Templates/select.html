@@ -1,6 +1,6 @@
 <div class="form-group">
   <label for="{{ id }}">{{ label }}</label>
-  <select class="custom-select" id="{{ id }}">
+  <select class="custom-select" id="{{ id }}" name="{{ name }}">
     {% for option in options %}
       <option value="{{ option.value }}" {{ option.selected }}>{{ option.label }}</option>
     {% endfor %}

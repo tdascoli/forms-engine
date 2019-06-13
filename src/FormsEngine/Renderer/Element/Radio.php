@@ -5,7 +5,6 @@ use FormsEngine\Questions\Type;
 
 class Radio extends Element {
 
-  public $name;
   public $checked;
 
   public function __construct($label, $value, $name, $checked = false) {
@@ -23,7 +22,6 @@ class Radio extends Element {
 
   public function prepare(){
     $vars = parent::prepare();
-    $vars['name'] = $this->name;
     $vars['checked'] = $this->checked;
     return $vars;
   }

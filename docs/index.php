@@ -2,10 +2,10 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use FormsEngine\Renderer\Renderer as Renderer;
+use FormsEngine\FormsEngine as FormsEngine;
 use FormsEngine\Renderer\Element as Element;
 
-$r = new Renderer();
+$r = FormsEngine::renderer();
 $r->add(new Element\Text('test label','placeholder','helptext'));
 $r->add(new Element\Email('new label','','helptext'));
 $r->add(new Element\Number('other label'));
@@ -25,6 +25,9 @@ $r->add(new Element\Select('custom select',$options,true,'select helptext to sho
 
 $r->add(new Element\Button('send',true));
 $r->add(new Element\Button('cancel'));
+
+// PERSISTENCE
+FormsEngine::Answers()->save();
 
 ?>
 <!DOCTYPE html>

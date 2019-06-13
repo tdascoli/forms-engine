@@ -10,7 +10,7 @@
 * validation (needs work)
 * privacy (?)
 * ~~style (needs work)~~
-* options (?)
+* ~~options (?)~~
 * ~~Button: primary to style!!~~
 * ~~rename Config to RenderConfig~~
 * ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
@@ -20,6 +20,7 @@
 
 * ~~rename FieldType to Type~~
 * ~~rename AbstractField to AbstractElement~~
+* move Renderer to Questions
 * where to integrate FormsEngine Wizard?
     * maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public
 * add if/else functionalities for fields
@@ -37,6 +38,8 @@
     * xlsx
     * other?
 * online "viewer"? (github.com/myliang/x-spreadsheet)
+* Persist: only POST or default JS/Binding
+* Persist: JS/Binding -> needs work!
 
 ## Presentation
 
@@ -51,3 +54,4 @@
 
 * Config how to?
 * I18n -> multilanguage!!!!
+* FormsEngine -> Renderer (shortcut to new Renderer)
