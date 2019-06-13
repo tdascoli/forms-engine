@@ -65,8 +65,9 @@ class Renderer {
       // todo from element array to element
       $class = 'FormsEngine\Renderer\Element\\'.ucfirst($element->type);
       $instance = $class::deserialize($element);
+
+      var_dump($instance);
       if (is_object($instance)){
-        var_dump($instance);
         $this->add($instance);
       }
     }
