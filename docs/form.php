@@ -14,7 +14,7 @@ $t->add(new Element\Text('test label','placeholder','helptext'));
 $t->add(new Element\Email('new label','','helptext'));
 $t->add(new Element\Number('other label'));
 $t->add(new Element\Date('test date'));
-$t->add(new Element\DateTime('test datetime','placeholder'));
+//$t->add(new Element\DateTime('test datetime','placeholder'));
 $t->add(new Element\Checkbox('custom checkbox label', true));
 $t->add(new Element\Radio('Yes (custom)', 'yes', 'yesno'));
 $t->add(new Element\Radio('No (custom)', 'no', 'yesno'));
