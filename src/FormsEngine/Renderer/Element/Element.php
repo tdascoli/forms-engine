@@ -51,23 +51,5 @@ abstract class Element extends AbstractElement {
       $this->$inputmask = array('type' => $type, 'mask' => $mask);
   }
 
-
-  /**
-   * @return array
-   */
-  public function serialize() {
-      return \get_object_vars($this);
-  }
-
-  public static function deserialize($object){
-        echo 'implement method';
-  }
-
-  public function toObjectVar($key, $value){
-    //if (!empty($value)){ // todo check if necessary
-    if (\property_exists($this, $key)){
-      $this->{$key} = $value;
-    }
-  }
 }
 ?>
