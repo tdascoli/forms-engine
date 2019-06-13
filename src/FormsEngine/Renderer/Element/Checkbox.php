@@ -24,5 +24,23 @@ class Checkbox extends Element {
     $vars['checked'] = $this->checked;
     return $vars;
   }
+
+  /**
+   * @return array
+   */
+  public function serialize() {
+      return \get_object_vars($this);
+  }
+
+  /**
+   * @return class
+   */
+  public static function deserialize($object){
+    $class = new Checkbox($object->label, $object->value);
+    foreach ($object as $key => $value) {
+        $class->toObjectVar($key, $value, $class);
+    }
+    return $class;
+  }
 }
 ?>

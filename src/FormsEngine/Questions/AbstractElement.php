@@ -56,9 +56,9 @@ abstract class AbstractElement {
         echo 'implement method';
   }
 
-  public function toObjectVar($key, $value){
+  public function toObjectVar($key, $value, $class = $this){
     //if (!empty($value)){ // todo check if necessary
-    if (\property_exists($this, $key)){
+    if (\property_exists($class, $key)){
       $this->{$key} = $value;
     }
   }

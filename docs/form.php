@@ -12,6 +12,22 @@ use FormsEngine\Renderer\Element as Element;
 $t = new Renderer();
 $t->add(new Element\Text('test label','placeholder','helptext'));
 $t->add(new Element\Email('new label','','helptext'));
+$t->add(new Element\Number('other label'));
+$t->add(new Element\Date('test date'));
+$t->add(new Element\DateTime('test datetime','placeholder'));
+$t->add(new Element\Checkbox('custom checkbox label', true));
+$t->add(new Element\Radio('Yes (custom)', 'yes', 'yesno'));
+$t->add(new Element\Radio('No (custom)', 'no', 'yesno'));
+/*
+$t->add(new Element\YesNo('yesno2'));
+$t->add(new Element\YesNo('yesno3',true));
+
+$options = new Element\Option();
+$options->add('first',1);
+$options->add('second',2);
+$options->add('third',3);
+$t->add(new Element\Select('custom select',$options,true,'select helptext to show'));
+*/
 $t->add(new Element\Button('send',true));
 $t->add(new Element\Button('cancel'));
 $serializedString = $t->serialize();
