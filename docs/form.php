@@ -18,10 +18,10 @@ $t->add(new Element\Date('test date'));
 $t->add(new Element\Checkbox('custom checkbox label', true));
 $t->add(new Element\Radio('Yes (custom)', 'yes', 'yesno'));
 $t->add(new Element\Radio('No (custom)', 'no', 'yesno'));
-/*
+
 $t->add(new Element\YesNo('yesno2'));
 $t->add(new Element\YesNo('yesno3',true));
-*/
+
 $options = new Element\Option();
 $options->add('first',1);
 $options->add('second',2);
