@@ -10,7 +10,7 @@ class CSV {
         $writer = Writer::createFromPath('file.csv', 'a+');
         $writer->insertOne($data);
     } catch (CannotInsertRecord $e) {
-        $e->getRecords(); //returns [1, 2, 3]
+        $e->getRecords();
     }
   }
 }
