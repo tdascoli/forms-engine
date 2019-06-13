@@ -46,7 +46,7 @@ abstract class Element extends AbstractElement {
   public function disabled($disabled = true){
       $this->disabled = $disabled;
   }
-  // todo -> template!!
+
   public function inputmask($mask,$type = 'mask'){
       $this->$inputmask = array('type' => $type, 'mask' => $mask);
   }

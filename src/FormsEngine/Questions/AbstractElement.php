@@ -52,10 +52,11 @@ abstract class AbstractElement {
       return \get_object_vars($this);
   }
 
+  /**
+   * @return class
+   */
   public static function deserialize($object){
-    // todo
     foreach ($object as $key => $value) {
-      echo $key."==".$value."---";
       self::toObjectVar($key, $value);
     }
 
