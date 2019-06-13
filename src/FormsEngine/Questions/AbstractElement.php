@@ -56,8 +56,10 @@ abstract class AbstractElement {
     // todo
     foreach ($object as $key => $value) {
       echo $key."==".$value."---";
-      //$this->toObjectVar($key, $value);
+      self::toObjectVar($key, $value);
     }
+
+    return __CLASS__;
   }
 
   private function toObjectVar($key, $value){
