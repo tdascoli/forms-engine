@@ -6,20 +6,22 @@ use FormsEngine\Questions\Type;
 class YesNo extends ElementGroup {
 
   private $yesno;
+  private $name;
 
   private $yesnoBooleans = array('Yes' => true,'No' => false);
   private $yesnoStrings = array('Yes' => 'Ja','No' => 'Nein');
 
   public function __construct($name, $booleans = false) {
       $this->type = Type::YESNO()->getValue();
+      $this->name = $name;
       $values = $this->yesnoStrings;
       if ($booleans){
         $values = $this->yesnoBooleans;
       }
 
       $this->yesno = array(
-        new Radio('Ja', $values['Yes'], $name),
-        new Radio('Nein', $values['No'], $name)
+        new Radio('Ja', $values['Yes'], $this->name),
+        new Radio('Nein', $values['No'], $this->name)
       );
   }
 
