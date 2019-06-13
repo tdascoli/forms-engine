@@ -48,7 +48,7 @@ class Option {
   }
 
   public static function deserialize($object){
-    $class = new Option($object->label, $object->value);
+    $class = new Option();
     foreach ($object as $key => $value) {
         $class->toObjectVar($key, $value, $class);
     }

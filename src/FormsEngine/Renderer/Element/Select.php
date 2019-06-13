@@ -5,7 +5,7 @@ use FormsEngine\Questions\Type;
 
 class Select extends Element {
 
-  private $options;
+  public $options;
 
   public function __construct($label,
                               $options,
@@ -40,6 +40,7 @@ class Select extends Element {
    */
   public function serialize() {
       $serialization = \get_object_vars($this);
+      $serialization['options'] = $this->options->serialize();
       return $serialization;
   }
 
@@ -47,9 +48,12 @@ class Select extends Element {
    * @return class
    */
   public static function deserialize($object){
-    $class = new Select($object->label, $object->options);
+    $options = new Option();
+    $class = new Select($object->label, $options::deserialize($object->options));
     foreach ($object as $key => $value) {
-        $class->toObjectVar($key, $value, $class);
+        if ($key!="options"){
+            $class->toObjectVar($key, $value, $class);
+        }
     }
     return $class;
   }
