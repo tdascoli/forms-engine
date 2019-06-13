@@ -39,7 +39,8 @@ class Select extends Element {
    * @return array
    */
   public function serialize() {
-      return \get_object_vars($this);
+      $serialization = \get_object_vars($this);
+      return $serialization;
   }
 
   /**
