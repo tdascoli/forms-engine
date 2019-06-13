@@ -8,5 +8,9 @@ class Answers extends CompleteHandler {
   public function __construct(){
 
   }
+
+  public function hasSubmitted(){
+    return $this->hasSubmitted;
+  }
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-namespace FormsEngine\Answers;
+namespace FormsEngine\Answers\Persistence;
 
 use MyCLabs\Enum\Enum;
 

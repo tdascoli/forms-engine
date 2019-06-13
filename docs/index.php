@@ -28,6 +28,7 @@ $r->add(new Element\Button('cancel'));
 
 // PERSISTENCE
 FormsEngine::Answers()->save();
+var_dump(FormsEngine::Answers()->hasSubmitted());
 
 ?>
 <!DOCTYPE html>
@@ -73,7 +74,12 @@ FormsEngine::Answers()->save();
     <h3 class="mt-3">FormsEngine</h3>
     <p>
       <?php
-        $r->render();
+        if (!FormsEngine::Answers()->hasSubmitted()){
+          $r->render();
+        }
+        else {
+          echo 'has submitted';
+        }
       ?>
     </p>
 </div>
