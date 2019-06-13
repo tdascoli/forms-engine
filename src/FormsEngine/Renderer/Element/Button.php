@@ -3,8 +3,6 @@ namespace FormsEngine\Renderer\Element;
 
 use FormsEngine\Questions\Type;
 
-// TODO really extends from Element?
-
 class Button extends Element {
 
   public function __construct(
@@ -12,12 +10,11 @@ class Button extends Element {
                             $primary = false) {
       $this->type = Type::BUTTON();
       $this->label = $label;
-
       if ($this->primary){
-        \array_push($this->style, 'btn-primary');
+        $this->addStyle('btn-primary');
       }
       else {
-        \array_push($this->style, 'btn-secondary');
+        $this->addStyle('btn-secondary');
       }
   }
 

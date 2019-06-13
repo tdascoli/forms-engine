@@ -51,5 +51,11 @@ abstract class Element extends AbstractElement {
       $this->$inputmask = array('type' => $type, 'mask' => $mask);
   }
 
+  public function addStyle($style){
+    if (!\is_array($this->style)){
+        $this->style = array();
+    }
+    \array_push($this->style, $style);
+  }
 }
 ?>
