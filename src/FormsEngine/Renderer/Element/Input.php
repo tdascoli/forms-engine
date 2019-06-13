@@ -24,7 +24,7 @@ class Input extends Element {
    * @return class
    */
   public static function deserialize($object){
-    $class = new Element($object->label);
+    $class = new Element\Input($object->label);
     foreach ($object as $key => $value) {
         $class->toObjectVar($key, $value);
     }
