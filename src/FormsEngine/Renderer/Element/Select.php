@@ -40,7 +40,7 @@ class Select extends Element {
    */
   public function serialize() {
       $serialization = \get_object_vars($this);
-      $serialization['options'] = $this->options->serialize();
+      //$serialization['options'] = $this->options->serialize();
       return $serialization;
   }
 
