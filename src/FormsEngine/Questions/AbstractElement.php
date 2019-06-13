@@ -60,7 +60,6 @@ abstract class AbstractElement {
     if ($class == null){
         $class = $this;
     }
-    //if (!empty($value)){ // todo check if necessary
     if (\property_exists($class, $key)){
       $class->{$key} = $value;
     }

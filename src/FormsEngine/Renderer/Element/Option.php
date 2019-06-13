@@ -54,5 +54,14 @@ class Option {
     }
     return $class;
   }
+
+  public function toObjectVar($key, $value, $class = null){
+    if ($class == null){
+        $class = $this;
+    }
+    if (\property_exists($class, $key)){
+      $class->{$key} = $value;
+    }
+  }
 }
 ?>
