@@ -49,7 +49,6 @@ class Option {
 
   public static function deserialize($object){
     $class = new Option();
-    var_dump($object);
     $class->addAll($object);
     return $class;
   }
