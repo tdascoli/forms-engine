@@ -5,7 +5,11 @@ use PhpCollection\Sequence;
 
 abstract class ElementGroup {
 
+  /** @var array */
   private $elements;
+
+  /** @var string */
+  private $type;
 
   public function __construct($elements) {
     $this->elements = new Sequence();

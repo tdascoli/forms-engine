@@ -1,8 +1,7 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-// todo maybe remove and -> new Radio
-use FormsEngine\Renderer\Element as Element;
+use FormsEngine\Questions\Type;
 
 class YesNo extends ElementGroup {
 
@@ -12,14 +11,15 @@ class YesNo extends ElementGroup {
   private $yesnoStrings = array('Yes' => 'Ja','No' => 'Nein');
 
   public function __construct($name, $booleans = false) {
+      $this->type = Type::YESNO()->getValue();
       $values = $this->yesnoStrings;
       if ($booleans){
         $values = $this->yesnoBooleans;
       }
 
       $this->yesno = array(
-        new Element\Radio('Ja', $values['Yes'], $name),
-        new Element\Radio('Nein', $values['No'], $name)
+        new Radio('Ja', $values['Yes'], $name),
+        new Radio('Nein', $values['No'], $name)
       );
   }
 

@@ -8,7 +8,7 @@ class Button extends Element {
   public function __construct(
                             $label,
                             $primary = false) {
-      $this->type = Type::BUTTON();
+      $this->type = Type::BUTTON()->getValue();
       $this->label = $label;
       if ($primary){
         $this->addStyle('btn-primary');
