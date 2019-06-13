@@ -30,5 +30,19 @@ class YesNo extends ElementGroup {
     }
     return $render;
   }
+
+  /**
+   * @return class
+   */
+  public static function deserialize($object){
+    $class = new YesNo($object->name);
+    var_dump($object);
+    /*
+    foreach ($object as $key => $value) {
+        $class->toObjectVar($key, $value);
+    }
+    */
+    return $class;
+  }
 }
 ?>
