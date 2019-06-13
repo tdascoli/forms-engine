@@ -26,6 +26,7 @@ class Option {
   }
 
   public static function create($label, $value, $selected = false){
+    $selectedValue = null;
     if ($selected){
       $selectedValue='selected';
     }
