@@ -1,9 +1,9 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use FormsEngine\Questions\AbstractField;
+use FormsEngine\Questions\AbstractElement;
 
-abstract class Element extends AbstractField {
+abstract class Element extends AbstractElement {
 
   public function __construct($label,$placeholderLabel=false) {
       $this->setId($label);

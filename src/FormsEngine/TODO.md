@@ -18,6 +18,7 @@
 ## Questions
 
 * ~~rename FieldType to Type~~
+* ~~rename AbstractField to AbstractElement~~
 * where to integrate FormsEngine Wizard?
     * maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public
 * add if/else functionalities for fields

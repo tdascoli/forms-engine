@@ -2,10 +2,10 @@
 namespace FormsEngine\Questions;
 
 /**
- * Class AbstractField
+ * Class AbstractElement
  * @package FormsEngine\Questions
  */
-abstract class AbstractField {
+abstract class AbstractElement {
   /** @var string */
   public $id;
 
@@ -61,8 +61,9 @@ abstract class AbstractField {
   }
 
   private function toObjectVar($key, $value){
-    if (!empty($value)){
-      $this->$key = $value;
+    //if (!empty($value)){ // todo check if necessary
+    if (\property_exists($this, $key)){
+      $this->{$key} = $value;
     }
   }
 }
