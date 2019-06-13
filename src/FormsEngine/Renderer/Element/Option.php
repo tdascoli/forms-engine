@@ -49,19 +49,9 @@ class Option {
 
   public static function deserialize($object){
     $class = new Option();
-    foreach ($object as $key => $value) {
-        $class->toObjectVar($key, $value, $class);
-    }
+    var_dump($object);
+    $class->addAll($object->options);
     return $class;
-  }
-
-  public function toObjectVar($key, $value, $class = null){
-    if ($class == null){
-        $class = $this;
-    }
-    if (\property_exists($class, $key)){
-      $class->{$key} = $value;
-    }
   }
 }
 ?>
