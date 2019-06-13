@@ -5,8 +5,8 @@ use FormsEngine\Questions\Type;
 
 class Radio extends Element {
 
-  private $name;
-  private $checked;
+  public $name;
+  public $checked;
 
   public function __construct($label, $value, $name, $checked = false) {
       parent::__construct($label);

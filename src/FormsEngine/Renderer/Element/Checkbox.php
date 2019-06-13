@@ -5,7 +5,7 @@ use FormsEngine\Questions\Type;
 
 class Checkbox extends Element {
 
-  private $checked;
+  public $checked;
 
   public function __construct($label, $value, $checked = false) {
       parent::__construct($label);
