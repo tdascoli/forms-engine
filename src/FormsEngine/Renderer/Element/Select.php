@@ -34,5 +34,23 @@ class Select extends Element {
     $vars['options'] = $this->options;
     return $vars;
   }
+
+  /**
+   * @return array
+   */
+  public function serialize() {
+      return \get_object_vars($this);
+  }
+
+  /**
+   * @return class
+   */
+  public static function deserialize($object){
+    $class = new Select($object->label, $object->options);
+    foreach ($object as $key => $value) {
+        $class->toObjectVar($key, $value, $class);
+    }
+    return $class;
+  }
 }
 ?>

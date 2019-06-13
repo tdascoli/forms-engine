@@ -4,7 +4,7 @@
 
 * ~~readonly~~
 * ~~disabled~~
-* inputmask (needs work)
+* inputmask (needs work) including date and dateime(-local)
 * ~~hidden (own Element?)~~
 * ~~required~~
 * validation (needs work)

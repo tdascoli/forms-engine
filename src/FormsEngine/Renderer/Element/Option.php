@@ -37,5 +37,31 @@ class Option {
               );
     return $option;
   }
+
+
+  /**
+   * @return array
+   */
+  public function serialize() {
+      return \get_object_vars($this);
+  }
+
+  public static function deserialize($object){
+    $class = new Checkbox($object->label, $object->value);
+    foreach ($object as $key => $value) {
+        $class->toObjectVar($key, $value, $class);
+    }
+    return $class;
+  }
+
+  public function toObjectVar($key, $value, $class = null){
+    if ($class == null){
+        $class = $this;
+    }
+    //if (!empty($value)){ // todo check if necessary
+    if (\property_exists($class, $key)){
+      $class->{$key} = $value;
+    }
+  }
 }
 ?>
