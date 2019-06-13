@@ -56,3 +56,4 @@
 * Config how to?
 * I18n -> multilanguage!!!!
 * ~~FormsEngine -> Renderer (shortcut to new Renderer)~~
+* add sessioning
