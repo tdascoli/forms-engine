@@ -7,6 +7,7 @@ class YesNo extends ElementGroup {
 
   private $yesno;
   private $name;
+  private $booleans;
 
   private $yesnoBooleans = array('Yes' => true,'No' => false);
   private $yesnoStrings = array('Yes' => 'Ja','No' => 'Nein');
@@ -14,8 +15,9 @@ class YesNo extends ElementGroup {
   public function __construct($name, $booleans = false) {
       $this->type = Type::YESNO()->getValue();
       $this->name = $name;
+      $this->booleans = $booleans;
       $values = $this->yesnoStrings;
-      if ($booleans){
+      if ($this->booleans){
         $values = $this->yesnoBooleans;
       }
 
@@ -44,14 +46,7 @@ class YesNo extends ElementGroup {
    * @return class
    */
   public static function deserialize($object){
-    $class = new YesNo($object->name);
-    var_dump($object);
-    /*
-    foreach ($object as $key => $value) {
-        $class->toObjectVar($key, $value);
-    }
-    */
-    return $class;
+    return new YesNo($object->name, $object->booleans);
   }
 }
 ?>
