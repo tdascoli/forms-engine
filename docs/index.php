@@ -5,7 +5,9 @@ require __DIR__ . '/../vendor/autoload.php';
 use FormsEngine\FormsEngine as FormsEngine;
 use FormsEngine\Renderer\Element as Element;
 
-$r = FormsEngine::renderer();
+$engine = new FormsEngine();
+
+$r = $engine->renderer();
 $r->add(new Element\Text('test label','placeholder','helptext'));
 $r->add(new Element\Email('new label','','helptext'));
 $r->add(new Element\Number('other label'));
@@ -27,9 +29,8 @@ $r->add(new Element\Submit('send'));
 $r->add(new Element\Button('cancel'));
 
 // PERSISTENCE
-FormsEngine::Answers()->save();
-var_dump(FormsEngine::Answers()->hasSubmitted());
-
+$engine->answers()->save();
+var_dump($engine->answers()->check());
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -74,7 +75,12 @@ var_dump(FormsEngine::Answers()->hasSubmitted());
     <h3 class="mt-3">FormsEngine</h3>
     <p>
       <?php
-        $r->render();
+        if (!$engine->answers()->check()){
+          $r->render();
+        }
+        else {
+          echo 'is submitted';
+        }
       ?>
     </p>
 </div>

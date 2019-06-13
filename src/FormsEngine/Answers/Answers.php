@@ -9,8 +9,8 @@ class Answers extends CompleteHandler {
 
   }
 
-  public function hasSubmitted(){
-    return $this->hasSubmitted;
+  public function check(){
+    return $this->isSubmitted();
   }
 }
 ?>

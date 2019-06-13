@@ -5,14 +5,20 @@ use FormsEngine\Renderer\Renderer as Renderer;
 use FormsEngine\Answers\Answers as Answers;
 
 class FormsEngine {
-  //todo
+  private $renderer;
+  private $answers;
 
-  public static function renderer(){
-    return new Renderer();
+  public function __construct(){
+    $this->renderer = new Renderer();
+    $this->answers = new Answers();
   }
 
-  public static function answers(){
-    return new Answers();
+  public function renderer(){
+    return $this->renderer;
+  }
+
+  public function answers(){
+    return $this->answers;
   }
 }
 ?>
