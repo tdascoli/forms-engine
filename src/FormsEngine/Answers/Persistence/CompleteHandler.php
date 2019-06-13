@@ -3,8 +3,11 @@ namespace FormsEngine\Answers\Persistence;
 
 abstract class CompleteHandler extends Persistence {
 
+  /** @var string */
   private $persistenceType;
-  private $hasSubmitted;
+
+  /** @var boolean */
+  public $hasSubmitted;
 
   public function save(){
     $method = $_SERVER['REQUEST_METHOD'];
