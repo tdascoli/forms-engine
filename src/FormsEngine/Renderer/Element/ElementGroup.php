@@ -32,17 +32,6 @@ abstract class ElementGroup {
     return $this->elements;
   }
 
-  /**
-   * @return array
-   */
-  public function serialize() {
-      return \get_object_vars($this);
-  }
-
-  public static function deserialize($object){
-      echo 'implement method';
-  }
-
   public function toObjectVar($key, $value, $class = null){
     if ($class == null){
         $class = $this;

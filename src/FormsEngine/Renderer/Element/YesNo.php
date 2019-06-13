@@ -34,6 +34,13 @@ class YesNo extends ElementGroup {
   }
 
   /**
+   * @return array
+   */
+  public function serialize() {
+      return \get_object_vars($this);
+  }
+
+  /**
    * @return class
    */
   public static function deserialize($object){
