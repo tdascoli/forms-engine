@@ -71,7 +71,7 @@ abstract class Element extends AbstractElement {
     return __CLASS__;
   }
 
-  private function toObjectVar($key, $value){
+  public function toObjectVar($key, $value){
     //if (!empty($value)){ // todo check if necessary
     if (\property_exists($this, $key)){
       $this->{$key} = $value;
