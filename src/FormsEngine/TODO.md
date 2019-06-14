@@ -15,6 +15,8 @@
 * ~~rename Config to RenderConfig~~
 * ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
 * JS -> how? see also Validation
+* attributes like: size, min, max, etc.
+* textarea
 
 ## Questions
 
