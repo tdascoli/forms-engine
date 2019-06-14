@@ -1,5 +1,5 @@
 <?php
-namespace FormsEngine\Renderer\Element;
+namespace FormsEngine\Questions\Element;
 
 use FormsEngine\Questions\AbstractElement;
 use PhpCollection\Map;

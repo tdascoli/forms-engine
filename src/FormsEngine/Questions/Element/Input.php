@@ -1,5 +1,5 @@
 <?php
-namespace FormsEngine\Renderer\Element;
+namespace FormsEngine\Questions\Element;
 
 class Input extends Element {
 

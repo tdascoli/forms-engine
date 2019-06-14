@@ -3,7 +3,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use FormsEngine\FormsEngine as FormsEngine;
-use FormsEngine\Renderer\Element as Element;
+use FormsEngine\Questions\Element as Element;
 
 $engine = new FormsEngine();
 

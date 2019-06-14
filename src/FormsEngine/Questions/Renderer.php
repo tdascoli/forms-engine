@@ -1,5 +1,5 @@
 <?php
-namespace FormsEngine\Renderer;
+namespace FormsEngine\Questions;
 
 use PhpCollection\Sequence;
 

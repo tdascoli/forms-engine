@@ -1,15 +1,15 @@
 <?php
-namespace FormsEngine\Renderer\Element;
+namespace FormsEngine\Questions\Element;
 
 use FormsEngine\Questions\Type;
 
-class Date extends Input {
+class Number extends Input {
 
   public function __construct($label,
                               $placeholder = null,
                               $helptext = null) {
       parent::__construct($label, $placeholder, $helptext);
-      $this->type = Type::DATE()->getValue();
+      $this->type = Type::NUMBER()->getValue();
   }
 }
 ?>

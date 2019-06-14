@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine;
 
-use FormsEngine\Renderer\Renderer as Renderer;
+use FormsEngine\Questions\Renderer as Renderer;
 use FormsEngine\Answers\Answers as Answers;
 
 class FormsEngine {

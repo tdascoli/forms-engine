@@ -6,8 +6,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-use FormsEngine\Renderer\Renderer as Renderer;
-use FormsEngine\Renderer\Element as Element;
+use FormsEngine\Questions\Renderer as Renderer;
+use FormsEngine\Questions\Element as Element;
 
 $t = new Renderer();
 $t->add(new Element\Text('test label','placeholder','helptext'));

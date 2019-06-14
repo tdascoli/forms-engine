@@ -24,7 +24,7 @@
 
 * ~~rename FieldType to Type~~
 * ~~rename AbstractField to AbstractElement~~
-* move Renderer to Questions
+* ~~move Renderer to Questions~~
 * where to integrate FormsEngine Wizard?
     * maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public
 * add if/else functionalities for fields
