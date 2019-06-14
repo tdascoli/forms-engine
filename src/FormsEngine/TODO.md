@@ -17,6 +17,8 @@
 * JS -> how? see also Validation
 * attributes like: size, min, max, etc.
 * ~~textarea~~
+* Paragraph!!! needs work
+* other?
 
 ## Questions
 
