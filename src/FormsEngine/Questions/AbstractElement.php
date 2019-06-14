@@ -39,6 +39,9 @@ abstract class AbstractElement {
   /** @var array */
   public $style;
 
+  /** @var map */
+  public $attributes;
+
   /** @var boolean */
   public $readonly;
 
