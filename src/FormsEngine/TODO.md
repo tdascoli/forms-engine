@@ -40,7 +40,7 @@
 * online "viewer"? (github.com/myliang/x-spreadsheet)
 * Persist: only POST or default JS/Binding
 * Persist: JS/Binding -> needs work!
-* Persist: no double submits
+* ~~Persist: no double submits~~
 
 ## Presentation
 
@@ -56,4 +56,4 @@
 * Config how to?
 * I18n -> multilanguage!!!!
 * ~~FormsEngine -> Renderer (shortcut to new Renderer)~~
-* add sessioning
+* ~~add sessioning~~

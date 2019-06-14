@@ -6,17 +6,16 @@ class CompleteHandler extends Persistence {
   /** @var string */
   private $persistenceType;
 
-  /** @var boolean */
-  private $hasSubmitted;
-
   public function save(){
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){
-      $this->persist($_POST, $this->getPersistenceType());
-      $this->hasSubmitted = true;
+      if (!$_SESSION['hasSubmitted']){
+        $this->persist($_POST, $this->getPersistenceType());
+        $_SESSION['hasSubmitted'] = true;
+      }
     }
     else {
-      $this->hasSubmitted = false;
+      $_SESSION['hasSubmitted'] = false;
     }
   }
 
@@ -38,7 +37,7 @@ class CompleteHandler extends Persistence {
   }
 
   public function isSubmitted(){
-    return $this->hasSubmitted;
+    return $_SESSION['hasSubmitted'];
   }
 }
 ?>

@@ -30,7 +30,6 @@ $r->add(new Element\Button('cancel'));
 
 // PERSISTENCE
 $engine->answers()->save();
-var_dump($engine->answers()->check());
 ?>
 <!DOCTYPE html>
 <html lang="de">
