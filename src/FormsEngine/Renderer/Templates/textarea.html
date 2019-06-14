@@ -1,0 +1,16 @@
+<div class="form-group">
+  <label for="{{ id }}">{{ label }}</label>
+  <textarea
+    class="form-control {{ style|join(' ') }}"
+    id="{{ id }}"
+    name="{{ name }}"
+    rows="3"
+    {% if helptext|length > 0 %}aria-describedby="{{ id }}-helptext"{% endif %}
+    {% if required %}required="required"{% endif %}
+    {% if readonly %}readonly="readonly"{% endif %}
+    {% if disabled %}disabled="disabled"{% endif %}>
+  </textarea>
+  {% if helptext|length > 0 %}
+  <small id="{{ id }}-helptext" class="form-text text-muted">{{ helptext }}</small>
+  {% endif %}
+</div>

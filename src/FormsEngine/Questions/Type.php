@@ -9,6 +9,7 @@ use MyCLabs\Enum\Enum;
  */
 class Type extends Enum {
     const TEXT      = 'text';
+    const TEXTAREA  = 'textarea';
     const HIDDEN    = 'text';
     const EMAIL     = 'email';
     const DATE      = 'date';
