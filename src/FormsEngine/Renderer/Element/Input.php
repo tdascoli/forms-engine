@@ -1,8 +1,6 @@
 <?php
 namespace FormsEngine\Renderer\Element;
 
-use PhpCollection\Map;
-
 class Input extends Element {
 
   public function __construct($label,
@@ -20,13 +18,6 @@ class Input extends Element {
   public function render($twig){
     $template = $twig->load('input.html');
     return $template->render(parent::prepare());
-  }
-
-  public function attr($type, $value){
-    if (!$this->attributes instanceof Map){
-      $this->attributes = new Map();
-    }
-    $this->attributes->set($type, $value);
   }
 
   /**
