@@ -20,6 +20,7 @@ class Type extends Enum {
     const SELECT    = 'select';
     const BUTTON    = 'button';
     const SUBMIT    = 'submit';
+    const RESET     = 'reset';
     const YESNO     = 'yesNo';
 
     const TITLE     = 'title';

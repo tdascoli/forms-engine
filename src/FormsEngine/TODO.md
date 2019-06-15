@@ -24,6 +24,8 @@
 * ~~style (needs work)~~
 * ~~options (?)~~
 * ~~Button: primary to style!!~~
+* Button: how to action? JS?
+* Button: reset
 * ~~rename Config to RenderConfig~~
 * ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
 * JS -> how? see also Validation
@@ -70,3 +72,5 @@
 * I18n -> multilanguage!!!!
 * ~~FormsEngine -> Renderer (shortcut to new Renderer)~~
 * ~~add sessioning~~
+* refactoring according bestpractices:
+  * http://bestpractices.thecodingmachine.com/php/design_beautiful_classes_and_methods.html

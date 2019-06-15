@@ -28,7 +28,8 @@ $options->add('third',3);
 $r->add(new Element\Select('custom select',$options,true,'select helptext to show'));
 
 $r->add(new Element\Submit('send'));
-$r->add(new Element\Button('cancel'));
+$r->add(new Element\Button('button'));
+$r->add(new Element\Reset('cancel'));
 
 // PERSISTENCE
 $engine->answers()->save();

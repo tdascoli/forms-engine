@@ -5,10 +5,9 @@ use FormsEngine\Questions\Type;
 
 class Submit extends Button {
 
-  public function __construct(
-                            $label) {
+  public function __construct($label) {
       $this->type = Type::SUBMIT()->getValue();
-      parent::__construct($label, true);
+      parent::__construct($label, ButtonType::SUBMIT());
   }
 }
 ?>

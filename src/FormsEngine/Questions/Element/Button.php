@@ -2,27 +2,45 @@
 namespace FormsEngine\Questions\Element;
 
 use FormsEngine\Questions\Type;
+use MyCLabs\Enum\Enum;
 
 class Button extends Element {
 
+  public $buttonType;
+
   public function __construct(
-                            $label,
-                            $primary = false) {
-      $type = Type::BUTTON()->getValue();
+                            String $label,
+                            ButtonType $buttonType = null) {
       $this->label = $label;
-      if ($primary){
-        $type = Type::SUBMIT()->getValue();
-        $this->addStyle('btn-primary');
-      }
-      else {
-        $this->addStyle('btn-secondary');
-      }
-      $this->type = $type;
+      $this->doButtonType($buttonType);
   }
 
   public function render($twig){
     $template = $twig->load('button.html');
     return $template->render(parent::prepare());
+  }
+
+  private function doButtonType(ButtonType $buttonType = null):void {
+    if ($buttonType == null OR !$buttonType instanceof ButtonType){
+      $this->buttonType = ButtonType::BUTTON();
+      $this->type = Type::BUTTON()->getValue();
+    }
+    else {
+      $this->buttonType = $buttonType;
+    }
+
+    switch ($this->buttonType){
+      case ButtonType::SUBMIT():
+        $this->addStyle('btn-primary');
+        $this->type = Type::SUBMIT()->getValue();
+        break;
+      case ButtonType::RESET():
+        $this->addStyle('btn-light');
+        $this->type = Type::RESET()->getValue();
+        break;
+      default:
+        $this->addStyle('btn-secondary');
+    }
   }
 
   /**
@@ -35,5 +53,11 @@ class Button extends Element {
     }
     return $class;
   }
+}
+
+class ButtonType extends Enum {
+    const BUTTON     = 'button';
+    const SUBMIT     = 'submit';
+    const RESET      = 'reset';
 }
 ?>
