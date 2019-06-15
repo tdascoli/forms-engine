@@ -6,8 +6,9 @@
 * ~~rename AbstractField to AbstractElement~~
 * ~~move Renderer to Questions~~
 * where to integrate FormsEngine Wizard?
-    * maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public
-* add if/else functionalities for fields
+    * ~~maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public~~
+    * own project: forms-engine-wizard
+* add if/else functionalities for fields/elements
 * add paging (and if/else)
 * make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
 
@@ -48,6 +49,11 @@
 * Persist: only POST or default JS/Binding
 * Persist: JS/Binding -> needs work!
 * ~~Persist: no double submits~~
+
+### Persistence
+
+* refactoring
+* how to implement own persistence? config!
 
 ## Presentation
 
