@@ -8,9 +8,12 @@ class FormsEngine {
   private $renderer;
   private $answers;
 
-  public function __construct(){
+  public function __construct($autosave = true){
     $this->renderer = new Renderer();
     $this->answers = new Answers();
+    if ($autosave){
+      $this->answers->save();
+    }
   }
 
   public function renderer(){

@@ -21,6 +21,10 @@ abstract class Element extends AbstractElement {
     return parent::serialize();
   }
 
+  public function script(){
+    return null;
+  }
+
   private function setId($id,$isName = false){
     $this->id = $this::camelCase($id);
     if ($isName){

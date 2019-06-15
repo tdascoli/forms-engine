@@ -8,28 +8,14 @@ use FormsEngine\Questions\Element as Element;
 $engine = new FormsEngine();
 
 $r = $engine->renderer();
-$r->add(new Element\Title('test title','test description'));
-$r->add(new Element\Paragraph('title2','description 2'));
-$r->addRequired(new Element\Text('test label','placeholder','helptext'));
 $r->add(new Element\Email('new label','','helptext'));
-$r->add(new Element\Number('other label'));
 $r->add(new Element\Date('test date'));
 $r->add(new Element\DateTime('test datetime','placeholder'));
-$r->add(new Element\Checkbox('custom checkbox label', true));
-$r->add(new Element\Radio('Yes (custom)', 'yes', 'yesno'));
-$r->add(new Element\Radio('No (custom)', 'no', 'yesno'));
-$r->add(new Element\YesNo('yesno2'));
-$r->add(new Element\YesNo('yesno3',true));
-
-$options = new Element\Option();
-$options->add('first',1);
-$options->add('second',2);
-$options->add('third',3);
-$r->add(new Element\Select('custom select',$options,true,'select helptext to show'));
-
 $r->add(new Element\Submit('send'));
-$r->add(new Element\Button('button'));
 $r->add(new Element\Reset('cancel'));
+
+// PERSISTENCE
+$engine->answers()->save();
 ?>
 <!DOCTYPE html>
 <html lang="de">

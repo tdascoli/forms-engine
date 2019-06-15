@@ -56,7 +56,6 @@ $r->deserialize($serializedString);
     <!-- Add Material CSS, replace Bootstrap CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/css/material.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/inputmask@4.0.8/css/inputmask.css">
 </head>
 <body>
 
@@ -95,11 +94,5 @@ $r->deserialize($serializedString);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/js/material.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/inputmask@4.0.8/dist/min/jquery.inputmask.bundle.min.js"></script>
-<script>
-$( document ).ready(function() {
-  $(":input").inputmask();
-});
-</script>
 </body>
 </html>

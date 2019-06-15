@@ -25,7 +25,7 @@
 * ~~options (?)~~
 * ~~Button: primary to style!!~~
 * Button: how to action? JS?
-* Button: reset
+* ~~Button: reset~~
 * ~~rename Config to RenderConfig~~
 * ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
 * JS -> how? see also Validation
@@ -35,6 +35,7 @@
 * Paragraph: check if tinymce, ckeditor or markdown??
 * Paragraph: when markdown, make own element?
 * ~~Title~~ - has to be first, always! -> Form Title
+* autocomplete -> like select except its a autocompleter
 * other?
 
 ## Answers

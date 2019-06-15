@@ -1,11 +1,5 @@
 <form method="post">
-  <fieldset>
-    {% if legend|length > 0 %}
-      <legend>{{ legend }}</legend>
-    {% endif %}
-
-    {% for element in elements %}
-      {{ element|raw }}
-    {% endfor %}
-  </fieldset>
+  {% for element in elements %}
+    {{ element|raw }}
+  {% endfor %}
 </form>

@@ -28,6 +28,10 @@ abstract class ElementGroup {
     return $rawElements;
   }
 
+  public function script(){
+    return null;
+  }
+
   public function elements(){
     return $this->elements;
   }

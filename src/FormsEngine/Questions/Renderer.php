@@ -14,18 +14,39 @@ class Renderer {
     $this->elements = new Sequence();
   }
 
-  // todo difference between render and wizard??
   // todo set dir??
   public function render($dir=null){
     if ($dir!=null){
       $this->setTemplateDir($dir);
     }
 
-    // todo form handler??
+    $elements = $this->prepareElements();
 
-    echo $this->twig->
-                  render('form.html',
-                    ['elements' => $this->rawElements()]);
+    // echo HTML Form
+    echo $this->twig->render('form.html',
+                    ['elements' => $elements['rawElements']]);
+
+    // echo JS
+    if (\sizeof($elements['scriptElements'])>0){
+      echo $this->twig->render('scripts.html',
+                      ['scripts' => $elements['scriptElements']]);
+    }
+  }
+
+  private function prepareElements() {
+    $rawElements = array();
+    $scriptElements = array();
+
+    foreach ($this->elements as $element) {
+      array_push($rawElements, $element->render($this->twig));
+      $script = $element->script();
+      if (!empty($script)){
+        array_push($scriptElements, $script);
+      }
+    }
+
+    return array('rawElements' => $rawElements,
+                 'scriptElements' => $scriptElements);
   }
 
   public function load($form){
@@ -40,14 +61,6 @@ class Renderer {
   public function addRequired($element){
     $element->required();
     $this->add($element);
-  }
-
-  private function rawElements(){
-    $rawElements = array();
-    foreach ($this->elements as $element) {
-      array_push($rawElements, $element->render($this->twig));
-    }
-    return $rawElements;
   }
 
   public function setTemplateDir($dir){
