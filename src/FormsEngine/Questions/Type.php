@@ -21,5 +21,8 @@ class Type extends Enum {
     const BUTTON    = 'button';
     const SUBMIT    = 'submit';
     const YESNO     = 'yesNo';
+
+    const TITLE     = 'title';
+    const PARAGRAPH = 'paragraph';
 }
 ?>

@@ -37,6 +37,11 @@ class Renderer {
     $this->elements->add($element);
   }
 
+  public function addRequired($element){
+    $element->required();
+    $this->add($element);
+  }
+
   private function rawElements(){
     $rawElements = array();
     foreach ($this->elements as $element) {

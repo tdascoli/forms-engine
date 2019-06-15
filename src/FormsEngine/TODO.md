@@ -4,9 +4,9 @@
 
 * ~~readonly~~
 * ~~disabled~~
-* inputmask (needs work) including date and dateime(-local)
+* inputmask (needs work) including refactoring date and dateime(-local)
 * ~~hidden (own Element?)~~
-* required (construct)
+* ~~required (construct)~~
 * validation (needs work)
 * privacy (?)
 * ~~style (needs work)~~
@@ -15,9 +15,12 @@
 * ~~rename Config to RenderConfig~~
 * ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
 * JS -> how? see also Validation
-* attributes like: size, min, max, etc.
+* ~~attributes like: size, min, max, etc.~~
 * ~~textarea~~
-* Paragraph!!! needs work
+* ~~Paragraph!!! needs work~~
+* Paragraph: check if tinymce, ckeditor or markdown??
+* Paragraph: when markdown, make own element?
+* ~~Title~~ - has to be first, always! -> Form Title
 * other?
 
 ## Questions

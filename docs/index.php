@@ -8,7 +8,9 @@ use FormsEngine\Questions\Element as Element;
 $engine = new FormsEngine();
 
 $r = $engine->renderer();
-$r->add(new Element\Text('test label','placeholder','helptext'));
+$r->add(new Element\Title('test title','test description'));
+$r->add(new Element\Paragraph('title2','description 2'));
+$r->addRequired(new Element\Text('test label','placeholder','helptext'));
 $r->add(new Element\Email('new label','','helptext'));
 $r->add(new Element\Number('other label'));
 $r->add(new Element\Date('test date'));
