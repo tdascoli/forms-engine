@@ -3,36 +3,41 @@ namespace FormsEngine\Questions\Element;
 
 use FormsEngine\Questions\Type;
 
-class Select extends Element {
+class Typeahead extends Input {
 
   public $options;
+  public $script;
 
   public function __construct($label,
                               $options,
-                              $nullable = false,
+                              $placeholder = null,
                               $helptext = null) {
-      parent::__construct($label);
-      $this->type = Type::SELECT()->getValue();
-      if ($options instanceof Option){
-        $this->options = $options->all();
+      parent::__construct($label, $placeholder, $helptext);
+      $this->type = Type::TYPEAHEAD()->getValue();
+      if (\is_array($options)){
+        $this->options = $options;
       }
-      if ($nullable){
-        \array_unshift($this->options, Option::create('- bitte wählen -',''));
-      }
-      if ($helptext!=null){
-        $this->helptext = $helptext;
-      }
+      $this->prepareScript();
   }
 
   public function render($twig){
-    $template = $twig->load('select.html');
+    $template = $twig->load('typeahead.html');
     return $template->render($this->prepare());
+  }
+
+  public function script(){
+    return $this->script;
   }
 
   public function prepare(){
     $vars = parent::prepare();
     $vars['options'] = $this->options;
     return $vars;
+  }
+
+  private function prepareScript(){
+    $this->script = 'var '.$this->id.'Data = '.json_encode($this->options).';'.
+                    '$("#'.$this->id.'").typeahead({ source:'.$this->id.'Data });';
   }
 
   /**
@@ -48,7 +53,7 @@ class Select extends Element {
    */
   public static function deserialize($object){
     $options = new Option();
-    $class = new Select($object->label, $options::deserialize($object->options));
+    $class = new Typeahead($object->label, $options::deserialize($object->options));
     foreach ($object as $key => $value) {
         if ($key!="options"){
             $class->toObjectVar($key, $value, $class);

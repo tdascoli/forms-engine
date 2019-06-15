@@ -39,7 +39,6 @@ class Option {
     return $option;
   }
 
-
   /**
    * @return array
    */

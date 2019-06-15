@@ -22,6 +22,7 @@ class Type extends Enum {
     const SUBMIT    = 'submit';
     const RESET     = 'reset';
     const YESNO     = 'yesNo';
+    const TYPEAHEAD = 'typeahead';
 
     const TITLE     = 'title';
     const PARAGRAPH = 'paragraph';
