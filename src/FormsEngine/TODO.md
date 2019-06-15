@@ -11,6 +11,7 @@
 * add if/else functionalities for fields/elements
 * add paging (and if/else)
 * make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
+* refactoring Renderer Class
 
 ### Element
 
@@ -70,6 +71,7 @@
 ## other
 
 * Config how to?
+  * add "all" vars in construct to config (check?)
 * I18n -> multilanguage!!!!
 * ~~FormsEngine -> Renderer (shortcut to new Renderer)~~
 * ~~add sessioning~~

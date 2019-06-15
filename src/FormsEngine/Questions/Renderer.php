@@ -7,6 +7,7 @@ class Renderer {
 
   private $twig;
   private $elements;
+  private $formTitle;
 
   public function __construct(){
     $loader = new \Twig\Loader\FilesystemLoader(RenderConfig::$templateDir);
@@ -20,16 +21,25 @@ class Renderer {
       $this->setTemplateDir($dir);
     }
 
-    $elements = $this->prepareElements();
+    if (!isset($_SESSION['hasSubmitted']) OR !$_SESSION['hasSubmitted']){
+      $elements = $this->prepareElements();
 
-    // echo HTML Form
-    echo $this->twig->render('form.html',
-                    ['elements' => $elements['rawElements']]);
+      // echo HTML Form
+      echo $this->twig->render('form.html',
+                      ['elements' => $elements['rawElements']]);
 
-    // echo JS
-    if (\sizeof($elements['scriptElements'])>0){
-      echo $this->twig->render('scripts.html',
+      // echo JS
+      if (\sizeof($elements['scriptElements'])>0){
+        echo $this->twig->render('scripts.html',
                       ['scripts' => $elements['scriptElements']]);
+      }
+    }
+    else {
+      $title = ['formTitle' => ''];
+      if (!empty($this->formTitle)){
+        $title['formTitle'] = $this->formTitle->render($this->twig);
+      }
+      echo $this->twig->render('message.html',$title);
     }
   }
 
@@ -55,6 +65,10 @@ class Renderer {
   }
 
   public function add($element){
+    if (is_a($element, 'FormsEngine\Questions\Element\Title')){
+      $this->formTitle = $element;
+    }
+
     $this->elements->add($element);
   }
 

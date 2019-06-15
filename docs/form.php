@@ -6,6 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+use FormsEngine\FormsEngine as FormsEngine;
 use FormsEngine\Questions\Renderer as Renderer;
 use FormsEngine\Questions\Element as Element;
 
@@ -34,8 +35,9 @@ $t->add(new Element\Button('button'));
 $t->add(new Element\Reset('cancel'));
 $serializedString = $t->serialize();
 
+$engine = new FormsEngine();
 
-$r = new Renderer();
+$r = $engine->renderer();
 $r->deserialize($serializedString);
 
 ?>

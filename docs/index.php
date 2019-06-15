@@ -73,12 +73,7 @@ $r->add(new Element\Reset('cancel'));
     <h3 class="mt-3">FormsEngine</h3>
     <p>
       <?php
-        if (!$engine->answers()->check()){
-          $r->render();
-        }
-        else {
-          echo 'is submitted';
-        }
+        $r->render();
       ?>
     </p>
 </div>
