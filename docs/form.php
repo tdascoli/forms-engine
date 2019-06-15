@@ -10,7 +10,9 @@ use FormsEngine\Questions\Renderer as Renderer;
 use FormsEngine\Questions\Element as Element;
 
 $t = new Renderer();
-$t->add(new Element\Text('test label','placeholder','helptext'));
+$t->add(new Element\Title('test title','test description'));
+$t->add(new Element\Paragraph('title2','description 2'));
+$t->addRequired(new Element\Text('test label','placeholder','helptext'));
 $t->add(new Element\Email('new label','','helptext'));
 $t->add(new Element\Number('other label'));
 $t->add(new Element\Date('test date'));
@@ -18,7 +20,6 @@ $t->add(new Element\Date('test date'));
 $t->add(new Element\Checkbox('custom checkbox label', true));
 $t->add(new Element\Radio('Yes (custom)', 'yes', 'yesno'));
 $t->add(new Element\Radio('No (custom)', 'no', 'yesno'));
-
 $t->add(new Element\YesNo('yesno2'));
 $t->add(new Element\YesNo('yesno3',true));
 

@@ -68,7 +68,7 @@ class Renderer {
     $serialization = \json_decode($string);
     foreach ($serialization as $element) {
       // todo from element array to element
-      $class = 'FormsEngine\Renderer\Element\\'.ucfirst($element->type);
+      $class = 'FormsEngine\Questions\Element\\'.ucfirst($element->type);
       $instance = $class::deserialize($element);
       if (is_object($instance)){
         $this->add($instance);

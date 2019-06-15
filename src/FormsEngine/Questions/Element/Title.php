@@ -3,7 +3,7 @@ namespace FormsEngine\Questions\Element;
 
 use FormsEngine\Questions\Type;
 
-class Title extends ElementParagraph {
+class Title extends Paragraph {
 
   public function __construct($title, $description=null) {
       parent::__construct($title, $description);
