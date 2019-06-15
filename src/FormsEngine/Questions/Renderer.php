@@ -59,8 +59,8 @@ class Renderer {
                  'scriptElements' => $scriptElements);
   }
 
-  public function load($form){
-    // todo deserialize and render
+  public function load($deserializedForm){
+    $this->deserialize($deserializedForm);
     $this->render();
   }
 
@@ -68,7 +68,6 @@ class Renderer {
     if (is_a($element, 'FormsEngine\Questions\Element\Title')){
       $this->formTitle = $element;
     }
-
     $this->elements->add($element);
   }
 

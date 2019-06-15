@@ -38,8 +38,6 @@ $serializedString = $t->serialize();
 $engine = new FormsEngine();
 
 $r = $engine->renderer();
-$r->deserialize($serializedString);
-
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -86,7 +84,7 @@ $r->deserialize($serializedString);
     </p>
     <p>
       <?php
-        $r->render();
+        $r->load($serializedString);
       ?>
     </p>
 </div>
