@@ -1,6 +1,17 @@
 # ToDo
 
-## Element
+## Questions
+
+* ~~rename FieldType to Type~~
+* ~~rename AbstractField to AbstractElement~~
+* ~~move Renderer to Questions~~
+* where to integrate FormsEngine Wizard?
+    * maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public
+* add if/else functionalities for fields
+* add paging (and if/else)
+* make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
+
+### Element
 
 * ~~readonly~~
 * ~~disabled~~
@@ -22,17 +33,6 @@
 * Paragraph: when markdown, make own element?
 * ~~Title~~ - has to be first, always! -> Form Title
 * other?
-
-## Questions
-
-* ~~rename FieldType to Type~~
-* ~~rename AbstractField to AbstractElement~~
-* ~~move Renderer to Questions~~
-* where to integrate FormsEngine Wizard?
-    * maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public
-* add if/else functionalities for fields
-* add paging (and if/else)
-* make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
 
 ## Answers
 
