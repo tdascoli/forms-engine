@@ -1,9 +1,7 @@
 <?php
 namespace FormsEngine\Questions;
 
-use PhpCollection\Map;
 use PhpCollection\Sequence;
-use FormsEngine\Questions\Pagination\Page;
 use FormsEngine\Questions\Pagination\Pagination;
 
 class Renderer {
@@ -19,9 +17,9 @@ class Renderer {
     $loader = new \Twig\Loader\FilesystemLoader(RenderConfig::$templateDir);
     $this->twig = new \Twig\Environment($loader);
     $this->elements = new Sequence();
-    $this->pagination = new Pagination();
+    $this->pageElements = new Sequence();
 
-    $this->pageElements = new Map([1, new Page(1)]);
+    $this->pagination = new Pagination();
   }
 
   // todo set dir??
@@ -88,21 +86,6 @@ class Renderer {
       $this->formTitle = $element;
     }
     $this->elements->add($element);
-  }
-
-  private function addToPage($element, $page){
-    $this->pageElements->get($page)->get()->add($element);
-  }
-
-  public function addP($element, $page = null){
-    if (\is_numeric($page)){
-      // todo!!
-      $this->pageElements->set($page, new Page($page));
-    }
-    else {
-      $page = 1;
-    }
-    $this->addToPage($element, $page);
   }
 
   // page

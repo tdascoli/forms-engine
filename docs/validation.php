@@ -9,15 +9,12 @@ $engine = new FormsEngine();
 
 $r = $engine->renderer();
 $r->add(new Element\Title('test title'));
-$r->add(new Element\Email('new label','','helptext'));
+$r->addP(new Element\Email('new label','','helptext'));
 $r->add(new Element\Date('test date'));
 $r->add(new Element\DateTime('test datetime','placeholder'));
 
 $options = array('first','second','third','fourth');
 $r->add(new Element\Typeahead('typeahead',$options,'placeholder','helptext to show'));
-
-// PERSISTENCE
-$engine->answers()->save();
 ?>
 <!DOCTYPE html>
 <html lang="de">
