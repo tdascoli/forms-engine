@@ -21,7 +21,7 @@ class Renderer {
       $this->setTemplateDir($dir);
     }
 
-    if (!isset($_SESSION['hasSubmitted']) OR !$_SESSION['hasSubmitted']){
+    if (!$this->displayMessage()){
       $elements = $this->prepareElements();
 
       // echo HTML Form
@@ -57,6 +57,13 @@ class Renderer {
 
     return array('rawElements' => $rawElements,
                  'scriptElements' => $scriptElements);
+  }
+
+  private function displayMessage(){
+    if (!isset($_SESSION['hasSubmitted']) OR !$_SESSION['hasSubmitted']){
+      return false;
+    }
+    return true;
   }
 
   public function load($deserializedForm){

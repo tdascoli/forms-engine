@@ -9,7 +9,7 @@
     * ~~maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public~~
     * own project: forms-engine-wizard
 * add if/else functionalities for fields/elements
-* add paging (and if/else)
+* add paging (Abschnitt) (and if/else)
 * make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
 * refactoring Renderer Class
 
@@ -20,8 +20,8 @@
 * inputmask (needs work) including refactoring date and dateime(-local)
 * ~~hidden (own Element?)~~
 * ~~required (construct)~~
-* validation (needs work)
-* privacy (?)
+* validation (needs work: maybe only html5 validation)
+* ~~privacy (no)~~
 * ~~style (needs work)~~
 * ~~options (?)~~
 * ~~Button: primary to style!!~~
@@ -56,6 +56,8 @@
 * Persist: only POST or default JS/Binding
 * Persist: JS/Binding -> needs work!
 * ~~Persist: no double submits~~
+* add create another checkbox as Config
+* config: show message or form (check for refersh??)
 
 ### Persistence
 

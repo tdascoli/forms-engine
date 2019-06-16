@@ -3,10 +3,20 @@ namespace FormsEngine\Questions;
 
 class RenderConfig {
 
+  /** @var string */
   public static $templateDir = __DIR__ . '/Templates/';
 
-  public $method; // enum: post, get, ajax
-  public $name; // string/optional
+  /** @var Method */
+  public $method; // enum: post, ajax
+
+  /** @var string */
+  public $name;
+
+  /** @var boolean */
+  public static $showMessageAfterSubmit;
+
+  /** @var boolean */
+  public static $createAnotherCheckbox;
 
   // todo check
   public static function updateTemplateDir($dir){

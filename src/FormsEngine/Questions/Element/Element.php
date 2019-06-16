@@ -2,7 +2,6 @@
 namespace FormsEngine\Questions\Element;
 
 use FormsEngine\Questions\AbstractElement;
-use PhpCollection\Map;
 
 abstract class Element extends AbstractElement {
 
@@ -71,11 +70,11 @@ abstract class Element extends AbstractElement {
     \array_push($this->style, $style);
   }
 
-  public function attr($type, $value){
-    if (!$this->attributes instanceof Map){
-      $this->attributes = new Map();
+  public function attr($attr, $value){
+    if (!\is_array($this->attributes)){
+      $this->attributes = array();
     }
-    $this->attributes->set($type, $value);
+    \array_push($this->attributes, array('attr' => $attr,'value' => $value));
   }
 }
 ?>

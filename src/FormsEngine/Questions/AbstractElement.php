@@ -39,7 +39,7 @@ abstract class AbstractElement {
   /** @var array */
   public $style;
 
-  /** @var map */
+  /** @var array */
   public $attributes;
 
   /** @var boolean */
@@ -47,9 +47,6 @@ abstract class AbstractElement {
 
   /** @var boolean */
   public $disabled;
-
-  /** @var Privacy */
-  public $privacy;
 
   /**
    * @return array

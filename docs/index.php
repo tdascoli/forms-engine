@@ -79,9 +79,11 @@ $r->add(new Element\Reset('cancel'));
 <!-- content -->
 <div class="container">
     <h3 class="mt-3">FormsEngine</h3>
+    <p>
     <?php
       $r->render();
     ?>
+    </p>
 </div>
 
 </body>

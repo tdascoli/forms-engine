@@ -3,7 +3,7 @@ namespace FormsEngine\Questions\Element;
 
 use FormsEngine\Questions\Type;
 
-class Typeahead extends Input {
+class Typeahead extends Text {
 
   public $options;
   public $script;
@@ -17,12 +17,10 @@ class Typeahead extends Input {
       if (\is_array($options)){
         $this->options = $options;
       }
+      $this->attr('data-provide','typeahead');
+      $this->attr('autocomplete','off');
+      $this->addStyle('typeahead');
       $this->prepareScript();
-  }
-
-  public function render($twig){
-    $template = $twig->load('typeahead.html');
-    return $template->render($this->prepare());
   }
 
   public function script(){
