@@ -1,0 +1,14 @@
+<div class="card-footer">
+  {% if pagination.back %}
+  <button type="button" name="back" class="btn btn-secondary">Zurück</button>
+  {% endif %}
+  {% if pagination.next %}
+  <button type="button" name="next" class="btn btn-secondary">Weiter</button>
+  {% endif %}
+  {% if pagination.last %}
+  <button type="submit" name="submit" class="btn btn-primary">Senden</button>
+  {% endif %}
+  {% if pagination.reset %}
+  <button type="reset" name="reset" class="btn btn-light">Zurücksetzen</button>
+  {% endif %}
+</div>

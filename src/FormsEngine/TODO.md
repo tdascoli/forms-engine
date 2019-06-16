@@ -20,7 +20,7 @@
 * inputmask (needs work) including refactoring date and dateime(-local)
 * ~~hidden (own Element?)~~
 * ~~required (construct)~~
-* validation (needs work: maybe only html5 validation)
+* ~~validation (needs work: maybe only html5 validation)~~
 * ~~privacy (no)~~
 * ~~style (needs work)~~
 * ~~options (?)~~
@@ -37,8 +37,8 @@
 * Paragraph: when markdown, make own element?
 * ~~Title~~ - has to be first, always! -> Form Title
 * ~~autocomplete -> like select except its a autocompleter~~
-* autocomplete: check option class?
-  * https://stackoverflow.com/questions/49324366/bootstrap-4-typeahead
+* ~~autocomplete: check option class?~~
+  * ~~https://stackoverflow.com/questions/49324366/bootstrap-4-typeahead~~
   * Option: remove selected?
 * other?
 

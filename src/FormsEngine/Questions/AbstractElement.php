@@ -21,9 +21,6 @@ abstract class AbstractElement {
   /** @var string */
   public $placeholder;
 
-  /** @var Validation */
-  public $validation;
-
   /** @var string */
   public $helptext;
 

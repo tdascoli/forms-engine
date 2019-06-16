@@ -2,17 +2,20 @@
 namespace FormsEngine\Questions;
 
 use PhpCollection\Sequence;
+use FormsEngine\Questions\Pagination\Pagination;
 
 class Renderer {
 
   private $twig;
   private $elements;
   private $formTitle;
+  private $pagination;
 
   public function __construct(){
     $loader = new \Twig\Loader\FilesystemLoader(RenderConfig::$templateDir);
     $this->twig = new \Twig\Environment($loader);
     $this->elements = new Sequence();
+    $this->pagination = new Pagination();
   }
 
   // todo set dir??
@@ -26,20 +29,12 @@ class Renderer {
 
       // echo HTML Form
       echo $this->twig->render('form.html',
-                      ['elements' => $elements['rawElements']]);
-
-      // echo JS
-      if (\sizeof($elements['scriptElements'])>0){
-        echo $this->twig->render('scripts.html',
-                      ['scripts' => $elements['scriptElements']]);
-      }
+                      ['elements' => $elements['rawElements'],
+                       'pagination' => $this->pagination->prepare(),
+                       'scripts' => $elements['scriptElements']]);
     }
     else {
-      $title = ['formTitle' => ''];
-      if (!empty($this->formTitle)){
-        $title['formTitle'] = $this->formTitle->render($this->twig);
-      }
-      echo $this->twig->render('message.html',$title);
+      echo $this->twig->render('message.html',$this->prepareTitle());
     }
   }
 
@@ -57,6 +52,14 @@ class Renderer {
 
     return array('rawElements' => $rawElements,
                  'scriptElements' => $scriptElements);
+  }
+
+  private function prepareTitle(){
+    $title = array('formTitle' => '');
+    if (!empty($this->formTitle)){
+      $title['formTitle'] = $this->formTitle->render($this->twig);
+    }
+    return $title;
   }
 
   private function displayMessage(){

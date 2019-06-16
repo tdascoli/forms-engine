@@ -1,5 +1,6 @@
 <form method="post">
-  {% for element in elements %}
-    {{ element|raw }}
-  {% endfor %}
+  {{ include('page.html') }}
 </form>
+{% if scripts %}
+  {{ include('scripts.html') }}
+{% endif %}

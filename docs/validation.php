@@ -8,15 +8,13 @@ use FormsEngine\Questions\Element as Element;
 $engine = new FormsEngine();
 
 $r = $engine->renderer();
+$r->add(new Element\Title('test title'));
 $r->add(new Element\Email('new label','','helptext'));
 $r->add(new Element\Date('test date'));
 $r->add(new Element\DateTime('test datetime','placeholder'));
 
 $options = array('first','second','third','fourth');
 $r->add(new Element\Typeahead('typeahead',$options,'placeholder','helptext to show'));
-
-$r->add(new Element\Submit('send'));
-$r->add(new Element\Reset('cancel'));
 
 // PERSISTENCE
 $engine->answers()->save();
@@ -68,7 +66,6 @@ $engine->answers()->save();
 
 <!-- content -->
 <div class="container">
-    <h3 class="mt-3">FormsEngine</h3>
     <?php
         $r->render();
     ?>
