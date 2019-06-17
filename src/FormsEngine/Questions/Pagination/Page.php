@@ -56,6 +56,7 @@ class Page {
         $this->add($instance);
       }
     }
+    return $this;
   }
 }
 ?>
