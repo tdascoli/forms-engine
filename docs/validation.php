@@ -13,24 +13,24 @@ use FormsEngine\Questions\Pagination\Page;
 $engine = new FormsEngine();
 
 $r = $engine->renderer();
-// todo addTitle() Shortcut
-// shortcut, when only one page or first page
-// $r->add(...); -> adds element to first page
-/*
-$p = new Page();
-$p->add(new Element\Title('test title'));
-$p->add(new Element\Email('new label','','helptext'));
-$p->add(new Element\Date('test date'));
-$p->add(new Element\DateTime('test datetime','placeholder'));
-$p->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
-
-$r->addPage($p);
-*/
+// Page 1
 $r->add(new Element\Title('test title'));
 $r->add(new Element\Email('new label','','helptext'));
 $r->add(new Element\Date('test date'));
 $r->add(new Element\DateTime('test datetime','placeholder'));
 $r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
+// Page 2
+$p = new Page();
+$p->add(new Element\Paragraph('test title2','Description'));
+$p->add(new Element\Text('new label','','helptext'));
+$p->add(new Element\YesNo('yesno'));
+$options = new Element\Option();
+$options->add('first',1);
+$options->add('second',2);
+$options->add('third',3);
+$p->add(new Element\Select('custom select',$options,true,'select helptext to show'));
+// add Page 2
+$r->addPage($p);
 ?>
 <!DOCTYPE html>
 <html lang="de">
