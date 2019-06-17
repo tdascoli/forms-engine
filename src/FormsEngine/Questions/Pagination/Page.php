@@ -47,14 +47,16 @@ class Page {
     return $serialization;
   }
 
-  public function deserialize($object){
+  public static function deserialize($object){
+    $page = new Page();
     foreach ($object as $element) {
       $class = 'FormsEngine\Questions\Element\\'.ucfirst($element->type);
       $instance = $class::deserialize($element);
       if (is_object($instance)){
-        $this->add($instance);
+        $page->add($instance);
       }
     }
+    return $page;
   }
 }
 ?>
