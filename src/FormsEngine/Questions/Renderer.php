@@ -5,6 +5,7 @@ use PhpCollection\Map;
 use PhpCollection\Sequence;
 use FormsEngine\Questions\Pagination\Page;
 use FormsEngine\Questions\Pagination\Pagination;
+use FormsEngine\Questions\Element\Title;
 
 class Renderer {
 
@@ -21,7 +22,7 @@ class Renderer {
     $this->elements = new Sequence();
     $this->pagination = new Pagination();
 
-    $this->pageElements = new Map([1, new Page(1)]);
+    $this->pageElements = new Sequence();
   }
 
   // todo set dir??
@@ -90,19 +91,54 @@ class Renderer {
     $this->elements->add($element);
   }
 
-  private function addToPage($element, $page){
-    $this->pageElements->get($page)->get()->add($element);
-  }
+  // PAGE ---
+  public function renderP(){
+    if (!$this->displayMessage()){
+      $pages = $this->prepareP();
 
-  public function addP($element, $page = null){
-    if (\is_numeric($page)){
-      // todo!!
-      $this->pageElements->set($page, new Page($page));
+      // echo HTML Form
+      echo $this->twig->render('formP.html',
+                      ['pages' => $pages,
+                       'pagination' => $this->pagination->prepare()]);
     }
     else {
-      $page = 1;
+      echo $this->twig->render('message.html',$this->prepareTitle());
     }
-    $this->addToPage($element, $page);
+  }
+
+  private function prepareP(){
+    $pages = array();
+
+    foreach ($this->pageElements as $element) {
+      array_push($pages, $element->prepareElements($this->twig));
+    }
+
+    return $pages;
+  }
+
+  public function addP($element){
+    // todo
+    if (is_a($element, 'FormsEngine\Questions\Element\Title')){
+      $this->formTitle = $element;
+    }
+    $page = $this->pageElements->first();
+    $page->add($element);
+  }
+
+  public function addPage($page){
+      if (\is_a($page, 'FormsEngine\Questions\Pagination\Page')){
+        $this->pageElements->add($page);
+      }
+  }
+  // END PAGE ---
+
+  // todo check if formTitle alread set -> only one title allowed!!
+  // todo no addTitle Element in Pages!!
+  public function addTitle($title, $description=null){
+    if (is_a($element, 'FormsEngine\Questions\Element\Title')){
+      $this->formTitle = new Title($title, $description);
+      $this->add($this->formTitle);
+    }
   }
 
   // page

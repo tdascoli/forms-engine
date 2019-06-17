@@ -8,13 +8,19 @@ use FormsEngine\Questions\Element as Element;
 $engine = new FormsEngine();
 
 $r = $engine->renderer();
-$r->add(new Element\Title('test title'));
-$r->addP(new Element\Email('new label','','helptext'));
-$r->add(new Element\Date('test date'));
-$r->add(new Element\DateTime('test datetime','placeholder'));
+// todo addTitle() Shortcut
+// shortcut, when only one page or first page
+// $r->add(...); -> adds element to first page
+$p = new Page();
+$p->add(new Element\Title('test title'));
+$p->add(new Element\Email('new label','','helptext'));
+$p->add(new Element\Date('test date'));
+$p->add(new Element\DateTime('test datetime','placeholder'));
 
 $options = array('first','second','third','fourth');
-$r->add(new Element\Typeahead('typeahead',$options,'placeholder','helptext to show'));
+$p->add(new Element\Typeahead('typeahead',$options,'placeholder','helptext to show'));
+$r->addPage($p);
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -64,7 +70,7 @@ $r->add(new Element\Typeahead('typeahead',$options,'placeholder','helptext to sh
 <!-- content -->
 <div class="container">
     <?php
-        $r->render();
+        $r->renderP();
     ?>
 </div>
 
