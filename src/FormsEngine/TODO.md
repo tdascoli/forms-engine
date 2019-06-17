@@ -82,3 +82,4 @@
 * ~~add sessioning~~
 * refactoring according bestpractices:
   * http://bestpractices.thecodingmachine.com/php/design_beautiful_classes_and_methods.html
+* Optionals: https://github.com/schmittjoh/php-option/blob/master/src/PhpOption/Some.php

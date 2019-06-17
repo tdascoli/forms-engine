@@ -116,16 +116,15 @@ class Renderer {
   }
 
   public function addP($element){
-    // todo
+      // todo optionals
     if (is_a($element, 'FormsEngine\Questions\Element\Title')){
       $this->formTitle = $element;
     }
     if (\sizeof($this->pageElements)==0){
         $this->addPage(new Page());
     }
-    var_dump($this->pageElements->first());
     $page = $this->pageElements->first();
-    $page->add($element);
+    $page->get()->add($element);
   }
 
   public function addPage($page){
