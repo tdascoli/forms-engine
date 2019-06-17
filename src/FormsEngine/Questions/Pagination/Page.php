@@ -6,6 +6,7 @@ use PhpCollection\Sequence;
 class Page {
 
   private $elements;
+  // private $condition;
 
   public function __construct(){
     $this->elements = new Sequence();

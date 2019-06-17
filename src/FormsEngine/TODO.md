@@ -5,9 +5,9 @@
 * ~~rename FieldType to Type~~
 * ~~rename AbstractField to AbstractElement~~
 * ~~move Renderer to Questions~~
-* where to integrate FormsEngine Wizard?
+* ~~where to integrate FormsEngine Wizard?~~
     * ~~maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public~~
-    * own project: forms-engine-wizard
+    * ~~own project: forms-engine-wizard~~
 * add if/else functionalities for fields/elements
 * ~~add paging (Abschnitt)~~ (and if/else)
   * static pagination
