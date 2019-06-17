@@ -125,19 +125,17 @@ class Renderer {
 
   public function deserialize($string){
     $serialization = \json_decode($string);
-    if ($serialization['formTitle'] != null){
+    if ($serialization->formTitle != null){
         $class = 'FormsEngine\Questions\Element\Title';
         $instance = $class::deserialize($serialization['formTitle']);
         if (is_object($instance)){
             $this->formTitle = $instance;
         }
     }
-    foreach ($serialization['pages'] as $page) {
-      $class = 'FormsEngine\Questions\Pagination\Page';
-      $instance = $class::deserialize($page);
-      if (is_object($instance)){
-        $this->addPage($instance);
-      }
+    foreach ($serialization->pages as $page) {
+      $class = new Page();
+      $class->deserialize($page);
+      $this->addPage($class);
     }
   }
 }
