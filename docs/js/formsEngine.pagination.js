@@ -21,6 +21,7 @@ $( document ).ready(function() {
     }
     else if (pagination.page === 1){
       $('#back').hide();
+      $('#submit').hide();
     }
 
     $('fieldset.forms-engine__page').each(function(){

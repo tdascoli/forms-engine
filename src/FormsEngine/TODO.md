@@ -11,6 +11,8 @@
 * add if/else functionalities for fields/elements
 * ~~add paging (Abschnitt)~~ (and if/else)
   * static pagination
+  * refactoring template with elements?!
+  * "create another" link
   * how to deliver pagination JS?
 * ~~make "CompleteHandler"~~ -> what to do after submit?? -> wrapper!! see arch.md
 * refactoring Renderer Class
@@ -27,7 +29,7 @@
 * ~~style (needs work)~~
 * ~~options (?)~~
 * ~~Button: primary to style!!~~
-* Button: how to action? JS?
+* Button: how to action? JS? -> script = typeahead
 * ~~Button: reset~~
 * ~~rename Config to RenderConfig~~
 * ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
@@ -56,19 +58,15 @@
     * email
 * online "viewer"? (github.com/myliang/x-spreadsheet)
 * Persist: only POST or default JS/Binding
-* Persist: JS/Binding -> needs work!
+* Persist: JS/Binding -> watch.js
 * ~~Persist: no double submits~~
-* add create another checkbox as Config
-* config: show message or form (check for refersh??)
+* add "create another" link as Config
+* config: show message or form (check for refresh??)
 
 ### Persistence
 
 * refactoring
 * how to implement own persistence? config!
-
-## Presentation
-
-* needs work...
 
 ## docs
 
