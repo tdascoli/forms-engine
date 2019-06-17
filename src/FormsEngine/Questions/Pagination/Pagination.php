@@ -4,15 +4,16 @@ namespace FormsEngine\Questions\Pagination;
 class Pagination {
 
   private $active;
-  private $static;
   private $reset;
+  private $static;
 
   private $pagesize;
   private $index;
 
   public function __construct($reset = false, $static = false){
     $this->active = true;
-    $this->reset = true;
+    $this->reset = $reset;
+    $this->static = $static;
 
     $this->pagesize = 0;
     $this->index = 0;
