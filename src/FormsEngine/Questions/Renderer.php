@@ -29,22 +29,26 @@ class Renderer {
       $this->setTemplateDir($dir);
     }
 
+    $title = $this->prepareTitle();
+
+    var_dump($title);
+
     if (!$this->displayMessage()){
       $pages = $this->prepare();
 
       echo $this->twig->render('formP.html',
                       ['pages' => $pages,
                        'pagination' => $this->pagination->prepare(),
-                        $this->prepareTitle()]);
+                        $title]);
     }
     else {
-      echo $this->twig->render('message.html',$this->prepareTitle());
+      echo $this->twig->render('message.html',$title);
     }
   }
 
   private function prepareTitle(){
     $title = array('formTitle' => '');
-    if (!empty($this->formTitle)){
+    if ($this->formTitle!=null){
       $title['formTitle'] = $this->formTitle->render($this->twig);
     }
     return $title;
@@ -75,6 +79,7 @@ class Renderer {
   public function add($element){
       // todo optionals
     if (is_a($element, 'FormsEngine\Questions\Element\Title')){
+        var_dump($element);
       $this->formTitle = $element;
     }
     else {
