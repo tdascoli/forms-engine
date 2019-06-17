@@ -95,10 +95,6 @@ class Renderer {
   public function renderP(){
     if (!$this->displayMessage()){
       $pages = $this->prepareP();
-
-
-    var_dump($pages);
-
       // echo HTML Form
       echo $this->twig->render('formP.html',
                       ['pages' => $pages,
