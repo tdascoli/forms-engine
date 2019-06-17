@@ -4,7 +4,7 @@ namespace FormsEngine\Questions;
 use PhpCollection\Sequence;
 use FormsEngine\Questions\Pagination\Pagination;
 
-class Renderer {
+class Renderer0 {
 
   private $twig;
   private $elements;
