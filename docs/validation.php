@@ -26,11 +26,11 @@ $p->add(new Element\Typeahead('typeahead',array('first','second','third','fourth
 
 $r->addPage($p);
 */
-$r->addP(new Element\Title('test title'));
-$r->addP(new Element\Email('new label','','helptext'));
-$r->addP(new Element\Date('test date'));
-$r->addP(new Element\DateTime('test datetime','placeholder'));
-$r->addP(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
+$r->add(new Element\Title('test title'));
+$r->add(new Element\Email('new label','','helptext'));
+$r->add(new Element\Date('test date'));
+$r->add(new Element\DateTime('test datetime','placeholder'));
+$r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -80,7 +80,7 @@ $r->addP(new Element\Typeahead('typeahead',array('first','second','third','fourt
 <!-- content -->
 <div class="container">
     <?php
-        $r->renderP();
+        $r->render();
     ?>
 </div>
 

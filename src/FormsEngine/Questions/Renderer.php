@@ -7,60 +7,39 @@ use FormsEngine\Questions\Pagination\Page;
 use FormsEngine\Questions\Pagination\Pagination;
 use FormsEngine\Questions\Element\Title;
 
+// todo add/addRequired etc. make interface, also for Page
+
 class Renderer {
 
   private $twig;
-  private $elements;
-  private $formTitle;
+  private $pages;
   private $pagination;
-
-  private $pageElements;
+  private $formTitle;
 
   public function __construct(){
     $loader = new \Twig\Loader\FilesystemLoader(RenderConfig::$templateDir);
     $this->twig = new \Twig\Environment($loader);
-    $this->elements = new Sequence();
+    $this->pages = new Sequence();
     $this->pagination = new Pagination();
-
-    $this->pageElements = new Sequence();
   }
 
   // todo set dir??
-  // todo page
   public function render($dir=null){
     if ($dir!=null){
       $this->setTemplateDir($dir);
     }
 
     if (!$this->displayMessage()){
-      $elements = $this->prepareElements();
+      $pages = $this->prepare();
 
-      // echo HTML Form
-      echo $this->twig->render('form.html',
-                      ['elements' => $elements['rawElements'],
+      echo $this->twig->render('formP.html',
+                      ['pages' => $pages,
                        'pagination' => $this->pagination->prepare(),
-                       'scripts' => $elements['scriptElements']]);
+                        $this->prepareTitle()]);
     }
     else {
       echo $this->twig->render('message.html',$this->prepareTitle());
     }
-  }
-
-  // page
-  private function prepareElements() {
-    $rawElements = array();
-    $scriptElements = array();
-
-    foreach ($this->elements as $element) {
-      array_push($rawElements, $element->render($this->twig));
-      $script = $element->script();
-      if (!empty($script)){
-        array_push($scriptElements, $script);
-      }
-    }
-
-    return array('rawElements' => $rawElements,
-                 'scriptElements' => $scriptElements);
   }
 
   private function prepareTitle(){
@@ -83,67 +62,43 @@ class Renderer {
     $this->render();
   }
 
-  // page
-  public function add($element){
-    if (is_a($element, 'FormsEngine\Questions\Element\Title')){
-      $this->formTitle = $element;
-    }
-    $this->elements->add($element);
-  }
-
-  // PAGE ---
-  public function renderP(){
-    if (!$this->displayMessage()){
-      $pages = $this->prepareP();
-      // echo HTML Form
-      echo $this->twig->render('formP.html',
-                      ['pages' => $pages,
-                       'pagination' => $this->pagination->prepare()]);
-    }
-    else {
-      echo $this->twig->render('message.html',$this->prepareTitle());
-    }
-  }
-
-  private function prepareP(){
+  private function prepare(){
     $pages = array();
 
-    foreach ($this->pageElements as $element) {
-      array_push($pages, $element->prepareElements($this->twig));
+    foreach ($this->pages as $page) {
+      array_push($pages, $page->prepareElements($this->twig));
     }
 
     return $pages;
   }
 
-  public function addP($element){
+  public function add($element){
       // todo optionals
     if (is_a($element, 'FormsEngine\Questions\Element\Title')){
       $this->formTitle = $element;
     }
-    if (\sizeof($this->pageElements)==0){
-        $this->addPage(new Page());
+    else {
+        if (\sizeof($this->pages)==0){
+            $this->addPage(new Page());
+        }
+        $page = $this->pages->first();
+        $page->get()->add($element);
     }
-    $page = $this->pageElements->first();
-    $page->get()->add($element);
   }
 
   public function addPage($page){
       if (\is_a($page, 'FormsEngine\Questions\Pagination\Page')){
-        $this->pageElements->add($page);
+        $this->pages->add($page);
       }
   }
-  // END PAGE ---
 
   // todo check if formTitle alread set -> only one title allowed!!
-  // todo no addTitle Element in Pages!!
   public function addTitle($title, $description=null){
-    if (is_a($element, 'FormsEngine\Questions\Element\Title')){
+    if (\is_a($element, 'FormsEngine\Questions\Element\Title')){
       $this->formTitle = new Title($title, $description);
-      $this->add($this->formTitle);
     }
   }
 
-  // page
   public function addRequired($element){
     $element->required();
     $this->add($element);
@@ -155,23 +110,31 @@ class Renderer {
     $this->twig = new \Twig\Environment($loader);
   }
 
-  // todo -> page
   public function serialize() {
     $serialization = array();
-    foreach ($this->elements as $element) {
-      \array_push($serialization, $element->serialize());
+    if (!\empty($this->formTitle)){
+        $serialization['formTitle'] = $this->formTitle->serialize();
+    }
+    foreach ($this->pages as $page) {
+      \array_push($serialization['pages'], $page->serialize());
     }
     return \json_encode($serialization);
   }
 
-  // todo -> page
   public function deserialize($string){
     $serialization = \json_decode($string);
-    foreach ($serialization as $element) {
-      $class = 'FormsEngine\Questions\Element\\'.ucfirst($element->type);
-      $instance = $class::deserialize($element);
+    if (!\empty($serialization['formTitle'])){
+        $class = 'FormsEngine\Questions\Element\Title\\');
+        $instance = $class::deserialize($serialization['formTitle']);
+        if (is_object($instance)){
+            $this->formTitle = $instance;
+        }
+    }
+    foreach ($serialization['pages'] as $page) {
+      $class = 'FormsEngine\Questions\Pagination\Page\\');
+      $instance = $class::deserialize($page);
       if (is_object($instance)){
-        $this->add($instance);
+        $this->addPage($instance);
       }
     }
   }

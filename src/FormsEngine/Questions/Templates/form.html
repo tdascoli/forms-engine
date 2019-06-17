@@ -1,5 +1,7 @@
 <form method="post">
-  {{ include('page.html') }}
+  {% for page in pages %}
+    {{ include('page.html') }}
+  {% endfor %}
 </form>
 {% if scripts %}
   {{ include('scripts.html') }}

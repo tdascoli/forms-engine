@@ -11,7 +11,6 @@ class Page {
     $this->elements = new Sequence();
   }
 
-  // todo render?
   public function prepareElements($twig) {
     $rawElements = array();
     $scriptElements = array();
@@ -29,12 +28,10 @@ class Page {
   }
 
   public function add($element){
-    /* todo
-    if (is_a($element, 'FormsEngine\Questions\Element\Title')){
-      $this->formTitle = $element;
+      // todo throw/log
+    if (!is_a($element, 'FormsEngine\Questions\Element\Title')){
+        $this->elements->add($element);
     }
-    */
-    $this->elements->add($element);
   }
 
   public function addRequired($element){
