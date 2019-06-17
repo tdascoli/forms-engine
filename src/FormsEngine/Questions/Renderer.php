@@ -124,7 +124,7 @@ class Renderer {
   public function deserialize($string){
     $serialization = \json_decode($string);
     if ($serialization['formTitle'] != null){
-        $class = 'FormsEngine\Questions\Element\Title\\');
+        $class = 'FormsEngine\Questions\Element\Title\\';
         $instance = $class::deserialize($serialization['formTitle']);
         if (is_object($instance)){
             $this->formTitle = $instance;
