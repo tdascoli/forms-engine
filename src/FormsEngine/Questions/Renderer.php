@@ -96,6 +96,9 @@ class Renderer {
     if (!$this->displayMessage()){
       $pages = $this->prepareP();
 
+
+    var_dump($pages);
+
       // echo HTML Form
       echo $this->twig->render('formP.html',
                       ['pages' => $pages,
@@ -108,6 +111,8 @@ class Renderer {
 
   private function prepareP(){
     $pages = array();
+
+    var_dump($this->pageElements);
 
     foreach ($this->pageElements as $element) {
       array_push($pages, $element->prepareElements($this->twig));
