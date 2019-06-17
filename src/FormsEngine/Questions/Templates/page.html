@@ -6,3 +6,6 @@
     {{ element|raw }}
 {% endfor %}
 </fieldset>
+{% if page.scripts %}
+  {{ include('scripts.html') }}
+{% endif %}

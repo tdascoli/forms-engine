@@ -1,6 +1,6 @@
 <script>
   $(document).ready(function() {
-  {% for script in scripts %}
+  {% for script in page.scripts %}
     {{ script|raw }}
   {% endfor %}
   });
