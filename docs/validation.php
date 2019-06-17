@@ -6,8 +6,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-use FormsEngine\FormsEngine as FormsEngine;
-use FormsEngine\Questions\Element as Element;
+use FormsEngine\FormsEngine;
+use FormsEngine\Questions\Element;
+use FormsEngine\Questions\Pagination\Page;
 
 $engine = new FormsEngine();
 
