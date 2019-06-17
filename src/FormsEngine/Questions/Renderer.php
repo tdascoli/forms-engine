@@ -31,8 +31,6 @@ class Renderer {
 
     $title = $this->prepareTitle();
 
-    var_dump($title);
-
     if (!$this->displayMessage()){
       $pages = $this->prepare();
 
@@ -47,11 +45,9 @@ class Renderer {
   }
 
   private function prepareTitle(){
-    //$title = array('formTitle' => '');
     $title = '';
     if ($this->formTitle!=null){
       $title = $this->formTitle->render($this->twig);
-      //['formTitle']
     }
     return $title;
   }
