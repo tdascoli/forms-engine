@@ -112,7 +112,7 @@ class Renderer {
 
   public function serialize() {
     $serialization = array();
-    if (!\empty($this->formTitle)){
+    if ($this->formTitle != null){
         $serialization['formTitle'] = $this->formTitle->serialize();
     }
     foreach ($this->pages as $page) {
