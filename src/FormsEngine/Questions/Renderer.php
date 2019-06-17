@@ -23,12 +23,7 @@ class Renderer {
     $this->pagination = new Pagination();
   }
 
-  // todo set dir??
-  public function render($dir=null){
-    if ($dir!=null){
-      $this->setTemplateDir($dir);
-    }
-
+  public function render(){
     $title = $this->prepareTitle();
 
     if (!$this->displayMessage()){

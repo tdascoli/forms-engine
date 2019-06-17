@@ -9,25 +9,18 @@ $( document ).ready(function() {
   render();
 
   function render(){
-    console.log(pagination.page, pagination.pagesize);
+    $('#next').show();
+    $('#back').show();
+    $('#submit').show();
+
     if (pagination.page === pagination.pagesize){
       $('#next').hide();
-      $('#submit').show();
       if (pagination.pagesize === 1){
         $('#back').hide();
       }
-      else {
-        $('#back').show();
-      }
     }
     else if (pagination.page === 1){
-      $('#next').show();
       $('#back').hide();
-      $('#submit').hide();
-    }
-    else {
-      $('#next').show();
-      $('#back').show();
     }
 
     $('fieldset.forms-engine__page').each(function(){
@@ -48,6 +41,10 @@ $( document ).ready(function() {
   $('#back').click(function(){
     var back = pagination.page - 1;
     pagination.page = back;
+  });
+
+  $('.to--page').click(function(){
+    pagination.page = $(this).data('page');
   });
 
   //watcher

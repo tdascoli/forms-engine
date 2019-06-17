@@ -10,6 +10,8 @@
     * own project: forms-engine-wizard
 * add if/else functionalities for fields/elements
 * ~~add paging (Abschnitt)~~ (and if/else)
+  * static pagination
+  * how to deliver pagination JS?
 * ~~make "CompleteHandler"~~ -> what to do after submit?? -> wrapper!! see arch.md
 * refactoring Renderer Class
 
@@ -83,3 +85,4 @@
 * refactoring according bestpractices:
   * http://bestpractices.thecodingmachine.com/php/design_beautiful_classes_and_methods.html
 * Optionals: https://github.com/schmittjoh/php-option/blob/master/src/PhpOption/Some.php
+* unit tests
