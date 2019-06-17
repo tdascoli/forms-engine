@@ -1,7 +1,16 @@
 <form method="post">
-  {% for page in pages %}
-    {{ include('page.html') }}
-  {% endfor %}
+    <div class="card mb-3">
+        <div class="card-body">
+            {{ formTitle|raw }}
+
+            {% for page in pages %}
+                {{ include('page.html') }}
+            {% endfor %}
+        </div>
+        {% if pagination.active %}
+            {{ include('pagination.html') }}
+        {% endif %}
+    </div>
 </form>
 {% if scripts %}
   {{ include('scripts.html') }}

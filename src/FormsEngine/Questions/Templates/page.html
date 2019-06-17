@@ -1,12 +1,3 @@
-<div class="card mb-3">
-  <div class="card-body">
-    {{ formTitle|raw }}
-
-    {% for element in page.elements %}
-      {{ element|raw }}
-    {% endfor %}
-  </div>
-  {% if pagination.active %}
-    {{ include('pagination.html') }}
-  {% endif %}
-</div>
+{% for element in page.elements %}
+    {{ element|raw }}
+{% endfor %}
