@@ -112,8 +112,6 @@ class Renderer {
   private function prepareP(){
     $pages = array();
 
-    var_dump($this->pageElements);
-
     foreach ($this->pageElements as $element) {
       array_push($pages, $element->prepareElements($this->twig));
     }
