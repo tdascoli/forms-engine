@@ -52,7 +52,7 @@
 * export functionalities (naming?)
     * json
     * xml
-    * ~~csv~~
+    * ~~csv~~ - add titles
     * ~~plaintext (no)~~
     * xlsx
     * email
