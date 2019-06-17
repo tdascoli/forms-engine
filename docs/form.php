@@ -64,6 +64,9 @@ $r = $engine->renderer();
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/js/material.min.js"></script>
 
+    <!-- FormsEngine JS + deps -->
+    <script src="https://cdn.jsdelivr.net/npm/melanke-watchjs@1.5.0/src/watch.min.js"></script>
+    <script src="js/formsEngine.pagination.js"></script>
 </head>
 <body>
 

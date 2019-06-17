@@ -1,4 +1,8 @@
-<form method="post">
+<form
+  method="post"
+  class="forms-engine__form"
+  data-page="{{ pagination.index }}"
+  data-pagesize="{{ pagination.pagesize }}">
     <div class="card mb-3">
         <div class="card-body">
             {{ formTitle|raw }}

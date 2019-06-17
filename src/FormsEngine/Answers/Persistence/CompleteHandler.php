@@ -6,6 +6,7 @@ class CompleteHandler extends Persistence {
   /** @var string */
   private $persistenceType;
 
+  // todo when pagination not last, not persist save values in session
   public function save(){
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){

@@ -21,6 +21,8 @@ class Pagination {
 
     $this->pagesize = 0;
     $this->index = 0;
+
+    // ?? get page ??
   }
 
   public function prepare($pagesize){

@@ -1,4 +1,7 @@
-<fieldset>
+<fieldset
+  class="forms-engine__page"
+  data-page="{{ loop.index }}"
+  data-page-index="{{ loop.index0 }}">
 {% for element in page.elements %}
     {{ element|raw }}
 {% endfor %}
