@@ -9,8 +9,8 @@
     * ~~maybe FormsEngine\Wizard and FormsEngine\Presentation or F..E..\Public~~
     * own project: forms-engine-wizard
 * add if/else functionalities for fields/elements
-* add paging (Abschnitt) (and if/else)
-* make "CompleteHandler" -> what to do after submit?? -> wrapper!! see arch.md
+* ~~add paging (Abschnitt)~~ (and if/else)
+* ~~make "CompleteHandler"~~ -> what to do after submit?? -> wrapper!! see arch.md
 * refactoring Renderer Class
 
 ### Element
@@ -51,7 +51,7 @@
     * ~~csv~~
     * ~~plaintext (no)~~
     * xlsx
-    * other?
+    * email
 * online "viewer"? (github.com/myliang/x-spreadsheet)
 * Persist: only POST or default JS/Binding
 * Persist: JS/Binding -> needs work!
