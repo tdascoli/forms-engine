@@ -32,7 +32,7 @@ class Renderer {
     if (!$this->displayMessage()){
       $pages = $this->prepare();
 
-      echo $this->twig->render('formP.html',
+      echo $this->twig->render('form.html',
                       ['pages' => $pages,
                        'pagination' => $this->pagination->prepare(),
                         $this->prepareTitle()]);
