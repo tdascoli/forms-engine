@@ -120,6 +120,7 @@ class Renderer {
     if (is_a($element, 'FormsEngine\Questions\Element\Title')){
       $this->formTitle = $element;
     }
+    var_dump(sizeof($this->pageElements));
     if (\sizeof($this->pageElements)==0){
         $this->addPage(new Page());
     }
