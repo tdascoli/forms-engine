@@ -131,7 +131,7 @@ class Renderer {
         }
     }
     foreach ($serialization['pages'] as $page) {
-      $class = 'FormsEngine\Questions\Pagination\Page\\');
+      $class = 'FormsEngine\Questions\Pagination\Page\\';
       $instance = $class::deserialize($page);
       if (is_object($instance)){
         $this->addPage($instance);
