@@ -37,7 +37,7 @@
 * ~~Paragraph!!! needs work~~
 * Paragraph: check if tinymce, ckeditor or markdown??
 * Paragraph: when markdown, make own element?
-* ~~Title~~ - has to be first, always! -> Form Title
+* ~~Title - has to be first, always! -> Form Title~~
 * ~~autocomplete -> like select except its a autocompleter~~
 * ~~autocomplete: check option class?~~
   * ~~https://stackoverflow.com/questions/49324366/bootstrap-4-typeahead~~

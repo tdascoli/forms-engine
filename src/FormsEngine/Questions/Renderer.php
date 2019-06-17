@@ -88,10 +88,12 @@ class Renderer {
       }
   }
 
-  // todo check if formTitle alread set -> only one title allowed!!
   public function addTitle($title, $description=null){
-    if (\is_a($element, 'FormsEngine\Questions\Element\Title')){
-      $this->formTitle = new Title($title, $description);
+    // todo throw/log
+    if ($this->formTitle == null){
+      if (\is_a($element, 'FormsEngine\Questions\Element\Title')){
+        $this->formTitle = new Title($title, $description);
+      }
     }
   }
 
