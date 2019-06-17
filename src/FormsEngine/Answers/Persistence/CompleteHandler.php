@@ -11,6 +11,8 @@ class CompleteHandler extends Persistence {
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){
       if (!$_SESSION['hasSubmitted']){
+        // wrap $_POST or whatever with form data (not saving unnecessary data
+        // like submit or other)
         $this->persist($_POST, $this->getPersistenceType());
         $_SESSION['hasSubmitted'] = true;
       }
