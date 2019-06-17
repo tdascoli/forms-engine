@@ -21,9 +21,8 @@ $p->add(new Element\Title('test title'));
 $p->add(new Element\Email('new label','','helptext'));
 $p->add(new Element\Date('test date'));
 $p->add(new Element\DateTime('test datetime','placeholder'));
+$p->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 
-$options = array('first','second','third','fourth');
-$p->add(new Element\Typeahead('typeahead',$options,'placeholder','helptext to show'));
 $r->addPage($p);
 
 ?>
