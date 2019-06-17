@@ -16,6 +16,7 @@ $r = $engine->renderer();
 // todo addTitle() Shortcut
 // shortcut, when only one page or first page
 // $r->add(...); -> adds element to first page
+/*
 $p = new Page();
 $p->add(new Element\Title('test title'));
 $p->add(new Element\Email('new label','','helptext'));
@@ -24,7 +25,12 @@ $p->add(new Element\DateTime('test datetime','placeholder'));
 $p->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 
 $r->addPage($p);
-
+*/
+$r->addP(new Element\Title('test title'));
+$r->addP(new Element\Email('new label','','helptext'));
+$r->addP(new Element\Date('test date'));
+$r->addP(new Element\DateTime('test datetime','placeholder'));
+$r->addP(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 ?>
 <!DOCTYPE html>
 <html lang="de">
