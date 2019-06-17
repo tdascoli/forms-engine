@@ -120,7 +120,7 @@ class Renderer {
     foreach ($this->pages as $page) {
       \array_push($serialization['pages'], $page->serialize());
     }
-    return $serialization;
+    return \json_encode($serialization);
   }
 
   public function deserialize($string){

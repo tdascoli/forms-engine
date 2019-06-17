@@ -44,7 +44,7 @@ class Page {
     foreach ($this->elements as $element) {
       \array_push($serialization, $element->serialize());
     }
-    return \json_encode($serialization);
+    return $serialization;
   }
 
   public function deserialize($string){
