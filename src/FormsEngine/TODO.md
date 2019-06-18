@@ -45,6 +45,7 @@
   * ~~https://stackoverflow.com/questions/49324366/bootstrap-4-typeahead~~
   * Option: remove selected?
 * other?
+* move templates to own package
 
 ## Answers
 
