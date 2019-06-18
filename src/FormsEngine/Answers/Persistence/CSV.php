@@ -1,24 +1,33 @@
 <?php
 namespace FormsEngine\Answers\Persistence;
 
+use \League\Csv\Reader;
 use \League\Csv\Writer;
+use FormsEngine\Config;
 
-class CSV {
-
-  // todo add titles!! config!
-  // todo check if static is apropriated
+class CSV extends Persistence {
 
   public static function persist($data){
     try {
-        $writer = Writer::createFromPath('file.csv', 'a+');
-        // todo check if file was created then add headers
-        if (1 > 1){
+        $file = self::prepareFile();
+        $writer = Writer::createFromPath($file['fileName'], 'a+');
+        if (!$file['hasHeaders']){
           $writer->insertOne(\array_keys($data));
         }
         $writer->insertOne($data);
     } catch (CannotInsertRecord $e) {
         $e->getRecords();
     }
+  }
+
+  private static function prepareFile(){
+    $file = Config::$name.'.csv';
+    $hasHeaders = false;
+    if (\file_exists($file)){
+      $reader = Reader::createFromPath($file, 'r');
+      $hasHeaders = (count($reader)>0);
+    }
+    return array('fileName' => $file, 'hasHeaders' => $hasHeaders);
   }
 }
 ?>

@@ -1,24 +1,29 @@
 <?php
 namespace FormsEngine\Answers\Persistence;
 
-class CompleteHandler extends Persistence {
+class CompleteHandler {
 
   /** @var string */
   private $persistenceType;
 
   // todo when pagination not last, not persist save values in session
-  public function save(){
+  public function save($elementKeys = null){
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){
       if (!$_SESSION['hasSubmitted']){
-        // wrap $_POST or whatever with form data (not saving unnecessary data
-        // like submit or other)
         $this->persist($_POST, $this->getPersistenceType());
         $_SESSION['hasSubmitted'] = true;
       }
     }
     else {
       $_SESSION['hasSubmitted'] = false;
+    }
+  }
+
+  private function persist($data, $type){
+    if (PersistenceType::isValid($type)){
+      $class = 'FormsEngine\Answers\Persistence\\'.$type;
+      $class::persist($data);
     }
   }
 
@@ -33,10 +38,6 @@ class CompleteHandler extends Persistence {
       return $this->persistenceType;
     }
     return PersistenceType::CSV()->getValue();
-  }
-
-  private function wrapper(){
-    // todo
   }
 
   public function isSubmitted(){

@@ -3,6 +3,7 @@ namespace FormsEngine\Questions;
 
 use PhpCollection\Map;
 use PhpCollection\Sequence;
+use FormsEngine\Config;
 use FormsEngine\Questions\Pagination\Page;
 use FormsEngine\Questions\Pagination\Pagination;
 use FormsEngine\Questions\Element\Title;
@@ -17,7 +18,7 @@ class Renderer {
   private $formTitle;
 
   public function __construct(){
-    $loader = new \Twig\Loader\FilesystemLoader(RenderConfig::$templateDir);
+    $loader = new \Twig\Loader\FilesystemLoader(Config::$templateDir);
     $this->twig = new \Twig\Environment($loader);
     $this->pages = new Sequence();
     $this->pagination = new Pagination();
@@ -47,7 +48,9 @@ class Renderer {
   }
 
   private function displayMessage(){
-    if (!isset($_SESSION['hasSubmitted']) OR !$_SESSION['hasSubmitted']){
+    if (!isset($_SESSION['hasSubmitted']) OR
+        !$_SESSION['hasSubmitted'] OR
+        !Config::$messageAfterSubmit){
       return false;
     }
     return true;
@@ -60,11 +63,9 @@ class Renderer {
 
   private function prepare(){
     $pages = array();
-
     foreach ($this->pages as $page) {
       array_push($pages, $page->prepareElements($this->twig));
     }
-
     return $pages;
   }
 
@@ -103,8 +104,8 @@ class Renderer {
   }
 
   public function setTemplateDir($dir){
-    RenderConfig::updateTemplateDir($dir);
-    $loader = new \Twig\Loader\FilesystemLoader(RenderConfig::$templateDir);
+    Config::updateTemplateDir($dir);
+    $loader = new \Twig\Loader\FilesystemLoader(Config::$templateDir);
     $this->twig = new \Twig\Environment($loader);
   }
 

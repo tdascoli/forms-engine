@@ -28,6 +28,14 @@ class Page {
                  'scripts' => $scriptElements);
   }
 
+  public function elementKeys(){
+    $keys = array();
+    foreach ($this->elements as $element) {
+      array_push($keys, $elements->type->getValue());
+    }
+    return $keys;
+  }
+
   public function add($element){
       // todo throw/log
     if (!is_a($element, 'FormsEngine\Questions\Element\Title')){
