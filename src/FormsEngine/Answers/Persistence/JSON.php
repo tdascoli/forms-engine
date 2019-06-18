@@ -4,7 +4,7 @@ namespace FormsEngine\Answers\Persistence;
 use \League\Csv\Writer;
 
 // todo JSON
-class JSON {
+class JSON abstract Persistence {
 
   public static function persist($data){
     try {

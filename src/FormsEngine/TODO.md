@@ -52,10 +52,10 @@
 * needs work...
 * export functionalities (naming?)
     * json
-    * xml
-    * ~~csv~~ - add titles
+    * xml (?)
+    * ~~csv - add titles~~
     * ~~plaintext (no)~~
-    * xlsx
+    * ~~xlsx~~
     * email
 * online "viewer"? (github.com/myliang/x-spreadsheet)
 * Persist: only POST or default JS/Binding

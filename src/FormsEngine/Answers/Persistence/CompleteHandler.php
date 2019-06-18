@@ -10,10 +10,10 @@ class CompleteHandler {
   public function save($elementKeys = null){
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){
-      if (!$_SESSION['hasSubmitted']){
+      //if (!$_SESSION['hasSubmitted']){
         $this->persist($_POST, $this->getPersistenceType());
         $_SESSION['hasSubmitted'] = true;
-      }
+      //}
     }
     else {
       $_SESSION['hasSubmitted'] = false;
@@ -37,7 +37,7 @@ class CompleteHandler {
     if (!empty($this->persistenceType)){
       return $this->persistenceType;
     }
-    return PersistenceType::CSV()->getValue();
+    return PersistenceType::XLSX()->getValue();
   }
 
   public function isSubmitted(){
