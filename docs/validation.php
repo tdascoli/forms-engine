@@ -14,14 +14,14 @@ $engine = new FormsEngine();
 
 $r = $engine->renderer();
 // Page 1
-$r->add(new Element\Title('test title'));
+$r->addRequired(new Element\Title('test title'));
 $r->add(new Element\Email('new label','','helptext'));
 $r->add(new Element\Date('test date'));
 $r->add(new Element\DateTime('test datetime','placeholder'));
 $r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 // Page 2
 $p = new Page();
-$p->add(new Element\Paragraph('test title2','Description'));
+$p->addRequired(new Element\Paragraph('test title2','Description'));
 $p->add(new Element\Text('new label','','helptext'));
 $p->add(new Element\YesNo('yesno'));
 $options = new Element\Option();
@@ -57,10 +57,12 @@ $r->addPage($p);
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/js/material.min.js"></script>
 
+    <!-- validation -->
+    <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.1/dist/parsley.min.js"></script>
+
     <!-- FormsEngine JS + deps -->
     <script src="https://cdn.jsdelivr.net/npm/melanke-watchjs@1.5.0/src/watch.min.js"></script>
     <script src="js/formsEngine.pagination.js"></script>
-
 </head>
 <body>
 
