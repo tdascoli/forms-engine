@@ -11,9 +11,9 @@
 * (/) add if/else functionalities for fields/elements
 * ~~add paging (Abschnitt)~~ (/)  (and if/else)
   * (/) static pagination
-  * refactoring template with elements?!
+  * (/) refactoring template with elements?!
   * (/) "create another" link
-  * how to deliver pagination JS?
+  * (?) how to deliver pagination JS?
 * ~~make "CompleteHandler"~~ -> what to do after submit?? -> wrapper!! see arch.md
 * (?) refactoring Renderer Class
 
@@ -57,7 +57,7 @@
     * ~~plaintext (no)~~
     * ~~xlsx~~
     * email
-* online "viewer"? (github.com/myliang/x-spreadsheet)
+* (/) online "viewer"? (github.com/myliang/x-spreadsheet)
 * (/) Persist: only POST or default JS/Binding
 * (/) Persist: JS/Binding -> watch.js
 * ~~Persist: no double submits~~
