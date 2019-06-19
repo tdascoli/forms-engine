@@ -45,7 +45,7 @@
   * ~~https://stackoverflow.com/questions/49324366/bootstrap-4-typeahead~~
   * Option: remove selected?
 * other?
-* move templates to own package
+* ~~move templates to own package~~
 
 ## Answers
 
@@ -61,12 +61,12 @@
 * Persist: only POST or default JS/Binding
 * Persist: JS/Binding -> watch.js
 * ~~Persist: no double submits~~
-* add "create another" link as Config
-* config: show message or form (check for refresh??)
+* ~~add "create another" link as Config~~
+* ~~config: show message or form (check for refresh??)~~
 
 ### Persistence
 
-* refactoring
+* ~~refactoring~~
 * how to implement own persistence? config!
 
 ## docs
@@ -76,8 +76,8 @@
 
 ## other
 
-* Config how to?
-  * add "all" vars in construct to config (check?)
+* ~~Config how to?~~
+  * ~~add "all" vars in construct to config (check?) -> (no)~~
 * I18n -> multilanguage!!!!
 * ~~FormsEngine -> Renderer (shortcut to new Renderer)~~
 * ~~add sessioning~~
