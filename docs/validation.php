@@ -21,8 +21,8 @@ $r->add(new Element\DateTime('test datetime','placeholder'));
 $r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 // Page 2
 $p = new Page();
-$p->addRequired(new Element\Paragraph('test title2','Description'));
-$p->add(new Element\Text('new label','','helptext'));
+$p->add(new Element\Paragraph('test title2','Description'));
+$p->addRequired(new Element\Text('new label','','helptext'));
 $p->add(new Element\YesNo('yesno'));
 $options = new Element\Option();
 $options->add('first',1);
