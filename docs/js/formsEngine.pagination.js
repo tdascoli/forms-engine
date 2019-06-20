@@ -14,7 +14,7 @@ $( document ).ready(function() {
     errorsContainer: function(ParsleyField) {
         return ParsleyField.$element.parents('.form-control');
     }
-    });
+  });
   // end config
 
   function navigateTo(index) {
