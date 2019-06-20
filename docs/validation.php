@@ -14,8 +14,8 @@ $engine = new FormsEngine();
 
 $r = $engine->renderer();
 // Page 1
-$r->addRequired(new Element\Title('test title'));
-$r->add(new Element\Email('new label','','helptext'));
+$r->add(new Element\Title('test title'));
+$r->addRequired(new Element\Email('new label','','helptext'));
 $r->add(new Element\Date('test date'));
 $r->add(new Element\DateTime('test datetime','placeholder'));
 $r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
