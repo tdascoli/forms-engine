@@ -1,0 +1,17 @@
+{
+  "title":"FormsEngine in english",
+  "pagination": {
+    "next":"Next",
+    "back":"Previous",
+    "reset":"Reset",
+    "submit":"Send"
+  },
+  "message": {
+    "stored":"Your data was stored."
+  },
+  "element": {
+    "select": {
+      "default":"-please choose-"
+    }
+  }
+}

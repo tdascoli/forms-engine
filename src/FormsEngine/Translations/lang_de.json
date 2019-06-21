@@ -1,0 +1,17 @@
+{
+  "title":"FormsEngine auf Deutsch",
+  "pagination": {
+    "next":"Weiter",
+    "back":"Zurück",
+    "reset":"Zurücksetzen",
+    "submit":"Senden"
+  },
+  "message": {
+    "stored":"Ihre Daten wurden gespeichert."
+  },
+  "element": {
+    "select": {
+      "default":"-bitte wählen-"
+    }
+  }
+}

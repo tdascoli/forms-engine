@@ -6,6 +6,9 @@ class Config {
   /** @var string */
   public static $templateDir = __DIR__ . '/Templates/';
 
+  /** @var string */
+  public static $langDir = __DIR__ . '/Translations/';
+
   // todo change to ajax
   /** @var string */
   public static $method = "post";
@@ -22,6 +25,11 @@ class Config {
   // todo check
   public static function updateTemplateDir($dir){
     $self::$templateDir = $dir;
+  }
+
+  // todo check
+  public static function updateLangDir($dir){
+    $self::$langDir = $dir;
   }
 
   // todo check

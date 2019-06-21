@@ -10,10 +10,7 @@
   ],
   "autoload": {
       "psr-4": {
-          "FormsEngine\\": "src/FormsEngine/",
-          "FormsEngine\\Answers\\": "src/FormsEngine/Answers",
-          "FormsEngine\\Renderer\\": "src/FormsEngine/Renderer",
-          "FormsEngine\\Questions\\": "src/FormsEngine/Questions"
+          "FormsEngine\\": "src/FormsEngine/"
       }
   },
     "require": {
@@ -23,6 +20,6 @@
         "twig/twig": "^2.0",
         "phpcollection/phpcollection": "^0.5.0",
         "league/csv": "^9.2",
-    "philipp15b/php-i18n": "^4.0"
+        "philipp15b/php-i18n": "^4.0"
     }
 }
