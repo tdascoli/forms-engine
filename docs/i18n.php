@@ -10,8 +10,6 @@ use FormsEngine\FormsEngine;
 use FormsEngine\Questions\Element;
 use FormsEngine\Translations\Translations;
 
-$i18n = new Translations();
-
 $engine = new FormsEngine();
 
 $r = $engine->renderer();
@@ -19,7 +17,11 @@ $r = $engine->renderer();
 $r->add(new Element\Title(L::title));
 $r->addRequired(new Element\Text('new label','','helptext'));
 $r->add(new Element\Text('label2','placeholder','helptext'));
-$r->add(new Element\Text('label3','placeholder','helptext'));
+$options = new Element\Option();
+$options->add('first',1);
+$options->add('second',2);
+$options->add('third',3);
+$r->add(new Element\Select('custom select',$options,true,'select helptext to show'));
 ?>
 <!DOCTYPE html>
 <html lang="de">

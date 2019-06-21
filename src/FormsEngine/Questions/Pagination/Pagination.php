@@ -1,6 +1,8 @@
 <?php
 namespace FormsEngine\Questions\Pagination;
 
+use FormsEngine\Translations\Translations;
+
 class Pagination {
 
   private $active;
@@ -9,6 +11,7 @@ class Pagination {
 
   private $pagesize;
   private $index;
+  private $translations;
 
   public function __construct($reset = false, $static = false){
     $this->active = true;
@@ -18,6 +21,15 @@ class Pagination {
     $this->pagesize = 0;
     $this->index = 0;
 
+    $i18n = new Translations();
+    $this->translations = array(
+      'back' => \L::pagination_back,
+      'next' => \L::pagination_next,
+      'reset' => \L::pagination_reset,
+      'submit' => \L::pagination_submit
+    );
+
+
     // ?? get page ??
   }
 
@@ -26,7 +38,7 @@ class Pagination {
     $pagination = array(
       'last' => $this->isLast(),
       'next' => $this->isNext(),
-      'back' => $this->isBack(),
+      'back' => $this->isBack()
     );
     return array_merge($pagination, \get_object_vars($this));
   }

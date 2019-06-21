@@ -1,8 +1,8 @@
 <div class="card-footer">
-  <button type="button" id="back" class="btn btn-secondary">Zurück</button>
-  <button type="button" id="next" class="btn btn-secondary">Weiter</button>
-  <button type="submit" id="submit" class="btn btn-primary">Senden</button>
+  <button type="button" id="back" class="btn btn-secondary">{{pagination.translations.back}}</button>
+  <button type="button" id="next" class="btn btn-secondary">{{pagination.translations.next}}</button>
+  <button type="submit" id="submit" class="btn btn-primary">{{pagination.translations.submit}}</button>
   {% if pagination.reset %}
-  <button type="reset" class="btn btn-light">Zurücksetzen</button>
+  <button type="reset" class="btn btn-light">{{pagination.translations.reset}}</button>
   {% endif %}
 </div>

@@ -2,6 +2,7 @@
 namespace FormsEngine\Questions\Element;
 
 use FormsEngine\Questions\Type;
+use FormsEngine\Translations\Translations;
 
 class Select extends Element {
 
@@ -11,13 +12,15 @@ class Select extends Element {
                               $options,
                               $nullable = false,
                               $helptext = null) {
+      $i18n = new Translations();
+
       parent::__construct($label);
       $this->type = Type::SELECT()->getValue();
       if ($options instanceof Option){
         $this->options = $options->all();
       }
       if ($nullable){
-        \array_unshift($this->options, Option::create('- bitte wählen -',''));
+        \array_unshift($this->options, Option::create(\L::element_select_default,''));
       }
       if ($helptext!=null){
         $this->helptext = $helptext;
