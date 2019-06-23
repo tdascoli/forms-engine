@@ -4,7 +4,8 @@
     "next":"Weiter",
     "back":"Zurück",
     "reset":"Zurücksetzen",
-    "submit":"Senden"
+    "submit":"Senden",
+    "createAnother":"Weitere Antwort senden"
   },
   "message": {
     "stored":"Ihre Daten wurden gespeichert."

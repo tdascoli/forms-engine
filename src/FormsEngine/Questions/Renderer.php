@@ -35,7 +35,12 @@ class Renderer {
                        'formTitle' => $title]);
     }
     else {
-      echo $this->twig->render('message.html',['formTitle' => $title]);
+      echo $this->twig->render('message.html',
+                      ['formTitle' => $title,
+                       'createAnother' => Config::$createAnother,
+                       'another' => array(
+                                      'link' => $_SERVER['REQUEST_URI'],
+                                      'text' => \L::pagination_createAnother)]);
     }
   }
 

@@ -2,6 +2,8 @@
   <div class="card-body">
     {{ formTitle|raw }}
     <p>Your data was stored.</p>
+    {% if createAnother %}
+        {{ include('create-another.html') }}
+    {% endif %}
   </div>
-  <!-- todo pagination -->
 </div>
