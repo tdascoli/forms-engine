@@ -15,8 +15,6 @@
         </div>
         {% if pagination.active and not pagination.static %}
             {{ include('pagination.html') }}
-        {% elseif pagination.active and pagination.static %}
-            {{ include('pagination-static.html') }}
         {% endif %}
     </div>
 </form>
