@@ -8,7 +8,6 @@ error_reporting(E_ALL);
 
 use FormsEngine\FormsEngine;
 use FormsEngine\Questions\Element;
-use FormsEngine\Translations\Translations;
 
 $engine = new FormsEngine();
 
@@ -50,6 +49,7 @@ $r->add(new Element\Select('custom select',$options,true,'select helptext to sho
 
     <!-- validation -->
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.1/dist/parsley.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.1/dist/i18n/de.js"></script>
 
     <!-- FormsEngine JS + deps -->
     <script src="https://cdn.jsdelivr.net/npm/melanke-watchjs@1.5.0/src/watch.min.js"></script>

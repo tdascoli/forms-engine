@@ -22,7 +22,4 @@ class Translations {
     $this->i18n->init();
   }
 }
-
-
-
 ?>

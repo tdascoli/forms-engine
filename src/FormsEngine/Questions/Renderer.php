@@ -1,7 +1,6 @@
 <?php
 namespace FormsEngine\Questions;
 
-use PhpCollection\Map;
 use PhpCollection\Sequence;
 use FormsEngine\Config;
 use FormsEngine\Questions\Pagination\Page;
