@@ -4,7 +4,7 @@ var Radio = Class({ extends: Element}, {
 
     __construct: function(name, value, name, checked = false){
     this.super('__construct', name);
-    this.type = 'RADIO';
+    this.type = Type.RADIO;
     this.value = value;
     this.name = name;
     this.checked = checked;

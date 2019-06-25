@@ -4,7 +4,7 @@ var Checkbox = Class({ extends: Element}, {
 
     __construct: function(name, value, checked = false){
     this.super('__construct', name);
-    this.type = 'CHECKBOX';
+    this.type = Type.CHECKBOX;
     this.value = value;
     this.checked = checked;
   }
