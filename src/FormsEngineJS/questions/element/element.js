@@ -49,6 +49,13 @@ var Element = Class({
 
   attr: function(attr, value){
     this.attributes.push({'attr':attr,'value':value});
+  },
+
+  bind: function(key, value){
+    if (!_.isEmpty(value)){
+      this[key] = value;
+    }
+    return this[key];
   }
 
 });
