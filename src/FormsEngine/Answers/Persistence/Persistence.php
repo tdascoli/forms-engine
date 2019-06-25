@@ -1,11 +1,9 @@
 <?php
 namespace FormsEngine\Answers\Persistence;
 
-abstract class Persistence {
+interface Persistence {
 
-  public static function persist($data){
-    echo 'implement method';
-  }
+  public static function persist($data);
 
 }
 ?>
