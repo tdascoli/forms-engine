@@ -8,6 +8,7 @@ abstract class Element extends AbstractElement {
   public function __construct($label,$placeholderLabel=false) {
       $this->setId($label);
       $this->setName($label);
+      // todo check $placeholderLabel??
       if (!$placeholderLabel){
           $this->label = $label;
       }
@@ -59,6 +60,7 @@ abstract class Element extends AbstractElement {
       $this->disabled = $disabled;
   }
 
+  // todo check inputmask -> v2?
   public function inputmask($mask,$type = 'mask'){
       $this->$inputmask = array('type' => $type, 'mask' => $mask);
   }

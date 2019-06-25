@@ -1,46 +1,54 @@
-// todo js-model or not? or knockout models...
-var Element = function(){
-  /** @var string */
-  this.id;
+var Element = Class({
 
-  /** @var string */
-  this.name;
+  id: '',
+  name: '',
+  label: '',
+  type: '',
+  placeholder: '',
+  helptext: '',
+  value: '',
+  required: false,
+  inputmask: [],
+  style: [],
+  attributes: [],
+  readonly: false,
+  disabled: false,
 
-  /** @var string */
-  this.label;
+  __construct: function(label) {
+    this.setId(label);
+    this.setName(label);
+    this.label = label;
+  },
 
-  /** @var FieldType */
-  this.type;
+  setId: function(id, isName = false){
+    this.id = _.camelCase(id);
+    if (isName){
+      this.setName(id);
+    }
+  },
 
-  /** @var string */
-  this.placeholder;
+  setName: function(name){
+      this.name = _.camelCase(name);
+  },
 
-  /** @var string */
-  this.helptext;
+  isRequired: function(){
+    this.required = true;
+  },
 
-  /** @var string */
-  this.value;
+  isDisabled: function(){
+    this.disabled = true;
+  },
 
-  /** @var boolean */
-  this.required;
+  isReadonly: function(){
+    this.readonly = true;
+  },
 
-  /** @var array */
-  this.inputmask;
+  addStyle: function(style){
+    this.style.push(style);
+  },
 
-  /** @var array */
-  this.style;
+  attr: function(attr, value){
+    this.attributes.push({'attr':attr,'value':value});
+  }
 
-  /** @var array */
-  this.attributes;
-
-  /** @var boolean */
-  this.readonly;
-
-  /** @var boolean */
-  this.disabled;
-};
-
-var Select = function(){
-  /** @var array */
-  this.options;
-};
+});
