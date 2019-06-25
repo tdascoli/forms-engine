@@ -1,6 +1,6 @@
 var Radio = Class({ extends: Element}, {
 
-    checked: false,
+    'public checked': false,
 
     __construct: function(name, value, name, checked = false){
     this.super('__construct', name);

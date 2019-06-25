@@ -1,6 +1,6 @@
 var Checkbox = Class({ extends: Element}, {
 
-    checked: false,
+    'public checked': false,
 
     __construct: function(name, value, checked = false){
     this.super('__construct', name);

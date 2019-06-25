@@ -1,7 +1,7 @@
 var Select = Class({ extends: Element }, {
 
-  options: [],
-  nullable: false,
+  'public options': [],
+  'public nullable': false,
 
   __construct: function(name, options, nullable = false, helptext = ''){
     this.super('__construct', name);

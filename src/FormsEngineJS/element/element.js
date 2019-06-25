@@ -1,18 +1,18 @@
 var Element = Class({
 
-  id: '',
-  name: '',
-  label: '',
-  type: '',
-  placeholder: '',
-  helptext: '',
-  value: '',
-  required: false,
-  inputmask: [],
-  style: [],
-  attributes: [],
-  readonly: false,
-  disabled: false,
+  'public id': '',
+  'public name': '',
+  'public label': '',
+  'public type': '',
+  'public placeholder': '',
+  'public helptext': '',
+  'public value': '',
+  'public required': false,
+  'public inputmask': [],
+  'public style': [],
+  'public attributes': [],
+  'public readonly': false,
+  'public disabled': false,
 
   __construct: function(label) {
     this.setId(label);
