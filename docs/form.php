@@ -6,38 +6,36 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-use FormsEngine\FormsEngine as FormsEngine;
-use FormsEngine\Questions\Renderer as Renderer;
-use FormsEngine\Questions\Element as Element;
-
-$t = new Renderer();
-$t->add(new Element\Title('test title','test description'));
-$t->add(new Element\Paragraph('title2','description 2'));
-$t->addRequired(new Element\Text('test label','placeholder','helptext'));
-$t->add(new Element\Email('new label','','helptext'));
-$t->add(new Element\Number('other label'));
-$t->add(new Element\Date('test date'));
-//$t->add(new Element\DateTime('test datetime','placeholder'));
-$t->add(new Element\Checkbox('custom checkbox label', true));
-$t->add(new Element\Radio('Yes (custom)', 'yes', 'yesno'));
-$t->add(new Element\Radio('No (custom)', 'no', 'yesno'));
-$t->add(new Element\YesNo('yesno2'));
-$t->add(new Element\YesNo('yesno3',true));
-
-$options = new Element\Option();
-$options->add('first',1);
-$options->add('second',2);
-$options->add('third',3);
-$t->add(new Element\Select('custom select',$options,true,'select helptext to show'));
-
-$t->add(new Element\Submit('send'));
-$t->add(new Element\Button('button'));
-$t->add(new Element\Reset('cancel'));
-$serializedString = $t->serialize();
+use FormsEngine\FormsEngine;
+use FormsEngine\Questions\Element;
+use FormsEngine\Questions\Pagination\Page;
 
 $engine = new FormsEngine();
 
 $r = $engine->renderer();
+// Page 1
+$r->add(new Element\Title('test title'));
+$r->addRequired(new Element\Email('new label','','helptext'));
+$r->add(new Element\Date('test date'));
+$r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
+// Page 2
+$p = new Page();
+$p->add(new Element\Paragraph('test title2','Description'));
+$p->addRequired(new Element\Text('new label','','helptext'));
+$p->add(new Element\YesNo('yesno'));
+$options = new Element\Option();
+$options->add('first',1);
+$options->add('second',2);
+$options->add('third',3);
+$p->add(new Element\Select('custom select',$options,true,'select helptext to show'));
+// add Page 2
+$r->addPage($p);
+
+$serializedString = $r->serialize();
+
+$e = new FormsEngine();
+
+$form = $e->renderer();
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -63,6 +61,9 @@ $r = $engine->renderer();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/js/material.min.js"></script>
+
+    <!-- validation -->
+    <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.1/dist/parsley.min.js"></script>
 
     <!-- FormsEngine JS + deps -->
     <script src="https://cdn.jsdelivr.net/npm/melanke-watchjs@1.5.0/src/watch.min.js"></script>
@@ -94,7 +95,7 @@ $r = $engine->renderer();
       <pre><?= $serializedString ?></pre>
     </p>
     <?php
-      $r->load($serializedString);
+      $form->load($serializedString);
     ?>
 </div>
 
