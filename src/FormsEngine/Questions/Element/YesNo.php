@@ -10,6 +10,7 @@ class YesNo extends ElementGroup {
   private $booleans;
 
   private $yesnoBooleans = array('Yes' => true,'No' => false);
+  // todo i18n
   private $yesnoStrings = array('Yes' => 'Ja','No' => 'Nein');
 
   public function __construct($name, $booleans = false) {
