@@ -25,11 +25,18 @@ class CompleteHandler {
       $class = 'FormsEngine\Answers\Persistence\\'.$type;
       $class::persist($data);
     }
+    else if (\class_exists($type)){
+      $class = $type;
+      $class::persist($data);
+    }
   }
 
   public function setPersistenceType($type){
     if ($type instanceof PersistenceType){
       $this->persistenceType = $type->getValue();
+    }
+    else if (\class_exists($type)){
+      $this->persistenceType = $type;
     }
   }
 
