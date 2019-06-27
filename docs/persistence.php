@@ -10,7 +10,7 @@ use FormsEngine\FormsEngine;
 use FormsEngine\Questions\Element;
 use Somewhere\Persistence\DBPersistence;
 
-$engine = new FormsEngine();
+$engine = new FormsEngine(false);
 
 $r = $engine->renderer();
 // Page 1
@@ -25,6 +25,7 @@ $r->add(new Element\Select('custom select',$options,true,'select helptext to sho
 
 $a = $engine->answers();
 $a->setPersistenceType('Somewhere\Persistence\DBPersistence');
+$a->save();
 ?>
 <!DOCTYPE html>
 <html lang="de">
