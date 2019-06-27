@@ -10,7 +10,8 @@
   ],
   "autoload": {
       "psr-4": {
-          "FormsEngine\\": "src/FormsEngine/"
+          "FormsEngine\\": "src/FormsEngine/",
+          "Somewhere\\Persistence\\": "docs/persistence/"
       }
   },
     "require": {
