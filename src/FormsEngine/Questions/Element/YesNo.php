@@ -2,6 +2,7 @@
 namespace FormsEngine\Questions\Element;
 
 use FormsEngine\Questions\Type;
+use FormsEngine\Translations\Translations;
 
 class YesNo extends ElementGroup {
 
@@ -10,10 +11,11 @@ class YesNo extends ElementGroup {
   private $booleans;
 
   private $yesnoBooleans = array('Yes' => true,'No' => false);
-  // todo i18n
-  private $yesnoStrings = array('Yes' => 'Ja','No' => 'Nein');
+  private $yesnoStrings = array('Yes' => \L::element_yesno_yes,'No' => \L::element_yesno_yes);
 
   public function __construct($name, $booleans = false) {
+      $i18n = new Translations();
+
       $this->type = Type::YESNO()->getValue();
       $this->name = $name;
       $this->booleans = $booleans;

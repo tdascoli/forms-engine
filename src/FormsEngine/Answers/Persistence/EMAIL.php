@@ -2,6 +2,7 @@
 namespace FormsEngine\Answers\Persistence;
 
 use FormsEngine\Config;
+use FormsEngine\Translations\Translations;
 use FormsEngine\Answers\Persistence\Persistence;
 use \PHPMailer\PHPMailer\PHPMailer;
 use \PHPMailer\PHPMailer\Exception;
@@ -9,6 +10,8 @@ use \PHPMailer\PHPMailer\Exception;
 class EMAIL implements Persistence {
 
   public static function persist($data){
+    $i18n = new Translations();
+
     $mail = new PHPMailer(true);
     try {
         //Recipients
@@ -17,13 +20,13 @@ class EMAIL implements Persistence {
 
         // Content
         $mail->isHTML(true);
-        $mail->Subject = 'New Data from FormsEngine';
+        $mail->Subject = \L::message_email_subject;
         $mail->Body    = \implode(','$data);
         $mail->AltBody = \implode(','$data);
 
         $mail->send();
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        echo \L::message_email_exception."{$mail->ErrorInfo}";
     }
   }
 }

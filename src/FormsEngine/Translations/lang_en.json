@@ -8,11 +8,19 @@
     "createAnother":"Send another answer"
   },
   "message": {
-    "stored":"Your data was stored."
+    "stored":"Your data was stored.",
+    "email": {
+      "subject":"New Data from FormsEngine",
+      "exception":"Message could not be sent. Mailer Error:"
+    }
   },
   "element": {
     "select": {
       "default":"-please choose-"
+    },
+    "yesno": {
+      "yes":"Yes",
+      "no":"No"
     }
   }
 }

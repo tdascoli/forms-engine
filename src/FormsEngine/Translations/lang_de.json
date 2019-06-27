@@ -8,11 +8,19 @@
     "createAnother":"Weitere Antwort senden"
   },
   "message": {
-    "stored":"Ihre Daten wurden gespeichert."
+    "stored":"Ihre Daten wurden gespeichert.",
+    "email": {
+      "subject":"Neue Daten von FormsEngine",
+      "exception":"Nachricht konnte nicht gesendet werden. Fehler:"
+    }
   },
   "element": {
     "select": {
       "default":"-bitte wählen-"
+    },
+    "yesno": {
+      "yes":"Ja",
+      "no":"Nein"
     }
   }
 }
