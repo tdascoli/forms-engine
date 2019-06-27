@@ -3,8 +3,8 @@ namespace FormsEngine\Answers\Persistence;
 
 use FormsEngine\Config;
 use FormsEngine\Answers\Persistence\Persistence;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+use \PHPMailer\PHPMailer\PHPMailer;
+use \PHPMailer\PHPMailer\Exception;
 
 class EMAIL implements Persistence {
 
