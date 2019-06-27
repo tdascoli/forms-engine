@@ -11,7 +11,6 @@ class CompleteHandler {
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){
       //if (!$_SESSION['hasSubmitted']){
-        var_dump($this->getPersistenceType());
         $this->persist($_POST, $this->getPersistenceType());
         $_SESSION['hasSubmitted'] = true;
       //}
@@ -22,21 +21,17 @@ class CompleteHandler {
   }
 
   private function persist($data, $type){
-      var_dump(\class_exists($type));
     if (PersistenceType::isValid($type)){
-        echo 'valid persistenceType';
       $class = 'FormsEngine\Answers\Persistence\\'.$type;
       $class::persist($data);
     }
     else if (\class_exists($type)){
-        echo 'class_exists persistenceType';
       $class = $type;
       $class::persist($data);
     }
   }
 
   public function setPersistenceType($type){
-      var_dump($type);
     if ($type instanceof PersistenceType){
       $this->persistenceType = $type->getValue();
     }
