@@ -5,7 +5,7 @@ use \League\Csv\Reader;
 use \League\Csv\Writer;
 use FormsEngine\Config;
 
-class CSV extends Persistence {
+class CSV implements Persistence {
 
   public static function persist($data){
     try {

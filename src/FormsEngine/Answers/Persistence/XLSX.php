@@ -8,7 +8,7 @@ use FormsEngine\Config;
 
 // todo
 
-class XLSX extends Persistence {
+class XLSX implements Persistence {
 
   public static function persist($data){
     $file = Config::$name.'.xlsx';
