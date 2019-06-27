@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5db4eaa453a408edf1fffe8a3ed951e",
+    "content-hash": "e276164cfa40b40745c3bbc4319d19fd",
     "packages": [
         {
             "name": "league/csv",
@@ -860,84 +860,6 @@
                 "templating"
             ],
             "time": "2019-06-18T15:37:11+00:00"
-        },
-        {
-            "name": "xp-forge/json",
-            "version": "v3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/xp-forge/json.git",
-                "reference": "23f081b51c07b96fcded755e46d651174c265d76"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/xp-forge/json/zipball/23f081b51c07b96fcded755e46d651174c265d76",
-                "reference": "23f081b51c07b96fcded755e46d651174c265d76",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0",
-                "xp-framework/core": "^9.0 | ^8.0 | ^7.0 | ^6.5"
-            },
-            "require-dev": {
-                "xp-framework/unittest": "^9.0 | ^8.0 | ^7.0 | ^6.5"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/main/php/autoload.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Reads and writes JSON to and from various input sources",
-            "homepage": "http://xp-framework.net/",
-            "keywords": [
-                "module",
-                "xp"
-            ],
-            "time": "2018-02-01T21:27:38+00:00"
-        },
-        {
-            "name": "xp-framework/core",
-            "version": "v9.8.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/xp-framework/core.git",
-                "reference": "84ee3874cd4499b594bc8afa0955c0f6b0128615"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/xp-framework/core/zipball/84ee3874cd4499b594bc8afa0955c0f6b0128615",
-                "reference": "84ee3874cd4499b594bc8afa0955c0f6b0128615",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0.0"
-            },
-            "suggest": {
-                "php": ">=7.1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/main/php/__xp.php",
-                    "src/main/resources/autoload.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "The XP framework is an all-purpose, object oriented PHP framework.",
-            "homepage": "http://xp-framework.net/",
-            "keywords": [
-                "framework",
-                "xp"
-            ],
-            "time": "2019-06-14T17:54:40+00:00"
         }
     ],
     "packages-dev": [],
