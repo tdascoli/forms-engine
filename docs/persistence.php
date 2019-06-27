@@ -24,7 +24,7 @@ $options->add('third',3);
 $r->add(new Element\Select('custom select',$options,true,'select helptext to show'));
 
 $a = $engine->answers();
-$a->setPersistenceType('Somewhere\Persistence\DBPersistence');
+$a->setPersistenceType('\Somewhere\Persistence\DBPersistence');
 $a->save();
 ?>
 <!DOCTYPE html>
