@@ -22,6 +22,8 @@ class Config {
   /** @var boolean */
   public static $createAnother = true;
 
+  public static $peristenceEmailTo = 'test@test.test';
+
   // todo check
   public static function updateTemplateDir($dir){
     $self::$templateDir = $dir;
@@ -55,6 +57,11 @@ class Config {
   // todo check
   public static function setCreateAnother($another){
     $self::$createAnother = $another;
+  }
+
+  // todo check
+  public static function setPersistenceEmailTo($email){
+    $self::$peristenceEmailTo = $email;
   }
 }
 ?>

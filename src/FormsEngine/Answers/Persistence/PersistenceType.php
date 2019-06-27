@@ -10,7 +10,8 @@ use MyCLabs\Enum\Enum;
 class PersistenceType extends Enum {
     const CSV       = 'CSV';
     const XLSX      = 'XLSX';
-    const JSON      = 'JSON';
+    const JSON      = 'JSON'; // todo
     const EMAIL     = 'EMAIL';
+    const MYSQL     = 'MYSQL'; // todo
 }
 ?>

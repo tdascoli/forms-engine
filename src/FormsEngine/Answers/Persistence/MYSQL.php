@@ -1,12 +1,12 @@
 <?php
-namespace Somewhere\Persistence;
+namespace FormsEngine\Answers\Persistence;
 
 use \FormsEngine\Answers\Persistence\Persistence;
 
-class DBPersistence implements Persistence {
+class MYSQL implements Persistence {
 
   public static function persist($data){
-    $mysqli = DBPersistence::connect();
+    $mysqli = MYSQL::connect();
     if (!$mysqli){
       echo 'ERROR Connect to DB.';
     }
