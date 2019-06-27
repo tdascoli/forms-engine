@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 use FormsEngine\FormsEngine;
 use FormsEngine\Questions\Element;
-use Somewhere\Persistence\DBPersistence;
+use Somewhere\Persistence\TestPersistence;
 
 $engine = new FormsEngine(false);
 
@@ -24,7 +24,7 @@ $options->add('third',3);
 $r->add(new Element\Select('custom select',$options,true,'select helptext to show'));
 
 $a = $engine->answers();
-$a->setPersistenceType('\Somewhere\Persistence\DBPersistence');
+$a->setPersistenceType('\Somewhere\Persistence\TestPersistence');
 $a->save();
 ?>
 <!DOCTYPE html>
