@@ -2,3 +2,4 @@ vendor/
 docs/*.csv
 docs/*.xlsx
 docs/langcache/
+composer.lock
