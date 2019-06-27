@@ -37,7 +37,7 @@ class CompleteHandler {
     if (!empty($this->persistenceType)){
       return $this->persistenceType;
     }
-    return PersistenceType::XLSX()->getValue();
+    return PersistenceType::CSV()->getValue();
   }
 
   public function isSubmitted(){
