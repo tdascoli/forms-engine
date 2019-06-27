@@ -36,6 +36,7 @@ class CompleteHandler {
   }
 
   public function setPersistenceType($type){
+      var_dump($type);
     if ($type instanceof PersistenceType){
       $this->persistenceType = $type->getValue();
     }

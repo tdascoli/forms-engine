@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 use FormsEngine\FormsEngine;
 use FormsEngine\Questions\Element;
-use Somewhere\Persistence;
+use Somewhere\Persistence\DBPersistence;
 
 $engine = new FormsEngine();
 
