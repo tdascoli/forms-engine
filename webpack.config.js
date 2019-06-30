@@ -4,14 +4,5 @@ module.exports = {
   mode: "production",
   output: {
     filename: "formsEngine.min.js"
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js?$/,
-        include: [path.resolve(__dirname, "./src/FormsEngineJS")],
-        loader: "babel-loader"
-      }
-    ]
   }
 };
