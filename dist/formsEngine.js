@@ -19,18 +19,6 @@ var Type = Enum('Type', {
   PARAGRAPH : 'paragraph'
 });
 
-var Checkbox = Class({ extends: Element}, {
-
-    'public checked': false,
-
-    __construct: function(label, value, checked = false){
-    this.super('__construct', label);
-    this.type = Type.CHECKBOX;
-    this.value = value;
-    this.checked = checked;
-  }
-});
-
 var Element = Class({
 
   'public id': '',
@@ -104,6 +92,37 @@ var ElementGroup = Class({
 
 });
 
+var Input = Class({ extends: Element}, {
+    __construct: function(label, placeholder = '', helptext = ''){
+    this.super('__construct', label);
+    if (!_.isEmpty(placeholder)){
+        this.placeholder = placeholder;
+    }
+    if (!_.isEmpty(helptext)){
+        this.helptext = helptext;
+    }
+  }
+});
+
+var Text = Class({ extends: Input}, {
+    __construct: function(label, placeholder = '', helptext = ''){
+    this.super('__construct', label, placeholder, helptext);
+    this.type = Type.TEXT;
+  }
+});
+
+var Checkbox = Class({ extends: Element}, {
+
+    'public checked': false,
+
+    __construct: function(label, value, checked = false){
+    this.super('__construct', label);
+    this.type = Type.CHECKBOX;
+    this.value = value;
+    this.checked = checked;
+  }
+});
+
 var Email = Class({ extends: Input}, {
     __construct: function(label, placeholder = '', helptext = ''){
     this.super('__construct', label, placeholder, helptext);
@@ -115,18 +134,6 @@ var Hidden = Class({ extends: Input}, {
     __construct: function(id){
     this.setId(id, true);
     this.type = Type.HIDDEN;
-  }
-});
-
-var Input = Class({ extends: Element}, {
-    __construct: function(label, placeholder = '', helptext = ''){
-    this.super('__construct', label);
-    if (!_.isEmpty(placeholder)){
-        this.placeholder = placeholder;
-    }
-    if (!_.isEmpty(helptext)){
-        this.helptext = helptext;
-    }
   }
 });
 
@@ -211,13 +218,6 @@ var Select = Class({ extends: Element }, {
     }
   }
 
-});
-
-var Text = Class({ extends: Input}, {
-    __construct: function(label, placeholder = '', helptext = ''){
-    this.super('__construct', label, placeholder, helptext);
-    this.type = Type.TEXT;
-  }
 });
 
 var Textarea = Class({ extends: Input}, {

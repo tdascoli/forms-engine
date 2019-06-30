@@ -12,9 +12,16 @@ function clean() {
   return del(["./dist/"]);
 }
 
+// achtung reihenfolge!
 function compressElements(){
   return (
-    gulp.src(['src/FormsEngineJS/questions/**/*'])
+    gulp.src([
+        'src/FormsEngineJS/questions/type.js',
+        'src/FormsEngineJS/questions/element/element.js',
+        'src/FormsEngineJS/questions/element/elementGroup.js',
+        'src/FormsEngineJS/questions/element/input.js',
+        'src/FormsEngineJS/questions/element/text.js',
+        'src/FormsEngineJS/questions/element/*'])
       .pipe(concat('formsEngine.js'))
       .pipe(gulp.dest('dist'))
       .pipe(minify({
