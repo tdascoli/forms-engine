@@ -1,45 +1,49 @@
 "use strict";
 
 // Load plugins
-const browsersync = require("browser-sync").create();
 const del = require("del");
-const eslint = require("gulp-eslint");
 const gulp = require("gulp");
-const plumber = require("gulp-plumber");
-const webpack = require("webpack");
-const webpackconfig = require("./webpack.config.js");
-const webpackstream = require("webpack-stream");
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const minify = require('gulp-minify');
 
 // Clean assets
 function clean() {
   return del(["./dist/"]);
 }
 
-// Lint scripts
-function scriptsLint() {
-  return gulp
-    .src(["./src/FormsEngineJS/**/*", "./gulpfile.js"])
-    .pipe(plumber())
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+function compressElements(){
+  return (
+    gulp.src(['src/FormsEngineJS/questions/**/*'])
+      .pipe(concat('formsEngine.js'))
+      .pipe(gulp.dest('dist'))
+      .pipe(minify({
+        ext:{
+            min:'.min.js'
+        },
+        noSource: true
+      }))
+      .pipe(gulp.dest('dist'))
+  );
 }
 
-// Transpile, concatenate and minify scripts
-function scripts() {
+function compressPagination(){
   return (
-    gulp
-      .src(["./src/FormsEngineJS/**/*"])
-      .pipe(plumber())
-      .pipe(webpackstream(webpackconfig, webpack))
-      // folder only, filename is specified in webpack config
-      .pipe(gulp.dest("./dist/"))
-      .pipe(browsersync.stream())
+    gulp.src(['src/FormsEngineJS/pagination/**/*'])
+      .pipe(concat('formsEngine.pagination.js'))
+      .pipe(gulp.dest('dist'))
+      .pipe(minify({
+        ext:{
+            min:'.min.js'
+        },
+        noSource: true
+      }))
+      .pipe(gulp.dest('dist'))
   );
 }
 
 // define complex tasks
-const js = gulp.series(scriptsLint, scripts);
+const js = gulp.series(compressElements, compressPagination);
 const build = gulp.series(clean, gulp.parallel(js));
 
 // export tasks
