@@ -18,5 +18,18 @@
   "bugs": {
     "url": "https://github.com/tdascoli/forms-engine/issues"
   },
-  "homepage": "https://github.com/tdascoli/forms-engine#readme"
+  "homepage": "https://github.com/tdascoli/forms-engine#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "gulp-minify": "^3.1.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^4.1.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-plumber": "^1.2.1",
+    "webpack": "^4.35.0",
+    "webpack-stream": "^5.2.1"
+  }
 }

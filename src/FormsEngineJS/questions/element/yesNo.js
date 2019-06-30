@@ -4,8 +4,8 @@ var YesNo = Class({ extends: ElementGroup}, {
   'public name': '',
   'public booleans': false,
 
-  'private yesnoBooleans' = { 'Yes' => true,'No' => false };
-  'private yesnoStrings' = { 'Yes' => 'Ja','No' => 'Nein' };
+  'private yesnoBooleans': { 'Yes': true,'No': false },
+  'private yesnoStrings': { 'Yes': 'Ja','No': 'Nein' },
 
     __construct: function(name, booleans){
     this.type = Type.YESNO;
