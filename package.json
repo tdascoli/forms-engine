@@ -1,7 +1,7 @@
 {
   "name": "forms-engine.js",
   "version": "0.0.1",
-  "description": "",
+  "description": "JS FormsEngine",
   "main": "index.js",
   "directories": {
     "doc": "docs"

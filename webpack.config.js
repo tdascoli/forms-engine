@@ -9,7 +9,7 @@ module.exports = {
     rules: [
       {
         test: /\.js?$/,
-        include: [path.resolve(__dirname, "./src/assets/js")],
+        include: [path.resolve(__dirname, "./src/FormsEngineJS")],
         loader: "babel-loader"
       }
     ]
