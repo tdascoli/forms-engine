@@ -22,7 +22,11 @@ $cb->add('first',1);
 $cb->add('second',2);
 $cb->add('third',3);
 $r->add(new Element\CheckboxGroup('Checkbox Group',$cb));
-$r->add(new Element\RadioGroup('Radio Group','test_radio_group', $cb));
+$cb2 = new Element\Option();
+$cb2->add('first2',1);
+$cb2->add('second2',2);
+$cb2->add('third2',3);
+$r->add(new Element\RadioGroup('Radio Group',$cb2));
 $r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 // Page 2
 $p = new Page();
