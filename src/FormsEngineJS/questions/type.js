@@ -16,5 +16,8 @@ var Type = Enum('Type', {
   TYPEAHEAD : 'typeahead',
 
   TITLE     : 'title',
-  PARAGRAPH : 'paragraph'
+  PARAGRAPH : 'paragraph',
+
+  CHECKBOX_GROUP  : 'checkbox_group',
+  RADIO_GROUP     : 'radio_group'
 });
