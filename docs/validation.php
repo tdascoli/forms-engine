@@ -15,9 +15,13 @@ $engine = new FormsEngine();
 $r = $engine->renderer();
 // Page 1
 $r->add(new Element\Title('test title'));
-$r->addRequired(new Element\Email('new label','','helptext'));
+$r->add(new Element\Email('new label','','helptext'));
 $r->add(new Element\Date('test date'));
-$r->add(new Element\DateTime('test datetime','placeholder'));
+$options = new Element\Option();
+$options->add('first',1);
+$options->add('second',2);
+$options->add('third',3);
+$r->add(new Element\CheckboxGroup('CheckboxGroup',$options));
 $r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 // Page 2
 $p = new Page();
