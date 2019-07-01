@@ -3,4 +3,3 @@ node_modules/
 docs/*.csv
 docs/*.xlsx
 docs/langcache/
-composer.lock
