@@ -126,7 +126,7 @@ class Renderer {
   }
 
   public function deserialize($serialization){
-    if (!\is_object($data)){
+    if (!\is_object($serialization)){
         $serialization = \json_decode($serialization);
     }
     if ($serialization->formTitle != null){
