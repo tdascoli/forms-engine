@@ -32,7 +32,7 @@ class Option {
     }
 
     $option = array(
-                'id' => $self::camelCase($label),
+                'id' => self::camelCase($label),
                 'value' => $value,
                 'label' => $label,
                 'selected' => $selectedValue
