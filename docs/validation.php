@@ -17,11 +17,11 @@ $r = $engine->renderer();
 $r->add(new Element\Title('test title'));
 $r->add(new Element\Email('new label','','helptext'));
 $r->add(new Element\Date('test date'));
-$options = new Element\Option();
-$options->add('first',1);
-$options->add('second',2);
-$options->add('third',3);
-$r->add(new Element\CheckboxGroup('CheckboxGroup',$options));
+$cb = new Element\Option();
+$cb->add('first',1);
+$cb->add('second',2);
+$cb->add('third',3);
+$r->add(new Element\CheckboxGroup('Checkbox Group',$cb));
 $r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 // Page 2
 $p = new Page();

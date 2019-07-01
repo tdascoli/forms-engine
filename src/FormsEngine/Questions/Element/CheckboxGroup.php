@@ -11,7 +11,9 @@ class CheckboxGroup extends Element {
   public function __construct($label, $options) {
     parent::__construct($label);
     $this->type = Type::CHECKBOX_GROUP()->getValue();
-    $this->options = $options;
+      if ($options instanceof Option){
+        $this->options = $options->all();
+      }
   }
 
 
