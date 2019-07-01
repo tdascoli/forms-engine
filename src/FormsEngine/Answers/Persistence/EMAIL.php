@@ -21,8 +21,8 @@ class EMAIL implements Persistence {
         // Content
         $mail->isHTML(true);
         $mail->Subject = \L::message_email_subject;
-        $mail->Body    = \implode(','$data);
-        $mail->AltBody = \implode(','$data);
+        $mail->Body    = \implode(',', $data);
+        $mail->AltBody = \implode(',', $data);
 
         $mail->send();
     } catch (Exception $e) {

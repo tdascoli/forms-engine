@@ -27,7 +27,7 @@ $options = new Element\Option();
 $options->add('first',1);
 $options->add('second',2);
 $options->add('third',3);
-$p->add(new Element\Select('custom select',$options,true,'select helptext to show'));
+$p->add(new Element\CheckboxGroup('CheckboxGroup',$options));
 // add Page 2
 $r->addPage($p);
 
@@ -66,7 +66,6 @@ $form = $e->renderer();
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.1/dist/parsley.min.js"></script>
 
     <!-- FormsEngine JS + deps -->
-    <script src="https://cdn.jsdelivr.net/npm/melanke-watchjs@1.5.0/src/watch.min.js"></script>
     <script src="js/formsEngine.pagination.js"></script>
 </head>
 <body>
