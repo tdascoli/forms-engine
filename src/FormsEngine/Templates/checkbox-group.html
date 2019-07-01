@@ -1,14 +1,14 @@
 <div class="form-group">
   <label for="{{ id }}">{{ label }}</label>
-  <div class="mb-2" id="{{ id }}">
+  <div class="mt-2" id="{{ id }}">
     {% for option in options %}
     <div class="custom-control custom-checkbox">
         <input
-        type="checkbox"
-        class="custom-control-input"
-        id="{{ option.id }}"
-        value="{{ option.value }}"
-        {% if option.selected %}checked="checked"{% endif %}>
+            type="checkbox"
+            class="custom-control-input"
+            id="{{ option.id }}"
+            value="{{ option.value }}"
+            {% if option.selected %}checked="checked"{% endif %}>
         <label class="custom-control-label" for="{{ option.id }}">{{ option.label }}</label>
     </div>
     {% endfor %}
