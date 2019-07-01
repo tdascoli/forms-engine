@@ -15,19 +15,18 @@ $engine = new FormsEngine();
 $r = $engine->renderer();
 // Page 1
 $r->add(new Element\Title('test title'));
-$r->addRequired(new Element\Email('new label','','helptext'));
-$r->add(new Element\Date('test date'));
+$r->add(new Element\Email('new label','','helptext'));
+$options = new Element\Option();
+$options->add('first',1);
+$options->add('second',2);
+$options->add('third',3);
+$r->add(new Element\CheckboxGroup('CheckboxGroup',$options));
 $r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 // Page 2
 $p = new Page();
 $p->add(new Element\Paragraph('test title2','Description'));
 $p->addRequired(new Element\Text('new label','','helptext'));
 $p->add(new Element\YesNo('yesno'));
-$options = new Element\Option();
-$options->add('first',1);
-$options->add('second',2);
-$options->add('third',3);
-$p->add(new Element\CheckboxGroup('CheckboxGroup',$options));
 // add Page 2
 $r->addPage($p);
 
