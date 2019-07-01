@@ -97,6 +97,10 @@ $form = $e->renderer();
     <h3 class="mt-3">FormsEngine</h3>
     <p>
       <pre><?= $serializedString ?></pre>
+      <ul>
+        <li>$serializedString isString <?= is_string($serializedString) ?></li>
+        <li>$serializedObject isObject <?= is_object($serializedObject) ?></li>
+      </ul>
     </p>
     <?php
       $form->load($serializedObject);
