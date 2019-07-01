@@ -11,7 +11,7 @@ class RadioGroup extends Element {
   public function __construct($label, $name, $options) {
     parent::__construct($label);
     $this->type = Type::RADIO_GROUP()->getValue();
-    $this->setName($name);
+    $this->name = $name;
       if ($options instanceof Option){
         $this->options = $options->all();
       }
