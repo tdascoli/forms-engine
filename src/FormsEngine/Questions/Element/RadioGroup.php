@@ -15,7 +15,7 @@ class RadioGroup extends Element {
         $this->name = $name;
     }
     if ($options instanceof Option){
-    $this->options = $options->all();
+        $this->options = $options->all();
     }
   }
 
