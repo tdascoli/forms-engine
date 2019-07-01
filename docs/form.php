@@ -36,6 +36,7 @@ $p->add(new Element\YesNo('yesno'));
 $r->addPage($p);
 
 $serializedString = $r->serialize();
+$serializedObject = \json_decode($serializedString);
 
 $e = new FormsEngine();
 
@@ -98,7 +99,7 @@ $form = $e->renderer();
       <pre><?= $serializedString ?></pre>
     </p>
     <?php
-      $form->load($serializedString);
+      $form->load($serializedObject);
     ?>
 </div>
 
