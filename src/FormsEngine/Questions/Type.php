@@ -27,6 +27,7 @@ class Type extends Enum {
     const TITLE     = 'title';
     const PARAGRAPH = 'paragraph';
 
-    const CHECKBOX_GROUP     = 'CheckboxGroup';
+    const CHECKBOX_GROUP  = 'CheckboxGroup';
+    const RADIO_GROUP     = 'RadioGroup';
 }
 ?>
