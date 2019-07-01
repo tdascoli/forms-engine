@@ -1,0 +1,23 @@
+{
+    "templateDir":"/Templates/",
+    "langDir":"/Translations/",
+    "form" : {
+        "name":"defaultForm",
+        "method":"post",
+        "messageAfterSubmit":true,
+        "createAnother":true,
+        "addTimestamp":false
+    },
+    "persistence" : {
+        "csv": {
+            "csvDir":"/"
+        },
+        "xlsx": {
+            "xlsxDir":"/"
+        },
+        "email": {
+            "emailTo":"test@test.test"
+        },
+        "externalConfigs": []
+    }
+}

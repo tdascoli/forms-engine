@@ -1,6 +1,7 @@
 <?php
 namespace FormsEngine;
 
+// refactoring
 class Config {
 
   /** @var string */
@@ -26,42 +27,42 @@ class Config {
 
   // todo check
   public static function updateTemplateDir($dir){
-    $self::$templateDir = $dir;
+    self::$templateDir = $dir;
   }
 
   // todo check
   public static function updateLangDir($dir){
-    $self::$langDir = $dir;
+    self::$langDir = $dir;
   }
 
   // todo check
   public static function asPost(){
-    $self::$method = Method::POST()->getValue();
+    self::$method = Method::POST()->getValue();
   }
 
   // todo check
   public static function asAjax(){
-    $self::$method = Method::AJAX()->getValue();
+    self::$method = Method::AJAX()->getValue();
   }
 
   // todo check
   public static function setName($formName){
-    $self::$name = $formName;
+    self::$name = $formName;
   }
 
   // todo check
   public static function updateMessageAfterSubmit($message){
-    $self::$messageAfterSubmit = $message;
+    self::$messageAfterSubmit = $message;
   }
 
   // todo check
   public static function setCreateAnother($another){
-    $self::$createAnother = $another;
+    self::$createAnother = $another;
   }
 
   // todo check
   public static function setPersistenceEmailTo($email){
-    $self::$peristenceEmailTo = $email;
+    self::$peristenceEmailTo = $email;
   }
 }
 ?>
