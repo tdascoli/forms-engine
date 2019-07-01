@@ -26,14 +26,14 @@ abstract class Element extends AbstractElement {
   }
 
   private function setId($id,$isName = false){
-    $this->id = $this::camelCase($id);
+    $this->id = self::camelCase($id);
     if ($isName){
       $this->setName($id);
     }
   }
 
   private function setName($name){
-    $this->name = $this::camelCase($name);
+    $this->name = self::camelCase($name);
   }
 
   private static function camelCase($str, array $noStrip = []){
