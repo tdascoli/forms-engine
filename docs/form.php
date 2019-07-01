@@ -16,11 +16,16 @@ $r = $engine->renderer();
 // Page 1
 $r->add(new Element\Title('test title'));
 $r->add(new Element\Email('new label','','helptext'));
-$options = new Element\Option();
-$options->add('first',1);
-$options->add('second',2);
-$options->add('third',3);
-$r->add(new Element\CheckboxGroup('CheckboxGroup',$options));
+$cb = new Element\Option();
+$cb->add('first',1);
+$cb->add('second',2);
+$cb->add('third',3);
+$r->add(new Element\CheckboxGroup('Checkbox Group',$cb));
+$cb2 = new Element\Option();
+$cb2->add('first2',1);
+$cb2->add('second2',2);
+$cb2->add('third2',3);
+$r->add(new Element\RadioGroup('Radio Group',$cb2));
 $r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
 // Page 2
 $p = new Page();
