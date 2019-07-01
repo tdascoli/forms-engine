@@ -5,16 +5,10 @@ use FormsEngine\Questions\AbstractElement;
 
 abstract class Element extends AbstractElement {
 
-  public function __construct($label,$placeholderLabel=false) {
+  public function __construct($label) {
       $this->setId($label);
       $this->setName($label);
-      // todo check $placeholderLabel??
-      if (!$placeholderLabel){
-          $this->label = $label;
-      }
-      else {
-          $this->placeholder = $label;
-      }
+      $this->placeholder = $label;
   }
 
   public function prepare(){

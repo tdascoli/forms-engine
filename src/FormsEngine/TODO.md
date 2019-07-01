@@ -10,10 +10,10 @@
     * ~~own project: forms-engine-wizard~~
 * (/) add if/else functionalities for fields/elements
 * ~~add paging (Abschnitt)~~ (/)  (and if/else)
-  * (/) static pagination
+  * ~~static pagination~~
   * (/) refactoring template with elements?!
-  * (/) "create another" link
-  * (?) how to deliver pagination JS?
+  * ~~"create another" link~~
+  * ~~how to deliver pagination JS?~~
 * ~~make "CompleteHandler"~~ -> what to do after submit?? -> wrapper!! see arch.md
 * (?) refactoring Renderer Class
 
@@ -33,7 +33,7 @@
 * ~~Button: reset~~
 * ~~rename Config to RenderConfig~~
 * ~~Element.class = maybe extend from AbstractField -> usable for other things as well (presentation, ...)~~
-* (?) JS -> how? see also Validation
+* ~~JS -> how? see also Validation~~
 * ~~attributes like: size, min, max, etc.~~
 * ~~textarea~~
 * ~~Paragraph!!! needs work~~
@@ -56,7 +56,7 @@
     * ~~csv - add titles~~
     * ~~plaintext (no)~~
     * ~~xlsx~~
-    * email
+    * ~~email~~
 * (/) online "viewer"? (github.com/myliang/x-spreadsheet)
 * (/) Persist: only POST or default JS/Binding
 * (/) Persist: JS/Binding -> watch.js
@@ -67,7 +67,7 @@
 ### Persistence
 
 * ~~refactoring~~
-* (/) how to implement own persistence? config!
+* ~~how to implement own persistence? config!~~
 
 ## docs
 
@@ -78,10 +78,10 @@
 
 * ~~Config how to?~~
   * ~~add "all" vars in construct to config (check?) -> (no)~~
-* (/) I18n -> multilanguage!!!!
+* ~~I18n -> multilanguage!!!!~~
 * ~~FormsEngine -> Renderer (shortcut to new Renderer)~~
 * ~~add sessioning~~
 * (/) refactoring according bestpractices:
   * http://bestpractices.thecodingmachine.com/php/design_beautiful_classes_and_methods.html
 * (/) Optionals: https://github.com/schmittjoh/php-option/blob/master/src/PhpOption/Some.php
-* unit tests
+* (/)unit tests

@@ -6,14 +6,13 @@ class CompleteHandler {
   /** @var string */
   private $persistenceType;
 
-  // todo when pagination not last, not persist save values in session
   public function save($elementKeys = null){
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){
-      //if (!$_SESSION['hasSubmitted']){
+      if (!$_SESSION['hasSubmitted']){
         $this->persist($_POST, $this->getPersistenceType());
         $_SESSION['hasSubmitted'] = true;
-      //}
+      }
     }
     else {
       $_SESSION['hasSubmitted'] = false;
