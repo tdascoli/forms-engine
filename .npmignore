@@ -1,4 +1,5 @@
 docs/
 src/
 vendor/
+node_modules/
 composer.json
