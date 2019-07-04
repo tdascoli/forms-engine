@@ -4,7 +4,7 @@ matrix:
       script: echo "skipping tests"
     - language: node_js
       before_script:
-          - npm install
+          - npm install --ignore-scripts
       script: gulp
 deploy:
     provider: npm
