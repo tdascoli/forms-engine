@@ -1,3 +1,14 @@
-language: php
-
-script: echo "skipping tests"
+matrix:
+  include:
+    - language: php
+      script: echo "skipping tests"
+    - language: nodejs
+      before_script:
+          - npm install -g gulp-cli
+      script: gulp
+deploy:
+    provider: npm
+    email: thomas@dasco.li
+    api_key: 8159c0d7-3c44-4e78-8143-4ba9ca562512
+    on:
+        tags: true
