@@ -2,7 +2,7 @@ matrix:
   include:
     - language: php
       script: echo "skipping tests"
-    - language: nodejs
+    - language: node_js
       before_script:
           - npm install -g gulp-cli
       script: gulp
