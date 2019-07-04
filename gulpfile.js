@@ -1,11 +1,11 @@
 "use strict";
 
 // Load plugins
-const del = require("del");
-const gulp = require("gulp");
-const concat = require('gulp-concat');
-const rename = require('gulp-rename');
-const minify = require('gulp-minify');
+var del = require("del");
+var gulp = require("gulp");
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var minify = require('gulp-minify');
 
 // Clean assets
 function clean() {

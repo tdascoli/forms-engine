@@ -16,7 +16,10 @@ var Type = Enum('Type', {
   TYPEAHEAD : 'typeahead',
 
   TITLE     : 'title',
-  PARAGRAPH : 'paragraph'
+  PARAGRAPH : 'paragraph',
+
+  CHECKBOX_GROUP  : 'checkbox_group',
+  RADIO_GROUP     : 'radio_group'
 });
 
 var Element = Class({
@@ -123,6 +126,17 @@ var Checkbox = Class({ extends: Element}, {
   }
 });
 
+var CheckboxGroup = Class({ extends: Element}, {
+
+    'public options': [],
+
+    __construct: function(label, options){
+        this.super('__construct', label);
+        this.type = Type.CHECKBOX_GROUP;
+        this.options = options;
+  }
+});
+
 var Email = Class({ extends: Input}, {
     __construct: function(label, placeholder = '', helptext = ''){
     this.super('__construct', label, placeholder, helptext);
@@ -200,6 +214,20 @@ var Radio = Class({ extends: Element}, {
     this.value = value;
     this.name = name;
     this.checked = checked;
+  }
+});
+
+var RadioGroup = Class({ extends: Element}, {
+
+    'public options': [],
+
+    __construct: function(label, options, name = undefined){
+        this.super('__construct', label);
+        this.type = Type.RADIO_GROUP;
+        this.options = options;
+        if (name !== undefined){
+            this.name = name;
+        }
   }
 });
 
