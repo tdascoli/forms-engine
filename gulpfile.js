@@ -50,8 +50,8 @@ function compressPagination(){
 }
 
 // define complex tasks
-const js = gulp.series(compressElements, compressPagination);
-const build = gulp.series(clean, gulp.parallel(js));
+var js = gulp.series(compressElements, compressPagination);
+var build = gulp.series(clean, gulp.parallel(js));
 
 // export tasks
 exports.js = js;
