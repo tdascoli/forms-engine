@@ -8,9 +8,3 @@ matrix:
       before_script:
           - npm install
       script: echo "skipping tests"
-deploy:
-    provider: npm
-    email: thomas@dasco.li
-    api_key: 8159c0d7-3c44-4e78-8143-4ba9ca562512
-    on:
-        tags: true
