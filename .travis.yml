@@ -7,7 +7,6 @@ matrix:
         - 0.10
       before_script:
           - npm install
-      script: gulp
 deploy:
     provider: npm
     email: thomas@dasco.li
