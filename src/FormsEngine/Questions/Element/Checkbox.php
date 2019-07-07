@@ -22,6 +22,8 @@ class Checkbox extends Element {
   public function prepare(){
     $vars = parent::prepare();
     $vars['checked'] = $this->checked;
+
+    var_dump($vars);
     return $vars;
   }
 

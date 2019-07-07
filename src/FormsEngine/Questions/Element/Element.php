@@ -8,7 +8,7 @@ abstract class Element extends AbstractElement {
   public function __construct($label) {
       $this->setId($label);
       $this->setName($label);
-      $this->placeholder = $label;
+      $this->label = $label;
   }
 
   public function prepare(){
