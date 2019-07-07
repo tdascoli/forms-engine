@@ -11,10 +11,8 @@ class API implements Load {
 
   public function load(){
     $serializedString='';
-    if (isset($_GET['form'])){
-      $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")."://{$_SERVER['HTTP_HOST']}/api/forms/{$_GET['form']}";
-
-      $response = \Httpful\Request::get($url)
+    if (isset($_GET[$this->config->get)){
+      $response = \Httpful\Request::get($this->config->url)
           ->expectsJson()
           ->send();
       $serializedString = json_encode($response->body);

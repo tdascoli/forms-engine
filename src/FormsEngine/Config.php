@@ -28,6 +28,8 @@ class Config {
   // api, cookie, session -> LoaderType
   public static $loader = 'COOKIE';
   public static $loaderConfig = array('cookie' => 'jsonForm');
+  // URL
+  //$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")."://{$_SERVER['HTTP_HOST']}/api/forms/{$_GET['form']}";
 
   // todo check
   public static function updateTemplateDir($dir){
