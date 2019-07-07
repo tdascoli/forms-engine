@@ -40,6 +40,9 @@ $p->add(new Element\YesNo('yesno'));
 $r->addPage($p);
 
 setcookie("jsonForm", $serializedString, time()+300);
+
+session_start();
+$_SESSION["sessionForm"] = $serializedString;
 ?>
 <!DOCTYPE html>
 <head>
@@ -61,7 +64,7 @@ setcookie("jsonForm", $serializedString, time()+300);
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/js/material.min.js"></script>
@@ -87,7 +90,10 @@ setcookie("jsonForm", $serializedString, time()+300);
                     <a class="nav-link" href="index.php">Documentation <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="form.php?form=test">Form</a>
+                    <a class="nav-link" href="form.php?form=test">Form (API)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="form.php">Form</a>
                 </li>
             </ul>
         </div>
@@ -102,7 +108,6 @@ setcookie("jsonForm", $serializedString, time()+300);
       <ul>
         <li>$serializedString isString <?= is_string($serializedString) ?></li>
         <li>$serializedObject isObject <?= is_object($serializedObject) ?></li>
-        <li>$_COOKIE['jsonForm'] isString <?= is_string($_COOKIE['jsonForm']) ?></li>
       </ul>
     </p>
     <?php
