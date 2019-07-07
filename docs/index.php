@@ -87,7 +87,7 @@ setcookie("jsonForm", $serializedString, time()+300);
                     <a class="nav-link" href="index.php">Documentation <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="form.php">Form</a>
+                    <a class="nav-link" href="form.php?form=test">Form</a>
                 </li>
             </ul>
         </div>

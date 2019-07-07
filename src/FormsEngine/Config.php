@@ -26,10 +26,17 @@ class Config {
   public static $peristenceEmailTo = 'test@test.test';
 
   // api, cookie, session -> LoaderType
+  /*
   public static $loader = 'COOKIE';
   public static $loaderConfig = array('cookie' => 'jsonForm');
+  */
   // URL
   //$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")."://{$_SERVER['HTTP_HOST']}/api/forms/{$_GET['form']}";
+  public static $loader = 'API';
+  public static $loaderConfig = array(
+    'url' => 'http://localhost:8000/api/forms/',
+    'get' => 'form');
+
 
   // todo check
   public static function updateTemplateDir($dir){
