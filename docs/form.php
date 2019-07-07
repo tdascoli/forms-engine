@@ -40,6 +40,7 @@ $form = $engine->renderer();
 
     <!-- FormsEngine JS -->
     <!-- pagination:js -->
+    <script src="js/formsEngine.pagination.js"></script>
     <!-- endinject -->
 </head>
 <body>

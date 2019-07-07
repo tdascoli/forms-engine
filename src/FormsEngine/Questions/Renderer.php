@@ -75,7 +75,6 @@ class Renderer {
       echo $this->twig->render('no-form.html',
                       ['message' => \L::message_noForm]);
     }
-    // todo message no form!!
   }
 
   private function prepare(){
