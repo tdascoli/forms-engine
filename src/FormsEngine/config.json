@@ -8,6 +8,13 @@
         "createAnother":true,
         "addTimestamp":false
     },
+    "render" : {
+        "load":"API",
+        "config": {
+          "url":"url",
+          "get":"form"
+        }
+    },
     "persistence" : {
         "csv": {
             "csvDir":"/"

@@ -3,9 +3,10 @@ namespace FormsEngine\Questions;
 
 use PhpCollection\Sequence;
 use FormsEngine\Config;
+use FormsEngine\Questions\Element\Title;
+use FormsEngine\Questions\Loader\Loader;
 use FormsEngine\Questions\Pagination\Page;
 use FormsEngine\Questions\Pagination\Pagination;
-use FormsEngine\Questions\Element\Title;
 
 // todo add/addRequired etc. make interface, also for Page
 
@@ -15,12 +16,14 @@ class Renderer {
   private $pages;
   private $pagination;
   private $formTitle;
+  private $loader;
 
   public function __construct(){
     $loader = new \Twig\Loader\FilesystemLoader(Config::$templateDir);
     $this->twig = new \Twig\Environment($loader);
     $this->pages = new Sequence();
     $this->pagination = new Pagination();
+    $this->loader = new Loader(Config::$loader, Config::$loaderConfig);
   }
 
   public function render(){
@@ -37,6 +40,7 @@ class Renderer {
     else {
       echo $this->twig->render('message.html',
                       ['formTitle' => $title,
+                       'message' => \L::message_stored,
                        'createAnother' => Config::$createAnother,
                        'another' => array(
                                       'link' => $_SERVER['REQUEST_URI'],
@@ -61,9 +65,17 @@ class Renderer {
     return true;
   }
 
-  public function load($deserializedForm){
-    $this->deserialize($deserializedForm);
-    $this->render();
+  public function load(){
+    $deserializedForm = $this->loader->load();
+    if (!empty($deserializedForm)){
+      $this->deserialize($deserializedForm);
+      $this->render();
+    }
+    else {
+      echo $this->twig->render('no-form.html',
+                      ['message' => \L::message_noForm]);
+    }
+    // todo message no form!!
   }
 
   private function prepare(){

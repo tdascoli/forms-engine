@@ -25,6 +25,10 @@ class Config {
 
   public static $peristenceEmailTo = 'test@test.test';
 
+  // api, cookie, session -> LoaderType
+  public static $loader = 'COOKIE';
+  public static $loaderConfig = array('cookie' => 'jsonForm');
+
   // todo check
   public static function updateTemplateDir($dir){
     self::$templateDir = $dir;

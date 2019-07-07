@@ -1,7 +1,7 @@
 <div class="card mb-3">
   <div class="card-body">
     {{ formTitle|raw }}
-    <p>Your data was stored.</p>
+    <p>{{ message|raw }}</p>
     {% if createAnother %}
         {{ include('create-another.html') }}
     {% endif %}
