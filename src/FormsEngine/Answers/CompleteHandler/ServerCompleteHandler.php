@@ -18,12 +18,9 @@ class ServerCompleteHandler extends PersistenceTypeHandler {
       $formId = $args['formId'];
       $body = $request->getBody();
       $form = json_decode($body);
-
       $this->persist($formId, (array) $form, $this->getPersistenceType());
-
       // todo error!!!
-
-      $response->getBody()->write('ok');
+      $response->withStatus(404);
       return $response;
     }
 

@@ -16,7 +16,7 @@ class Config {
 
   // todo change to ajax
   /** @var string */
-  public static $method = "post";
+  public static $method = "ajax";
 
   /** @var string */
   public static $name = "defaultForm";
