@@ -15,6 +15,7 @@ class FormsEngine {
     $this->answers = new Answers();
     $this->renderer = new Renderer();
     $this->translations = new Translations();
+    // and method != ajax!!
     if ($autosave){
       $this->answers->save();
     }
