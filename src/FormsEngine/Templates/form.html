@@ -1,6 +1,6 @@
 <form
-  {% if method =='post' %}method="post"{% endif %}
-  {% if method != 'post' %}action="/api/record/test"{% endif %}
+  {% if method == 'post' %}method="post"{% endif %}
+  {% if method == 'ajax' %}action="/api/record/test"{% endif %}
   id="{{ formName }}"
   class="forms-engine__form"
   novalidate>
@@ -17,3 +17,6 @@
         {% endif %}
     </div>
 </form>
+{% if method == 'ajax' %}
+  {{ include('message.html') }}
+{% endif %}

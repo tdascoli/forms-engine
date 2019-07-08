@@ -18,22 +18,29 @@ $( document ).ready(function() {
     };
   })(jQuery);
 
-  $('.forms-engine__form').submit(function( event ) {
+  $('.forms-engine__message').hide();
+
+  $('.forms-engine__form').submit(function(event) {
     event.preventDefault();
     var data = $(this).serializeFormJSON();
+    var url = $(this).attr("action");
+
     $.ajax({
         contentType: 'application/json',
         data: JSON.stringify(data),
-        success: function(data){
-            alert("device control succeeded");
-        },
+        success: onSuccess(),
         error: function(){
             alert("Device control failed");
         },
         processData: false,
         type: 'PUT',
-        url: '/api/record/test'
+        url: url
     });
   });
+
+  function onSuccess(){
+    $('.forms-engine__form').hide();
+    $('.forms-engine__message').show();
+  }
 
 });

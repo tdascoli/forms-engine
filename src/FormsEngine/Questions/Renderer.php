@@ -36,7 +36,12 @@ class Renderer {
                        'method' => Config::$method,
                        'pagination' => $this->pagination->prepare(\sizeof($this->pages)),
                        'formName' => Config::$name,
-                       'formTitle' => $title]);
+                       'formTitle' => $title,
+                       'message' => \L::message_stored,
+                       'createAnother' => Config::$createAnother,
+                       'another' => array(
+                                      'link' => $_SERVER['REQUEST_URI'],
+                                      'text' => \L::pagination_createAnother)]);
     }
     else {
       echo $this->twig->render('message.html',
