@@ -46,7 +46,6 @@ $r->addPage($p);
 
 setcookie("jsonForm", $serializedString, time()+300);
 
-session_start();
 $_SESSION["sessionForm"] = $serializedString;
 ?>
 <!DOCTYPE html>

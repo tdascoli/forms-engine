@@ -2,6 +2,7 @@
 namespace FormsEngine\Answers\CompleteHandler;
 
 use FormsEngine\Config;
+use FormsEngine\Answers\Persistence\PersistenceType;
 
 class CompleteHandler {
 
@@ -11,7 +12,7 @@ class CompleteHandler {
   public function save($elementKeys = null){
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){
-      if (!$_SESSION['hasSubmitted']){
+      if (isset($_SESSION['hasSubmitted']) && !$_SESSION['hasSubmitted']){
         $this->persist($_POST, $this->getPersistenceType());
         $_SESSION['hasSubmitted'] = true;
       }

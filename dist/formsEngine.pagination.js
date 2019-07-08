@@ -1,32 +1,68 @@
-$('.forms-engine__form').submit(function( event ) {
+$( document ).ready(function() {
+  (function ($) {
+    $.fn.formJSON = function () {
+        var o = {};
+        var a = this.find(':input');
+        $.each(a, function () {
+          if (this.type !== 'button' &&
+              this.type !== 'submit' &&
+              this.type !== 'reset'){
+            if (!o[this.name]) {
+              if (this.type!=='radio' &&
+                  this.type!=='checkbox'){
+                  o[this.name] = this.value || '';
+              }
+              else {
+                if ($(this).is(":checked")){
+                  o[this.name] = this.value;
+                }
+                else {
+                  o[this.name] = '';
+                }
+              }
+            }
+          }
+        });
+        return o;
+    };
+  })(jQuery);
 
-  // Stop form from submitting normally
-  event.preventDefault();
 
-  // Get some values from elements on the page:
-  var $form = $( this ),
-    term = $form.find( "input[name='s']" ).val(),
-    url = $form.attr( "action" );
+  if ($('.forms-engine__form').length > 0 &&
+      $('.forms-engine__form').attr('method')!=='post'){
+    $('.forms-engine__message').hide();
+    $('.forms-engine__exception').hide();
 
-  // Send the data using post
-  var posting = $.post( url, { s: term } );
+    $('.forms-engine__form').submit(function(event) {
+      event.preventDefault();
+      var data = $(this).formJSON();
+      var url = $(this).attr('action');
 
-  // Put the results in a div
-  posting.done(function( data ) {
-    var content = $( data ).find( "#content" );
-    $( "#result" ).empty().append( content );
-  });
+      $.ajax({
+          contentType: 'application/json',
+          data: JSON.stringify(data),
+          success: onSuccess,
+          error: onError,
+          processData: false,
+          type: 'PUT',
+          url: url
+      });
+    });
+  }
 
-  /*
-  https://api.jquery.com/jQuery.post/
-  Post to the test.php page and get content which has been returned in json format (<?php echo json_encode(array("name"=>"John","time"=>"2pm")); ?>).
+  function onSuccess(){
+    $('.forms-engine__form').hide();
+    $('.forms-engine__message').show();
+    $('.forms-engine__message').toggleClass('d-none');
+  }
 
-$.post( "test.php", { func: "getNameAndTime" }, function( data ) {
-  console.log( data.name ); // John
-  console.log( data.time ); // 2pm
-}, "json");
-  */
+  function onError(){
+    $('.forms-engine__exception').show();
+    $('.forms-engine__exception').toggleClass('d-none');
+  }
+
 });
+
 // FormsEngine Pagination
 $( document ).ready(function() {
   var sections = $('.forms-engine__page');

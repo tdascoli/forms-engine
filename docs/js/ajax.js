@@ -27,24 +27,28 @@ $( document ).ready(function() {
     };
   })(jQuery);
 
-  $('.forms-engine__message').hide();
-  $('.forms-engine__exception').hide();
 
-  $('.forms-engine__form').submit(function(event) {
-    event.preventDefault();
-    var data = $(this).formJSON();
-    var url = $(this).attr("action");
+  if ($('.forms-engine__form').length > 0 &&
+      $('.forms-engine__form').attr('method')!=='post'){
+    $('.forms-engine__message').hide();
+    $('.forms-engine__exception').hide();
 
-    $.ajax({
-        contentType: 'application/json',
-        data: JSON.stringify(data),
-        success: onSuccess,
-        error: onError,
-        processData: false,
-        type: 'PUT',
-        url: url
+    $('.forms-engine__form').submit(function(event) {
+      event.preventDefault();
+      var data = $(this).formJSON();
+      var url = $(this).attr('action');
+
+      $.ajax({
+          contentType: 'application/json',
+          data: JSON.stringify(data),
+          success: onSuccess,
+          error: onError,
+          processData: false,
+          type: 'PUT',
+          url: url
+      });
     });
-  });
+  }
 
   function onSuccess(){
     $('.forms-engine__form').hide();
