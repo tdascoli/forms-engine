@@ -7,7 +7,7 @@ use Psr\Container\ContainerInterface;
 
 // todo check if own repo isnt better
 
-class ServerCompleteHandler extends PersistenceTypeHandler implements InCompleteHandler
+class ServerCompleteHandler extends PersistenceTypeHandler
 {
     protected $container;
 

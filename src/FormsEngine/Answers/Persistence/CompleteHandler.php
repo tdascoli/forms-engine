@@ -2,7 +2,7 @@
 namespace FormsEngine\Answers\Persistence;
 
 // DefaultCompleteHandler oder PostCompleteHandler
-class CompleteHandler extends PersistenceTypeHandler implements InCompleteHandler {
+class CompleteHandler extends PersistenceTypeHandler {
 
   public function save($elementKeys = null){
     $method = $_SERVER['REQUEST_METHOD'];
