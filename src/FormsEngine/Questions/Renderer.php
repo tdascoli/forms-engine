@@ -31,17 +31,23 @@ class Renderer {
 
     if (!$this->displayMessage()){
       $pages = $this->prepare();
-      echo $this->twig->render('form.html',
-                      ['pages' => $pages,
-                       'method' => Config::$method,
-                       'pagination' => $this->pagination->prepare(\sizeof($this->pages)),
-                       'formName' => Config::$name,
-                       'formTitle' => $title,
-                       'message' => \L::message_stored,
-                       'createAnother' => Config::$createAnother,
-                       'another' => array(
-                                      'link' => $_SERVER['REQUEST_URI'],
-                                      'text' => \L::pagination_createAnother)]);
+
+      $params = array('pages' => $pages,
+                      'method' => Config::$method,
+                      'pagination' => $this->pagination->prepare(\sizeof($this->pages)),
+                      'formName' => Config::$name,
+                      'formTitle' => $title);
+
+      if (Config::$method=='ajax'){
+        $params = \array_merge($params,
+                               array('message' => \L::message_stored,
+                                     'createAnother' => Config::$createAnother,
+                                     'another' => array(
+                                          'link' => $_SERVER['REQUEST_URI'],
+                                          'text' => \L::pagination_createAnother)));
+      }
+
+      echo $this->twig->render('form.html', $params);
     }
     else {
       echo $this->twig->render('message.html',
