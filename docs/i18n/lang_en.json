@@ -1,0 +1,30 @@
+{
+  "title":"FormsEngine i18n in English",
+  "pagination": {
+    "next":"Next",
+    "back":"Previous",
+    "reset":"Reset",
+    "submit":"Send",
+    "createAnother":"Send another answer"
+  },
+  "message": {
+    "stored":"Your data was stored.",
+    "noForm":"No Form available.",
+    "email": {
+      "subject":"New Data from FormsEngine",
+      "exception":"Message could not be sent. Mailer Error:"
+    }
+  },
+  "exception": {
+    "stored":"Your data couldn't stored."
+  },
+  "element": {
+    "select": {
+      "default":"-please choose-"
+    },
+    "yesno": {
+      "yes":"Yes",
+      "no":"No"
+    }
+  }
+}

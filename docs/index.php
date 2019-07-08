@@ -13,7 +13,7 @@ $engine = new FormsEngine();
 
 $r = $engine->renderer();
 // Page 1
-$r->add(new Element\Title('test title'));
+$r->add(new Element\Title(L::title));
 $r->add(new Element\Email('new label 2','','helptext'));
 $cb = new Element\Option();
 $cb->add('first',1);

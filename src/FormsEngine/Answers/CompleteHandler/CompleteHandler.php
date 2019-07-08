@@ -25,7 +25,7 @@ class CompleteHandler {
   private function persist($data, $type){
     if (PersistenceType::isValid($type)){
       $class = 'FormsEngine\Answers\Persistence\\'.$type;
-      $class::persist(Config::$name, $data);
+      $class::persist(Config::$form['name'], $data);
     }
     else if (\class_exists($type)){
       $class = $type;

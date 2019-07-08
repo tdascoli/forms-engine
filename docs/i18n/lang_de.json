@@ -1,0 +1,30 @@
+{
+  "title":"FormsEngine i18n auf Deutsch",
+  "pagination": {
+    "next":"Weiter",
+    "back":"Zurück",
+    "reset":"Zurücksetzen",
+    "submit":"Senden",
+    "createAnother":"Weitere Antwort senden"
+  },
+  "message": {
+    "stored":"Ihre Daten wurden gespeichert.",
+    "noForm":"Kein Formular vorhanden.",
+    "email": {
+      "subject":"Neue Daten von FormsEngine",
+      "exception":"Nachricht konnte nicht gesendet werden. Fehler:"
+    }
+  },
+  "exception": {
+    "stored":"Ihre Daten konnten nicht gespeichert werden."
+  },
+  "element": {
+    "select": {
+      "default":"-bitte wählen-"
+    },
+    "yesno": {
+      "yes":"Ja",
+      "no":"Nein"
+    }
+  }
+}

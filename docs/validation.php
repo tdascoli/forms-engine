@@ -15,31 +15,15 @@ $engine = new FormsEngine();
 $r = $engine->renderer();
 // Page 1
 $r->add(new Element\Title('test title'));
-$r->add(new Element\Email('new label','','helptext'));
-$r->add(new Element\Date('test date'));
+$r->add(new Element\Text('new label','','helptext'));
 $cb = new Element\Option();
 $cb->add('first',1);
 $cb->add('second',2);
-$cb->add('third',3);
 $r->add(new Element\CheckboxGroup('Checkbox Group',$cb));
 $cb2 = new Element\Option();
 $cb2->add('first2',1);
 $cb2->add('second2',2);
-$cb2->add('third2',3);
 $r->add(new Element\RadioGroup('Radio Group',$cb2));
-$r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
-// Page 2
-$p = new Page();
-$p->add(new Element\Paragraph('test title2','Description'));
-$p->addRequired(new Element\Text('new label','','helptext'));
-$p->add(new Element\YesNo('yesno'));
-$options = new Element\Option();
-$options->add('first',1);
-$options->add('second',2);
-$options->add('third',3);
-$p->add(new Element\Select('custom select',$options,true,'select helptext to show'));
-// add Page 2
-$r->addPage($p);
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -60,9 +44,12 @@ $r->addPage($p);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/css/material.min.css">
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/js/material.min.js"></script>
@@ -71,8 +58,8 @@ $r->addPage($p);
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.1/dist/parsley.min.js"></script>
 
     <!-- FormsEngine JS + deps -->
-    <script src="https://cdn.jsdelivr.net/npm/melanke-watchjs@1.5.0/src/watch.min.js"></script>
     <script src="js/formsEngine.pagination.js"></script>
+    <script src="js/ajax.js"></script>
 </head>
 <body>
 

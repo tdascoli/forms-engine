@@ -13,7 +13,7 @@ class Translations {
   }
 
   public function setFilePath($path){
-    Config::updateLangDir($path);
+    Config::setLangDir($path);
     $this->init();
   }
 

@@ -23,7 +23,7 @@ class Renderer {
     $this->twig = new \Twig\Environment($loader);
     $this->pages = new Sequence();
     $this->pagination = new Pagination();
-    $this->loader = new Loader(Config::$loader, Config::$loaderConfig);
+    $this->loader = new Loader(Config::$render['load'], Config::$render['config']);
   }
 
   public function render(){
@@ -33,16 +33,16 @@ class Renderer {
       $pages = $this->prepare();
 
       $params = array('pages' => $pages,
-                      'method' => Config::$method,
                       'pagination' => $this->pagination->prepare(\sizeof($this->pages)),
-                      'formName' => Config::$name,
+                      'method' => Config::$form['method'],
+                      'formName' => Config::$form['name'],
                       'formTitle' => $title);
 
-      if (Config::$method=='ajax'){
+      if (Config::$form['method']=='ajax'){
         $params = \array_merge($params,
                                array('exception' => \L::exception_stored,
                                      'message' => \L::message_stored,
-                                     'createAnother' => Config::$createAnother,
+                                     'createAnother' => Config::$form['createAnother'],
                                      'another' => array(
                                           'link' => $_SERVER['REQUEST_URI'],
                                           'text' => \L::pagination_createAnother)));
@@ -54,7 +54,7 @@ class Renderer {
       echo $this->twig->render('message.html',
                       ['formTitle' => $title,
                        'message' => \L::message_stored,
-                       'createAnother' => Config::$createAnother,
+                       'createAnother' => Config::$form['createAnother'],
                        'another' => array(
                                       'link' => $_SERVER['REQUEST_URI'],
                                       'text' => \L::pagination_createAnother)]);
@@ -72,7 +72,7 @@ class Renderer {
   private function displayMessage(){
     if (!isset($_SESSION['hasSubmitted']) OR
         !$_SESSION['hasSubmitted'] OR
-        !Config::$messageAfterSubmit){
+        !Config::$form['messageAfterSubmit']){
       return false;
     }
     return true;
@@ -133,7 +133,7 @@ class Renderer {
   }
 
   public function setTemplateDir($dir){
-    Config::updateTemplateDir($dir);
+    Config::setTemplateDir($dir);
     $loader = new \Twig\Loader\FilesystemLoader(Config::$templateDir);
     $this->twig = new \Twig\Environment($loader);
   }

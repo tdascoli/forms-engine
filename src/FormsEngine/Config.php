@@ -1,7 +1,6 @@
 <?php
 namespace FormsEngine;
 
-// refactoring
 class Config {
 
   /** @var string */
@@ -10,79 +9,56 @@ class Config {
   /** @var string */
   public static $langDir = __DIR__ . '/Translations/';
 
-  // todo change!
-  /** @var string */
-  public static $formsDir = __DIR__ . '/../../docs/forms/';
+  /** @var array */
+  public static $form = array(
+      'dir' => __DIR__ . '/../../docs/forms/',
+      'name' => 'defaultForm',
+      'method' => 'ajax',
+      'messageAfterSubmit' => true,
+      'createAnother' => true,
+      'addTimestamp' => false);
 
-  // todo change to ajax
-  /** @var string */
-  public static $method = "post";
+  /** @var array */
+  public static $render = array(
+      'load' => 'COOKIE',
+      'config' => array('cookie' => 'jsonForm'));
 
-  /** @var string */
-  public static $name = "defaultForm";
+  /** @var array */
+  public static $persistence = array(
+      'email' => array('emailTo' => 'test@test.test'));
 
-  /** @var boolean */
-  public static $messageAfterSubmit = true;
 
-  /** @var boolean */
-  public static $createAnother = true;
+   /* SETTER */
+   public static function setTemplateDir($dir){
+     self::$templateDir = $dir;
+   }
 
-  public static $peristenceEmailTo = 'test@test.test';
+   public static function setLangDir($dir){
+     self::$langDir = $dir;
+   }
 
-  // api, cookie, session -> LoaderType
-  public static $loader = 'COOKIE';
-  public static $loaderConfig = array('cookie' => 'jsonForm');
-  // URL
-  //$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")."://{$_SERVER['HTTP_HOST']}/api/forms/{$_GET['form']}";
-  /*
-  public static $loader = 'API';
-  public static $loaderConfig = array(
-    'url' => 'http://localhost:8000/api/forms/',
-    'get' => 'form');
-  */
-  /*
-  public static $loader = 'SESSION';
-  public static $loaderConfig = array('session' => 'sessionForm');
-  */
+   public static function setMethodPost(){
+     self::$method = Method::POST()->getValue();
+   }
 
-  // todo check
-  public static function updateTemplateDir($dir){
-    self::$templateDir = $dir;
-  }
+   public static function setMethodAjax(){
+     self::$method = Method::AJAX()->getValue();
+   }
 
-  // todo check
-  public static function updateLangDir($dir){
-    self::$langDir = $dir;
-  }
+   public static function setFormName($formName){
+     self::$form['name'] = $formName;
+   }
 
-  // todo check
-  public static function asPost(){
-    self::$method = Method::POST()->getValue();
-  }
+   public static function setMessageAfterSubmit($message){
+     self::$form['messageAfterSubmit'] = $message;
+   }
 
-  // todo check
-  public static function asAjax(){
-    self::$method = Method::AJAX()->getValue();
-  }
+   public static function setCreateAnother($another){
+     self::$form['createAnother'] = $another;
+   }
 
-  // todo check
-  public static function setName($formName){
-    self::$name = $formName;
-  }
-
-  // todo check
-  public static function updateMessageAfterSubmit($message){
-    self::$messageAfterSubmit = $message;
-  }
-
-  // todo check
-  public static function setCreateAnother($another){
-    self::$createAnother = $another;
-  }
-
-  // todo check
-  public static function setPersistenceEmailTo($email){
-    self::$peristenceEmailTo = $email;
-  }
+   public static function setPersistenceEmailTo($email){
+     self::$persistence['email']['emailTo'] = $email;
+   }
 }
 ?>

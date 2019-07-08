@@ -16,8 +16,8 @@ class EMAIL implements Persistence {
     $mail = new PHPMailer(true);
     try {
         //Recipients
-        $mail->setFrom(Config::$peristenceEmailTo, 'FormsEngine');
-        $mail->addAddress(Config::$peristenceEmailTo);
+        $mail->setFrom(Config::$peristence['email']['emailTo'], 'FormsEngine');
+        $mail->addAddress(Config::$peristence['email']['emailTo']);
 
         // Content
         $mail->isHTML(true);
