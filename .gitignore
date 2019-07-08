@@ -1,5 +1,5 @@
 vendor/
 node_modules/
-docs/*.csv
-docs/*.xlsx
+docs/forms/*.csv
+docs/forms/*.xlsx
 docs/langcache/
