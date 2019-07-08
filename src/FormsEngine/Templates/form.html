@@ -1,6 +1,6 @@
 <form
-  {% if method eq 'post' %}method="post"{% endif %}
-  {% if method neq 'post' %}action="ajax.php"{% endif %}
+  {% if method =='post' %}method="post"{% endif %}
+  {% if method != 'post' %}action="ajax.php"{% endif %}
   id="{{ formName }}"
   class="forms-engine__form"
   novalidate>
