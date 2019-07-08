@@ -1,6 +1,8 @@
 <?php
 namespace FormsEngine\Answers\CompleteHandler;
 
+use FormsEngine\Config;
+
 class CompleteHandler {
 
   /** @var string */
@@ -22,7 +24,7 @@ class CompleteHandler {
   private function persist($data, $type){
     if (PersistenceType::isValid($type)){
       $class = 'FormsEngine\Answers\Persistence\\'.$type;
-      $class::persist($data);
+      $class::persist(Config::$name, $data);
     }
     else if (\class_exists($type)){
       $class = $type;

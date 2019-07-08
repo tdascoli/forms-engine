@@ -5,7 +5,8 @@ use \FormsEngine\Answers\Persistence\Persistence;
 
 class MYSQL implements Persistence {
 
-  public static function persist($data){
+  public static function persist($name, $data){
+    // $name could be the table name!!
     $mysqli = MYSQL::connect();
     if (!$mysqli){
       echo 'ERROR Connect to DB.';

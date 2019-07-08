@@ -9,7 +9,8 @@ use \PHPMailer\PHPMailer\Exception;
 
 class EMAIL implements Persistence {
 
-  public static function persist($data){
+  public static function persist($name, $data){
+    // $name could be the name of the template in Templates
     $i18n = new Translations();
 
     $mail = new PHPMailer(true);

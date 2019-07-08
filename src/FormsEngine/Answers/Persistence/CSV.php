@@ -7,9 +7,9 @@ use FormsEngine\Config;
 
 class CSV implements Persistence {
 
-  public static function persist($data){
+  public static function persist($name, $data){
     try {
-        $file = self::prepareFile();
+        $file = self::prepareFile($name);
         $writer = Writer::createFromPath($file['fileName'], 'a+');
         if (!$file['hasHeaders']){
           $writer->insertOne(\array_keys($data));
@@ -20,8 +20,8 @@ class CSV implements Persistence {
     }
   }
 
-  private static function prepareFile(){
-    $file = Config::$name.'.csv';
+  private static function prepareFile($name){
+    $file = $name.'.csv';
     $path = Config::$formsDir;
     $pathFile = $path.$file;
 

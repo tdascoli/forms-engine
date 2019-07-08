@@ -4,7 +4,7 @@ namespace FormsEngine\Answers\Persistence;
 // todo JSON
 class JSON extends Persistence {
 
-  public static function persist($data){
+  public static function persist($name, $data){
     echo 'implement method';
   }
 

@@ -8,8 +8,8 @@ use FormsEngine\Config;
 
 class XLSX implements Persistence {
 
-  public static function persist($data){
-    $file = Config::$name.'.xlsx';
+  public static function persist($name, $data){
+    $file = $name.'.xlsx';
     $path = Config::$formsDir;
     $pathFile = $path.$file;
 

@@ -20,5 +20,12 @@ $app->put('/record/{formId}', ServerCompleteHandler::class . ':save');
 
 $app->get('/record/{formId}[/{type}]', Collection::class . ':load');
 
+/*
+todo CHECK => WHEN ALL IS IN CONFIG, THEN:
+$app->put('/record', ServerCompleteHandler::class . ':save');
+
+$app->get('/record', Collection::class . ':load');
+*/
+
 $app->run();
 ?>
