@@ -1,3 +1,6 @@
+{% if method == 'ajax' %}
+  {{ include('exception.html') }}
+{% endif %}
 <form
   {% if method == 'post' %}method="post"{% endif %}
   {% if method == 'ajax' %}action="/api/record/{{ formName }}"{% endif %}

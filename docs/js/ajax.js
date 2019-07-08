@@ -19,6 +19,7 @@ $( document ).ready(function() {
   })(jQuery);
 
   $('.forms-engine__message').hide();
+  $('.forms-engine__exception').hide();
 
   $('.forms-engine__form').submit(function(event) {
     event.preventDefault();
@@ -29,9 +30,7 @@ $( document ).ready(function() {
         contentType: 'application/json',
         data: JSON.stringify(data),
         success: onSuccess(),
-        error: function(){
-            alert("Device control failed");
-        },
+        error: onError(),
         processData: false,
         type: 'PUT',
         url: url
@@ -41,6 +40,10 @@ $( document ).ready(function() {
   function onSuccess(){
     $('.forms-engine__form').hide();
     $('.forms-engine__message').show();
+  }
+
+  function onError(){
+    $('.forms-engine__exception').show();
   }
 
 });

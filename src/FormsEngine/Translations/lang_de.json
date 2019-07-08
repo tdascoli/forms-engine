@@ -15,6 +15,9 @@
       "exception":"Nachricht konnte nicht gesendet werden. Fehler:"
     }
   },
+  "exception": {
+    "stored":"Ihre Daten konnten nicht gespeichert werden."
+  },
   "element": {
     "select": {
       "default":"-bitte wählen-"

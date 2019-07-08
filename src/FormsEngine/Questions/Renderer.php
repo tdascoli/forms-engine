@@ -40,7 +40,8 @@ class Renderer {
 
       if (Config::$method=='ajax'){
         $params = \array_merge($params,
-                               array('message' => \L::message_stored,
+                               array('exception' => \L::exception_stored,
+                                     'message' => \L::message_stored,
                                      'createAnother' => Config::$createAnother,
                                      'another' => array(
                                           'link' => $_SERVER['REQUEST_URI'],
