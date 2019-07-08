@@ -3,22 +3,9 @@ namespace FormsEngine\Answers\Persistence;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-
 use Psr\Container\ContainerInterface;
 
 // todo check if own repo isnt better
-
-$app = new \Slim\App;
-
-$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
-    return $response;
-});
-
-$app->put('/form/{formId}', \ServerCompleteHandler::class . ':save');
-
-$app->run();
 
 class ServerCompleteHandler extends PersistenceTypeHandler implements InCompleteHandler
 {
