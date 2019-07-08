@@ -17,7 +17,7 @@ class Server {
         $response->getBody()->write("Hello, $name");
         return $response;
     });
-    $app->post('/forms/{formId}',  function (Request $request, Response $response, array $args) {
+    $app->put('/form/{formId}',  function (Request $request, Response $response, array $args) {
         $formId = $args['formId'];
         $body = $request->getBody();
         $form = json_decode($body);

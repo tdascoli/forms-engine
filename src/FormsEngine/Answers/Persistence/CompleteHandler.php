@@ -1,10 +1,8 @@
 <?php
 namespace FormsEngine\Answers\Persistence;
 
-class CompleteHandler {
-
-  /** @var string */
-  private $persistenceType;
+// DefaultCompleteHandler oder PostCompleteHandler
+class CompleteHandler extends PersistenceTypeHanlder implements InCompleteHandler {
 
   public function save($elementKeys = null){
     $method = $_SERVER['REQUEST_METHOD'];
@@ -28,22 +26,6 @@ class CompleteHandler {
       $class = $type;
       $class::persist($data);
     }
-  }
-
-  public function setPersistenceType($type){
-    if ($type instanceof PersistenceType){
-      $this->persistenceType = $type->getValue();
-    }
-    else if (\class_exists($type)){
-      $this->persistenceType = $type;
-    }
-  }
-
-  private function getPersistenceType(){
-    if (!empty($this->persistenceType)){
-      return $this->persistenceType;
-    }
-    return PersistenceType::CSV()->getValue();
   }
 
   public function isSubmitted(){
