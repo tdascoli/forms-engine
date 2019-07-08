@@ -33,6 +33,7 @@ class Renderer {
       $pages = $this->prepare();
       echo $this->twig->render('form.html',
                       ['pages' => $pages,
+                       'method' => Config::$method,
                        'pagination' => $this->pagination->prepare(\sizeof($this->pages)),
                        'formName' => Config::$name,
                        'formTitle' => $title]);
