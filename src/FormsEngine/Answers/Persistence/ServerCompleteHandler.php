@@ -20,7 +20,7 @@ $app->put('/form/{formId}', \ServerCompleteHandler::class . ':save');
 
 $app->run();
 
-class ServerCompleteHandler extends PersistenceTypeHanlder implements InCompleteHandler
+class ServerCompleteHandler extends PersistenceTypeHandler implements InCompleteHandler
 {
     protected $container;
 
