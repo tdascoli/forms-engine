@@ -1,4 +1,4 @@
-<div class="card mb-3 forms-engine__message">
+<div class="card mb-3 forms-engine__message {% if method == 'ajax' %}d-none{% endif %}">
   <div class="card-body">
     {{ formTitle|raw }}
     <p>{{ message|raw }}</p>

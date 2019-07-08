@@ -29,8 +29,8 @@ $( document ).ready(function() {
     $.ajax({
         contentType: 'application/json',
         data: JSON.stringify(data),
-        success: onSuccess(),
-        error: onError(),
+        success: onSuccess,
+        error: onError,
         processData: false,
         type: 'PUT',
         url: url
@@ -40,10 +40,12 @@ $( document ).ready(function() {
   function onSuccess(){
     $('.forms-engine__form').hide();
     $('.forms-engine__message').show();
+    $('.forms-engine__message').toggleClass('d-none');
   }
 
   function onError(){
     $('.forms-engine__exception').show();
+    $('.forms-engine__exception').toggleClass('d-none');
   }
 
 });
