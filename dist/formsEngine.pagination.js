@@ -34,6 +34,8 @@ $( document ).ready(function() {
     $('.forms-engine__exception').hide();
 
     $('.forms-engine__form').submit(function(event) {
+      $('.forms-engine__exception').hide();
+
       event.preventDefault();
       var data = $(this).formJSON();
       var url = $(this).attr('action');
