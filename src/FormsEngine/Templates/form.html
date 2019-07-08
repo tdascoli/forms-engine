@@ -1,6 +1,6 @@
 <form
   {% if method == 'post' %}method="post"{% endif %}
-  {% if method == 'ajax' %}action="/api/record/test"{% endif %}
+  {% if method == 'ajax' %}action="/api/record/{{ formName }}"{% endif %}
   id="{{ formName }}"
   class="forms-engine__form"
   novalidate>
