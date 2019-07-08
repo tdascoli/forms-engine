@@ -4,6 +4,8 @@ namespace FormsEngine\Answers\Persistence;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
+use Psr\Container\ContainerInterface;
+
 // todo check if own repo isnt better
 
 $app = new \Slim\App;
@@ -18,13 +20,13 @@ $app->put('/form/{formId}', \ServerCompleteHandler::class . ':save');
 
 $app->run();
 
-
 class ServerCompleteHandler extends PersistenceTypeHanlder implements InCompleteHandler
 {
-    protected $view;
+    protected $container;
 
-    public function __construct(\Slim\Views\Twig $view) {
-        $this->view = $view;
+    // constructor receives container instance
+    public function __construct(ContainerInterface $container) {
+       $this->container = $container;
     }
 
     public function save($request, $response, $args) {
@@ -33,8 +35,7 @@ class ServerCompleteHandler extends PersistenceTypeHanlder implements InComplete
       $form = json_decode($body);
 
       $this->persist($form, $this->getPersistenceType());
-      // your code here
-      // use $this->view to render the HTML
+
       $response->getBody()->write('ok');
       return $response;
     }
