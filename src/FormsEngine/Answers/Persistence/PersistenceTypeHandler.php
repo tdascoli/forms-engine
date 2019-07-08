@@ -3,10 +3,10 @@ namespace FormsEngine\Answers\Persistence;
 
 abstract class PersistenceTypeHandler {
 
-    /** @var string */
-    private $persistenceType;
+  /** @var string */
+  private $persistenceType;
 
-    public function setPersistenceType($type){
+  public function setPersistenceType($type){
     if ($type instanceof PersistenceType){
       $this->persistenceType = $type->getValue();
     }
@@ -15,7 +15,7 @@ abstract class PersistenceTypeHandler {
     }
   }
 
-  private function getPersistenceType(){
+  public function getPersistenceType(){
     if (!empty($this->persistenceType)){
       return $this->persistenceType;
     }
