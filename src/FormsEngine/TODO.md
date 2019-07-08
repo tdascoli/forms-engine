@@ -58,8 +58,8 @@
     * ~~xlsx~~
     * ~~email~~
 * (/) online "viewer"? (github.com/myliang/x-spreadsheet)
-* (/) Persist: only POST or default JS/Binding
-* (/) Persist: JS/Binding -> watch.js
+* ~~(/) Persist: only POST or default JS/Binding~~
+* ~~(/) Persist: JS/Binding -> watch.js~~
 * ~~Persist: no double submits~~
 * ~~add "create another" link as Config~~
 * ~~config: show message or form (check for refresh??)~~
