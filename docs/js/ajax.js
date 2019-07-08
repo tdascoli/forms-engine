@@ -1,18 +1,27 @@
 $( document ).ready(function() {
-  // todo also empty!!!
   (function ($) {
-    $.fn.serializeFormJSON = function () {
+    $.fn.formJSON = function () {
         var o = {};
-        var a = this.serializeArray();
+        var a = this.find(':input');
         $.each(a, function () {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
+          if (this.type !== 'button' &&
+              this.type !== 'submit' &&
+              this.type !== 'reset'){
+            if (!o[this.name]) {
+              if (this.type!=='radio' &&
+                  this.type!=='checkbox'){
+                  o[this.name] = this.value || '';
+              }
+              else {
+                if ($(this).is(":checked")){
+                  o[this.name] = this.value;
                 }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
+                else {
+                  o[this.name] = '';
+                }
+              }
             }
+          }
         });
         return o;
     };
@@ -23,7 +32,7 @@ $( document ).ready(function() {
 
   $('.forms-engine__form').submit(function(event) {
     event.preventDefault();
-    var data = $(this).serializeFormJSON();
+    var data = $(this).formJSON();
     var url = $(this).attr("action");
 
     $.ajax({

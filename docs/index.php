@@ -34,8 +34,13 @@ $serializedObject = \json_decode($serializedString);
 // Page 2
 $p = new Page();
 $p->add(new Element\Paragraph('test title2','Description'));
-$p->addRequired(new Element\Text('new label','','helptext'));
+$p->addRequired(new Element\Textarea('new label','','helptext'));
 $p->add(new Element\YesNo('yesno'));
+$options = new Element\Option();
+$options->add('first',1);
+$options->add('second',2);
+$options->add('third',3);
+$p->add(new Element\Select('custom select',$options,true,'select helptext to show'));
 // add Page 2
 $r->addPage($p);
 

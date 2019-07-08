@@ -11,7 +11,7 @@ class YesNo extends ElementGroup {
   private $booleans;
 
   private $yesnoBooleans = array('Yes' => true,'No' => false);
-  private $yesnoStrings = array('Yes' => \L::element_yesno_yes,'No' => \L::element_yesno_yes);
+  private $yesnoStrings = array('Yes' => \L::element_yesno_yes,'No' => \L::element_yesno_no);
 
   public function __construct($name, $booleans = false) {
       $i18n = new Translations();

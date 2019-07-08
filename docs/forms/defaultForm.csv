@@ -1,5 +1,3 @@
-newLabel2,first,second,third,typeahead,newLabel
-,1,2,3,,dfdfdffd
-,,dfddffd
-,,d-none
-,,dfdf
+newLabel2,first,second,third,radioGroup,typeahead,newLabel,yesno,customSelect
+,,,,,," dfdfdfdf",,
+toom@test.ch,1,2,3,1,first,LABEL,Ja,3
