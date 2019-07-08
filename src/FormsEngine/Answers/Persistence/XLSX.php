@@ -10,10 +10,12 @@ class XLSX implements Persistence {
 
   public static function persist($data){
     $file = Config::$name.'.xlsx';
+    $path = Config::$formsDir;
+    $pathFile = $path.$file;
 
-    if (\file_exists($file)){
-      $reader = new Reader\Xlsx($file);
-      $spreadsheet = $reader->load($file);
+    if (\file_exists($pathFile)){
+      $reader = new Reader\Xlsx($pathFile);
+      $spreadsheet = $reader->load($pathFile);
       $sheet = $spreadsheet->getActiveSheet();
     }
     else {
@@ -27,7 +29,23 @@ class XLSX implements Persistence {
     $sheet->fromArray($data, NULL, 'A'.$cell);
 
     $writer = new Writer\Xlsx($spreadsheet);
-    $writer->save($file);
+    $writer->save($pathFile);
+  }
+
+  public static function load($name){
+    $file = $name.'.xlsx';
+    $path = Config::$formsDir;
+    $pathFile = $path.$file;
+
+    $records = '';
+
+    if (\file_exists($pathFile)){
+      $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+      $spreadsheet = $reader->load($pathFile);
+      $worksheet = $spreadsheet->getActiveSheet();
+      $records = $worksheet->toArray();
+    }
+    return $records;
   }
 }
 ?>

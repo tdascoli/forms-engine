@@ -10,6 +10,10 @@ class Config {
   /** @var string */
   public static $langDir = __DIR__ . '/Translations/';
 
+  // todo change!
+  /** @var string */
+  public static $formsDir = __DIR__ . '/../../docs/forms/';
+
   // todo change to ajax
   /** @var string */
   public static $method = "post";

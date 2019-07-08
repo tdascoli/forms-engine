@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Answers;
 
-use FormsEngine\Answers\Persistence\CompleteHandler as CompleteHandler;
+use FormsEngine\Answers\CompleteHandler\CompleteHandler as CompleteHandler;
 
 class Answers extends CompleteHandler {
 

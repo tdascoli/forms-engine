@@ -1,17 +1,14 @@
 <?php
-namespace FormsEngine\Answers\Persistence;
+namespace FormsEngine\Answers\CompleteHandler;
 
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use FormsEngine\Answers\Persistence\PersistenceType;
 
-// todo check if own repo isnt better
-
-class ServerCompleteHandler extends PersistenceTypeHandler
-{
+class ServerCompleteHandler extends PersistenceTypeHandler {
     protected $container;
 
-    // constructor receives container instance
     public function __construct(ContainerInterface $container) {
        $this->container = $container;
     }
@@ -21,7 +18,6 @@ class ServerCompleteHandler extends PersistenceTypeHandler
       $body = $request->getBody();
       $form = json_decode($body);
 
-      // todo object to array
       $this->persist((array) $form, $this->getPersistenceType());
 
       $response->getBody()->write('ok');

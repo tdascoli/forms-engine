@@ -22,12 +22,30 @@ class CSV implements Persistence {
 
   private static function prepareFile(){
     $file = Config::$name.'.csv';
+    $path = Config::$formsDir;
+    $pathFile = $path.$file;
+
     $hasHeaders = false;
-    if (\file_exists($file)){
-      $reader = Reader::createFromPath($file, 'r');
+    if (\file_exists($pathFile)){
+      $reader = Reader::createFromPath($pathFile, 'r');
       $hasHeaders = (count($reader)>0);
     }
-    return array('fileName' => $file, 'hasHeaders' => $hasHeaders);
+    return array('fileName' => $pathFile, 'hasHeaders' => $hasHeaders);
+  }
+
+  public static function load($name){
+    $file = $name.'.csv';
+    $path = Config::$formsDir;
+    $pathFile = $path.$file;
+
+    $records = '';
+
+    if (\file_exists($pathFile)){
+      $reader = Reader::createFromPath($pathFile, 'r');
+      $reader->setHeaderOffset(0);
+      $records = json_encode($reader, JSON_PRETTY_PRINT);
+    }
+    return $records;
   }
 }
 ?>

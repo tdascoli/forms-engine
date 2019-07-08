@@ -1,5 +1,7 @@
 <?php
-namespace FormsEngine\Answers\Persistence;
+namespace FormsEngine\Answers\CompleteHandler;
+
+use FormsEngine\Answers\Persistence\PersistenceType;
 
 abstract class PersistenceTypeHandler {
 

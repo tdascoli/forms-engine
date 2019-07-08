@@ -29,5 +29,9 @@ class EMAIL implements Persistence {
         echo \L::message_email_exception."{$mail->ErrorInfo}";
     }
   }
+
+  public static function load($name){
+    return 'not possible';
+  }
 }
 ?>
