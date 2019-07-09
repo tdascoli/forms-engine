@@ -9,9 +9,7 @@ error_reporting(E_ALL);
 
 use FormsEngine\DynConfig;
 
-$config = DynConfig::getInstance();
-
-$config2 = unserialize($_SESSION['config']);
+$config = unserialize($_SESSION['config']);
 
 ?>
 <!DOCTYPE html>
@@ -49,17 +47,17 @@ $config2 = unserialize($_SESSION['config']);
 
 <!-- content -->
 <div class="container">
+    <h5><?= DynConfig::getInstance()->get('templateDir') ?></h5>
     <h5><?= $config->get('templateDir') ?></h5>
-    <h5><?= $config2->get('templateDir') ?></h5>
     <p>
     <?php
-        var_dump($config);
+        var_dump(DynConfig::getInstance());
     ?>
     </p>
     <hr />
     <p>
     <?php
-        var_dump($config2);
+        var_dump($config);
     ?>
     </p>
 </div>
