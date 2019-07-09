@@ -69,9 +69,9 @@ class Config {
       return $value;
     }
 
-    private function __clone() {}
+    protected function __clone() {}
 
-    public function __wakeup() {}
+    protected function __wakeup() {}
 
     public function __destruct() {
         self::$_instance = null;

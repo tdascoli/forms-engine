@@ -9,10 +9,6 @@ error_reporting(E_ALL);
 
 use FormsEngine\Config;
 
-$_SESSION['configFile'] = __DIR__ . '/config.json';
-$config = Config::getInstance();
-$_SESSION['config'] = serialize($config);
-
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -49,10 +45,9 @@ $_SESSION['config'] = serialize($config);
 
 <!-- content -->
 <div class="container">
-    <h5><?= Config::getInstance()->get('form','dir') ?></h5>
     <p>
     <?php
-        var_dump($config);
+        var_dump(Config::getInstance());
     ?>
     </p>
 </div>

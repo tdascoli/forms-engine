@@ -11,15 +11,16 @@ class FormsEngine {
   private $renderer;
   private $translations;
 
-  public function __construct($autosave = true){
+  public function __construct($config = null){
     $this->answers = new Answers();
     $this->renderer = new Renderer();
     $this->translations = new Translations();
-    // and method != ajax!!
-    if ($autosave){
-      $this->answers->save();
-    }
-    // add config to session??
+
+    $this->answers->save();
+
+    if ($config!=null && \is_array($config)){
+       $_SESSION[$config['key']]=$config['value'];
+     }
   }
 
   public function answers(){

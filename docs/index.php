@@ -14,9 +14,13 @@ use FormsEngine\Questions\Element;
 use FormsEngine\Questions\Pagination\Page;
 
 // Config
-$_SESSION['configFile'] = __DIR__ . '/config.json';
+//$_SESSION['configFile'] = __DIR__ . '/config.json';
+$config = array(
+  'key' => 'configFile',
+  'value' => __DIR__ . '/config.json'
+);
 
-$engine = new FormsEngine();
+$engine = new FormsEngine($config);
 
 $r = $engine->renderer();
 // Page 1
