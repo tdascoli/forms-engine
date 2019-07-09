@@ -37,6 +37,7 @@ class Page {
       // todo throw/log
     if (!is_a($element, 'FormsEngine\Questions\Element\Title')){
         $this->elements->add($element);
+        // todo CheckboxGroup
         $this->elementKeys->add($element->name);
     }
   }
