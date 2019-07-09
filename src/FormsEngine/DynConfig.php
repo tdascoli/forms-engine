@@ -17,14 +17,13 @@ class DynConfig {
      * Config constructor.
      */
     private function __construct() {
-        var_dump(__DIR__);
         if (isset($_SESSION['configJson'])){
             $this->config = json_decode($_SESSION['configJson']);
         }
         else {
             $filename = __DIR__ .'/config.json';
             if (isset($_SESSION['configFile'])){
-                $filename = __DIR__ .'/'.$_SESSION['configFile'];
+                $filename = $_SESSION['configFile'];
             }
 
             if (file_exists($filename)){
