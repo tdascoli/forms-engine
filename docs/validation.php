@@ -10,7 +10,12 @@ use FormsEngine\FormsEngine;
 use FormsEngine\Questions\Element;
 use FormsEngine\Questions\Pagination\Page;
 
-$engine = new FormsEngine();
+$config = array(
+  'key' => 'configFile',
+  'value' => __DIR__ . '/config.json'
+);
+
+$engine = new FormsEngine($config);
 
 $r = $engine->renderer();
 // Page 1
@@ -24,8 +29,6 @@ $cb2 = new Element\Option();
 $cb2->add('first2',1);
 $cb2->add('second2',2);
 $r->add(new Element\RadioGroup('Radio Group',$cb2));
-
-var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="de">

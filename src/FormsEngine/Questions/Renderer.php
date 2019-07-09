@@ -15,6 +15,7 @@ class Renderer {
   private $pages;
   private $formTitle;
   private $loader;
+  private $keys;
 
   public function __construct(){
     $loader = new \Twig\Loader\FilesystemLoader(Config::getInstance()->get('templateDir'));
@@ -57,6 +58,11 @@ class Renderer {
                                           'link' => $_SERVER['REQUEST_URI'],
                                           'text' => \L::pagination_createAnother)));
       }
+      else {
+        $params =
+          \array_merge($params,
+                        array('keys'=> \base64_encode(\json_encode($this->elementKeys()))));
+      }
 
       echo $this->twig->render('form.html', $params);
     }
@@ -79,6 +85,14 @@ class Renderer {
     return $title;
   }
 
+  private function prepare(){
+    $pages = array();
+    foreach ($this->pages as $page) {
+      \array_push($pages, $page->prepareElements($this->twig));
+    }
+    return $pages;
+  }
+
   private function displayMessage(){
     if (!isset($_SESSION['hasSubmitted']) OR
         !$_SESSION['hasSubmitted'] OR
@@ -98,14 +112,6 @@ class Renderer {
       echo $this->twig->render('no-form.html',
                       ['message' => \L::message_noForm]);
     }
-  }
-
-  private function prepare(){
-    $pages = array();
-    foreach ($this->pages as $page) {
-      array_push($pages, $page->prepareElements($this->twig));
-    }
-    return $pages;
   }
 
   public function add($element){
@@ -140,6 +146,16 @@ class Renderer {
   public function addRequired($element){
     $element->required();
     $this->add($element);
+  }
+
+  public function elementKeys(){
+    if (!\is_array($this->keys)){
+      $this->keys=new Sequence();
+      foreach ($this->pages as $element) {
+        $this->keys->addAll($element->elementKeys()->all());
+      }
+    }
+    return $this->keys->all();
   }
 
   public function serialize() {

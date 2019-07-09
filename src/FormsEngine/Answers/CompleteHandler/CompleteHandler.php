@@ -4,16 +4,16 @@ namespace FormsEngine\Answers\CompleteHandler;
 use FormsEngine\Config;
 use FormsEngine\Answers\Persistence\PersistenceType;
 
-class CompleteHandler {
+class CompleteHandler extends PersistenceTypeHandler {
 
   /** @var string */
   private $persistenceType;
 
-  public function save($elementKeys = null){
+  public function save(){
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method=='POST'){
       if (isset($_SESSION['hasSubmitted']) && !$_SESSION['hasSubmitted']){
-        $this->persist($_POST, $this->getPersistenceType());
+        $this->persist($this->prepare($_POST), $this->getPersistenceType());
         $_SESSION['hasSubmitted'] = true;
       }
     }
@@ -33,20 +33,18 @@ class CompleteHandler {
     }
   }
 
-  public function setPersistenceType($type){
-    if ($type instanceof PersistenceType){
-      $this->persistenceType = $type->getValue();
+  private function prepare($post){
+    $data = array();
+    if (isset($post['form-keys'])){
+      $keys = \json_decode(\base64_decode($post['form-keys']));
+      foreach ($keys as $key) {
+        $data[$key] = '';
+        if (isset($post[$key])){
+          $data[$key] = $post[$key];
+        }
+      }
     }
-    else if (\class_exists($type)){
-      $this->persistenceType = $type;
-    }
-  }
-
-  private function getPersistenceType(){
-    if (!empty($this->persistenceType)){
-      return $this->persistenceType;
-    }
-    return PersistenceType::CSV()->getValue();
+    return $data;
   }
 
   public function isSubmitted(){

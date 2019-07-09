@@ -19,6 +19,9 @@
             {{ include('pagination.html') }}
         {% endif %}
     </div>
+    {% if method == 'post' %}
+      <input type="hidden" name="form-keys" value="{{ keys|raw }}" />
+    {% endif %}
 </form>
 {% if method == 'ajax' %}
   {{ include('message.html') }}

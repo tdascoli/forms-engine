@@ -6,10 +6,12 @@ use PhpCollection\Sequence;
 class Page {
 
   private $elements;
+  private $elementKeys;
   // private $condition;
 
   public function __construct(){
     $this->elements = new Sequence();
+    $this->elementKeys = new Sequence();
   }
 
   public function prepareElements($twig) {
@@ -20,26 +22,22 @@ class Page {
       array_push($rawElements, $element->render($twig));
       $script = $element->script();
       if (!empty($script)){
-        array_push($scriptElements, $script);
+        \array_push($scriptElements, $script);
       }
     }
-
     return array('elements' => $rawElements,
                  'scripts' => $scriptElements);
   }
 
   public function elementKeys(){
-    $keys = array();
-    foreach ($this->elements as $element) {
-      array_push($keys, $elements->type->getValue());
-    }
-    return $keys;
+    return $this->elementKeys;
   }
 
   public function add($element){
       // todo throw/log
     if (!is_a($element, 'FormsEngine\Questions\Element\Title')){
         $this->elements->add($element);
+        $this->elementKeys->add($element->name);
     }
   }
 
