@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Translations;
 
-use FormsEngine\Config;
+use FormsEngine\DynConfig;
 
 class Translations {
 
@@ -9,12 +9,6 @@ class Translations {
 
   public function __construct(){
     $this->i18n = new \i18n();
-    $this->init();
-  }
-
-  // deprecated
-  public function setFilePath($path){
-    Config::setLangDir($path);
     $this->init();
   }
 

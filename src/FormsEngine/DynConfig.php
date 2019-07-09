@@ -41,12 +41,10 @@ class DynConfig {
      * @static
      * @return \Config
      */
-    public static function getInstance()
-    {
+    public static function getInstance() {
         if (self::$_instance == null) {
             self::$_instance = new Self();
         }
-
         return self::$_instance;
     }
 
@@ -58,13 +56,17 @@ class DynConfig {
      * @return mixed
      */
     public function get($path, $subpath = null) {
-      if ($subpath==null){
-        return $this->config->{$path};
+      if ($subpath!=null){
+        return $this->prepare($subpath, $this->config->{$path}->{$subpath});
       }
-      else {
-        return $this->config->{$path}->{$subpath};
+      return $this->prepare($path, $this->config->{$path});
+    }
 
+    private function prepare($key, $value){
+      if (strripos($key,'dir') && $this->config->addDirPrefix){
+        return __DIR__ . $value;
       }
+      return $value;
     }
 
     private function __clone() {}

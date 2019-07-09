@@ -1,8 +1,9 @@
 {
-    "templateDir":"/Config/Templates/",
-    "langDir":"/Config/Translations/",
+    "addDirPrefix": false,
+    "templateDir":"/home/dat/Documents/workspace/forms-engine/src/FormsEngine/Templates/",
+    "langDir":"/home/dat/Documents/workspace/forms-engine/docs/i18n/",
     "form" : {
-        "dir":"/docs/forms/",
+        "dir":"/home/dat/Documents/workspace/forms-engine/docs/forms/",
         "name":"CONFIG",
         "method":"ajax",
         "messageAfterSubmit":true,

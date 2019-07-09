@@ -1,13 +1,20 @@
 <?php
+
+session_start();
+
 require __DIR__ . '/../vendor/autoload.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+use FormsEngine\DynConfig;
 use FormsEngine\FormsEngine;
 use FormsEngine\Questions\Element;
 use FormsEngine\Questions\Pagination\Page;
+
+// Config
+$_SESSION['configFile'] = __DIR__ . '/config.json';
 
 $engine = new FormsEngine();
 
@@ -116,6 +123,7 @@ $_SESSION["sessionForm"] = $serializedString;
       <ul>
         <li>$serializedString isString <?= is_string($serializedString) ?></li>
         <li>$serializedObject isObject <?= is_object($serializedObject) ?></li>
+        <li>Config::formName <?= DynConfig::getInstance()->get('form','name') ?></li>
       </ul>
     </p>
     <?php
