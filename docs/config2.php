@@ -11,7 +11,7 @@ use FormsEngine\DynConfig;
 
 $config = DynConfig::getInstance();
 
-$config2 = deserialize($_SESSION['config']);
+$config2 = unserialize($_SESSION['config']);
 
 ?>
 <!DOCTYPE html>
