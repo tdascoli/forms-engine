@@ -18,7 +18,6 @@ class DynConfig {
      */
     private function __construct() {
         if (isset($_SESSION['configJson'])){
-            var_dump(json_decode($_SESSION['configJson']));
             $this->config = json_decode($_SESSION['configJson']);
         }
         else {
@@ -59,26 +58,12 @@ class DynConfig {
      * @return mixed
      */
     public function get($path) {
-        /*
-        if (isset($path)) {
-            $path   = explode('.', $path);
-            $config = $this->config;
-
-            foreach ($path as $key) {
-                if (isset($config[$key])) {
-                    $config = $config[$key];
-                }
-            }
-
-            return $config;
-        }
-        */
         return $this->config->{$path};
     }
 
     private function __clone() {}
 
-    private function __wakeup() {}
+    public function __wakeup() {}
 
     public function __destruct() {
         self::$_instance = null;

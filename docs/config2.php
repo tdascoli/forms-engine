@@ -36,8 +36,6 @@ $configJson = '{
 
 $_SESSION['configJson'] = $configJson;
 
-var_dump($_SESSION);
-
 $config = unserialize($_SESSION['config']);
 
 ?>
