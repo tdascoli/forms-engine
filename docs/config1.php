@@ -10,9 +10,9 @@ error_reporting(E_ALL);
 use FormsEngine\DynConfig;
 $_SESSION['configFile'] = 'config.json';
 $config = DynConfig::getInstance();
-
 $_SESSION['config'] = serialize($config);
 
+var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="de">
