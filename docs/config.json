@@ -1,6 +1,6 @@
 {
-    "templateDir":"/Templates/",
-    "langDir":"/Translations/",
+    "templateDir":"/Config/Templates/",
+    "langDir":"/Config/Translations/",
     "form" : {
         "dir":"/docs/forms/",
         "name":"CONFIG",
