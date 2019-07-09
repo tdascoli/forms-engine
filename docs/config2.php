@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 use FormsEngine\DynConfig;
 
-$config = new DynConfig();
+$config = DynConfig::getInstance();
 
 ?>
 <!DOCTYPE html>

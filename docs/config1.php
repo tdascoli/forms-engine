@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 
 use FormsEngine\DynConfig;
 
-$config = new DynConfig('config.json');
+$config = DynConfig::getInstance('config.json');
 
 ?>
 <!DOCTYPE html>
