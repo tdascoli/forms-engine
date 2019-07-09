@@ -49,6 +49,8 @@ $config2 = unserialize($_SESSION['config']);
 
 <!-- content -->
 <div class="container">
+    <h5><?= $config->get('templateDir') ?></h5>
+    <h5><?= $config2->get('templateDir') ?></h5>
     <p>
     <?php
         var_dump($config);
