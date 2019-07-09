@@ -17,6 +17,7 @@ class DynConfig {
      * Config constructor.
      */
     private function __construct() {
+        var_dump(__DIR__);
         if (isset($_SESSION['configJson'])){
             $this->config = json_decode($_SESSION['configJson']);
         }
