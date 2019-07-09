@@ -3,7 +3,7 @@
     "langDir":"/Translations/",
     "form" : {
         "dir":"/docs/forms/",
-        "name":"defaultForm",
+        "name":"CONFIG",
         "method":"ajax",
         "messageAfterSubmit":true,
         "createAnother":true,
