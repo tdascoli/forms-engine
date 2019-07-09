@@ -9,6 +9,33 @@ error_reporting(E_ALL);
 
 use FormsEngine\DynConfig;
 
+$configJson = '{
+    "templateDir":"/Session/Templates/",
+    "langDir":"/Session/Translations/",
+    "form" : {
+        "dir":"/docs/forms/",
+        "name":"Session",
+        "method":"ajax",
+        "messageAfterSubmit":true,
+        "createAnother":true,
+        "addTimestamp":false
+    },
+    "render" : {
+        "load":"COOKIE",
+        "config": {
+          "cookie":"jsonForm"
+        }
+    },
+    "persistence" : {
+        "email": {
+            "emailTo":"test@test.test"
+        },
+        "externalConfigs": []
+    }
+}';
+
+$_SESSION['configJson'] = $configJson;
+
 $config = unserialize($_SESSION['config']);
 
 ?>

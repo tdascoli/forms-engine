@@ -12,7 +12,6 @@ $_SESSION['configFile'] = __DIR__ . '/config.json';
 $config = DynConfig::getInstance();
 $_SESSION['config'] = serialize($config);
 
-var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="de">
