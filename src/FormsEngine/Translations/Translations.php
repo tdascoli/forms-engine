@@ -12,13 +12,14 @@ class Translations {
     $this->init();
   }
 
+  // deprecated
   public function setFilePath($path){
     Config::setLangDir($path);
     $this->init();
   }
 
   private function init(){
-    $this->i18n->setFilePath(Config::$langDir."/lang_{LANGUAGE}.json");
+    $this->i18n->setFilePath(DynConfig::getInstance()->get('langDir')."/lang_{LANGUAGE}.json");
     $this->i18n->init();
   }
 }

@@ -57,8 +57,14 @@ class DynConfig {
      *
      * @return mixed
      */
-    public function get($path) {
+    public function get($path, $subpath = null) {
+      if ($subpath==null){
         return $this->config->{$path};
+      }
+      else {
+        return $this->config->{$path}->{$subpath};
+
+      }
     }
 
     private function __clone() {}

@@ -8,6 +8,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 use FormsEngine\DynConfig;
+
 $_SESSION['configFile'] = __DIR__ . '/config.json';
 $config = DynConfig::getInstance();
 $_SESSION['config'] = serialize($config);
@@ -48,8 +49,7 @@ $_SESSION['config'] = serialize($config);
 
 <!-- content -->
 <div class="container">
-    <h5><?= $config->get('templateDir') ?></h5>
-    <h5><?= DynConfig::getInstance()->get('templateDir') ?></h5>
+    <h5><?= DynConfig::getInstance()->get('form','dir') ?></h5>
     <p>
     <?php
         var_dump($config);

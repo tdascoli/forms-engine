@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Answers\CompleteHandler;
 
-use FormsEngine\Config;
+use FormsEngine\DynConfig;
 use FormsEngine\Answers\Persistence\PersistenceType;
 
 class CompleteHandler {
@@ -25,7 +25,7 @@ class CompleteHandler {
   private function persist($data, $type){
     if (PersistenceType::isValid($type)){
       $class = 'FormsEngine\Answers\Persistence\\'.$type;
-      $class::persist(Config::$form['name'], $data);
+      $class::persist(DynConfig::getInstance()->get('form','dir'), $data);
     }
     else if (\class_exists($type)){
       $class = $type;
