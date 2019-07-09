@@ -44,7 +44,7 @@ class DynConfig {
     public static function getInstance()
     {
         if (self::$_instance == null) {
-            self::$_instance = new Self($filename);
+            self::$_instance = new Self();
         }
 
         return self::$_instance;
