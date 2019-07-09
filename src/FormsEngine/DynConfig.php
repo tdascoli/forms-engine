@@ -16,16 +16,22 @@ class DynConfig {
     /**
      * Config constructor.
      */
-    private function __construct($filename=null) {
-        if ($filename==null){
-            $filename = __DIR__ .'/config.json';
+    private function __construct() {
+        if (isset($_SESSION['configJson'])){
+            $this->config = json_decode($_SESSION['configJson']);
         }
+        else {
+            $filename = __DIR__ .'/config.json';
+            if (isset($_SESSION['configFile'])){
+                $filename = __DIR__ .'/'.$_SESSION['configFile'];
+            }
 
-        if (file_exists($filename)){
-            $handle = fopen($filename,'r');
-            $config = fread($handle, filesize($filename));
-            fclose($handle);
-            $this->config = json_decode($config);
+            if (file_exists($filename)){
+                $handle = fopen($filename,'r');
+                $config = fread($handle, filesize($filename));
+                fclose($handle);
+                $this->config = json_decode($config);
+            }
         }
     }
 
@@ -35,7 +41,7 @@ class DynConfig {
      * @static
      * @return \Config
      */
-    public static function getInstance($filename=null)
+    public static function getInstance()
     {
         if (self::$_instance == null) {
             self::$_instance = new Self($filename);

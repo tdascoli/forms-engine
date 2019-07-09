@@ -8,8 +8,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 use FormsEngine\DynConfig;
-
-$config = DynConfig::getInstance('config.json');
+$_SESSION['configFile'] = 'config.json';
+$config = DynConfig::getInstance();
 
 $_SESSION['config'] = serialize($config);
 
