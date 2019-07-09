@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -9,6 +10,8 @@ error_reporting(E_ALL);
 use FormsEngine\DynConfig;
 
 $config = DynConfig::getInstance();
+
+$config2 = deserialize($_SESSION['config']);
 
 ?>
 <!DOCTYPE html>
@@ -49,6 +52,12 @@ $config = DynConfig::getInstance();
     <p>
     <?php
         var_dump($config);
+    ?>
+    </p>
+    <hr />
+    <p>
+    <?php
+        var_dump($config2);
     ?>
     </p>
 </div>

@@ -11,6 +11,8 @@ use FormsEngine\DynConfig;
 
 $config = DynConfig::getInstance('config.json');
 
+$_SESSION['config'] = serialize($config);
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
