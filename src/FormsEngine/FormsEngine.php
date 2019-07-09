@@ -19,6 +19,7 @@ class FormsEngine {
     if ($autosave){
       $this->answers->save();
     }
+    // add config to session??
   }
 
   public function answers(){

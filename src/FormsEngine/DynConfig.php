@@ -16,9 +16,17 @@ class DynConfig {
     /**
      * Config constructor.
      */
-    private function __construct() {
-      // load json
-      $this->config = require_once('system/config/config.php');
+    private function __construct($filename=null) {
+        if ($filename==null){
+            $filename = __DIR__ .'/config.json';
+        }
+
+        if (file_exists($filename)){
+            $handle = fopen($filename,'r');
+            $config = fread($handle, filesize($filename));
+            fclose($handle);
+            $this->config = json_decode($config);
+        }
     }
 
     /**
@@ -27,10 +35,10 @@ class DynConfig {
      * @static
      * @return \Config
      */
-    public static function getInstance()
+    public static function getInstance($filename=null)
     {
         if (self::$_instance == null) {
-            self::$_instance = new Self;
+            self::$_instance = new Self($filename);
         }
 
         return self::$_instance;
@@ -44,6 +52,7 @@ class DynConfig {
      * @return mixed
      */
     public function get($path) {
+        /*
         if (isset($path)) {
             $path   = explode('.', $path);
             $config = $this->config;
@@ -56,9 +65,12 @@ class DynConfig {
 
             return $config;
         }
+        */
+        return $this->config->{$path};
     }
 
     private function __clone() {}
+
     private function __wakeup() {}
 
     public function __destruct() {
