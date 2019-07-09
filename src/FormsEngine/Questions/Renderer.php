@@ -2,7 +2,7 @@
 namespace FormsEngine\Questions;
 
 use PhpCollection\Sequence;
-use FormsEngine\DynConfig;
+use FormsEngine\Config;
 use FormsEngine\Questions\Element\Title;
 use FormsEngine\Questions\Loader\Loader;
 use FormsEngine\Questions\Pagination\Page;
@@ -19,12 +19,12 @@ class Renderer {
   private $loader;
 
   public function __construct(){
-    $loader = new \Twig\Loader\FilesystemLoader(DynConfig::getInstance()->get('templateDir'));
+    $loader = new \Twig\Loader\FilesystemLoader(Config::getInstance()->get('templateDir'));
     $this->twig = new \Twig\Environment($loader);
     $this->pages = new Sequence();
     $this->pagination = new Pagination();
-    $this->loader = new Loader(DynConfig::getInstance()->get('render','load'),
-                               DynConfig::getInstance()->get('render','config'));
+    $this->loader = new Loader(Config::getInstance()->get('render','load'),
+                               Config::getInstance()->get('render','config'));
   }
 
   public function render(){
@@ -35,15 +35,15 @@ class Renderer {
 
       $params = array('pages' => $pages,
                       'pagination' => $this->pagination->prepare(\sizeof($this->pages)),
-                      'method' => DynConfig::getInstance()->get('form','method'),
-                      'formName' => DynConfig::getInstance()->get('form','name'),
+                      'method' => Config::getInstance()->get('form','method'),
+                      'formName' => Config::getInstance()->get('form','name'),
                       'formTitle' => $title);
 
-      if (DynConfig::getInstance()->get('form','method')=='ajax'){
+      if (Config::getInstance()->get('form','method')=='ajax'){
         $params = \array_merge($params,
                                array('exception' => \L::exception_stored,
                                      'message' => \L::message_stored,
-                                     'createAnother' => DynConfig::getInstance()->get('form','createAnother'),
+                                     'createAnother' => Config::getInstance()->get('form','createAnother'),
                                      'another' => array(
                                           'link' => $_SERVER['REQUEST_URI'],
                                           'text' => \L::pagination_createAnother)));
@@ -55,7 +55,7 @@ class Renderer {
       echo $this->twig->render('message.html',
                       ['formTitle' => $title,
                        'message' => \L::message_stored,
-                       'createAnother' => DynConfig::getInstance()->get('form','createAnother'),
+                       'createAnother' => Config::getInstance()->get('form','createAnother'),
                        'another' => array(
                                       'link' => $_SERVER['REQUEST_URI'],
                                       'text' => \L::pagination_createAnother)]);
@@ -73,7 +73,7 @@ class Renderer {
   private function displayMessage(){
     if (!isset($_SESSION['hasSubmitted']) OR
         !$_SESSION['hasSubmitted'] OR
-        !DynConfig::getInstance()->get('form','messageAfterSubmit')){
+        !Config::getInstance()->get('form','messageAfterSubmit')){
       return false;
     }
     return true;
@@ -131,13 +131,6 @@ class Renderer {
   public function addRequired($element){
     $element->required();
     $this->add($element);
-  }
-
-  // deprecated
-  public function setTemplateDir($dir){
-    Config::setTemplateDir($dir);
-    $loader = new \Twig\Loader\FilesystemLoader(DynConfig::getInstance()->get('templateDir'));
-    $this->twig = new \Twig\Environment($loader);
   }
 
   public function serialize() {

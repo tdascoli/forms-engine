@@ -3,62 +3,78 @@ namespace FormsEngine;
 
 class Config {
 
-  /** @var string */
-  public static $templateDir = __DIR__ . '/Templates/';
+    /**
+     * @var Config
+     */
+    private static $_instance = null;
 
-  /** @var string */
-  public static $langDir = __DIR__ . '/Translations/';
+    /**
+     * @var array
+     */
+    private $config;
 
-  /** @var array */
-  public static $form = array(
-      'dir' => __DIR__ . '/../../docs/forms/',
-      'name' => 'defaultForm',
-      'method' => 'ajax',
-      'messageAfterSubmit' => true,
-      'createAnother' => true,
-      'addTimestamp' => false);
+    /**
+     * Config constructor.
+     */
+    private function __construct() {
+        if (isset($_SESSION['configJson'])){
+            $this->config = json_decode($_SESSION['configJson']);
+        }
+        else {
+            $filename = __DIR__ .'/config.json';
+            if (isset($_SESSION['configFile'])){
+                $filename = $_SESSION['configFile'];
+            }
 
-  /** @var array */
-  public static $render = array(
-      'load' => 'COOKIE',
-      'config' => array('cookie' => 'jsonForm'));
+            if (file_exists($filename)){
+                $handle = fopen($filename,'r');
+                $config = fread($handle, filesize($filename));
+                fclose($handle);
+                $this->config = json_decode($config);
+            }
+        }
+    }
 
-  /** @var array */
-  public static $persistence = array(
-      'email' => array('emailTo' => 'test@test.test'));
+    /**
+     * Returns the instance.
+     *
+     * @static
+     * @return \Config
+     */
+    public static function getInstance() {
+        if (self::$_instance == null) {
+            self::$_instance = new Self();
+        }
+        return self::$_instance;
+    }
 
+    /**
+     * Get a config item.
+     *
+     * @param $path
+     *
+     * @return mixed
+     */
+    public function get($path, $subpath = null) {
+      if ($subpath!=null){
+        return $this->prepare($subpath, $this->config->{$path}->{$subpath});
+      }
+      return $this->prepare($path, $this->config->{$path});
+    }
 
-   /* SETTER */
-   public static function setTemplateDir($dir){
-     self::$templateDir = $dir;
-   }
+    private function prepare($key, $value){
+      if (strripos($key,'dir') && $this->config->addDirPrefix){
+        return __DIR__ . $value;
+      }
+      return $value;
+    }
 
-   public static function setLangDir($dir){
-     self::$langDir = $dir;
-   }
+    private function __clone() {}
 
-   public static function setMethodPost(){
-     self::$method = Method::POST()->getValue();
-   }
+    public function __wakeup() {}
 
-   public static function setMethodAjax(){
-     self::$method = Method::AJAX()->getValue();
-   }
-
-   public static function setFormName($formName){
-     self::$form['name'] = $formName;
-   }
-
-   public static function setMessageAfterSubmit($message){
-     self::$form['messageAfterSubmit'] = $message;
-   }
-
-   public static function setCreateAnother($another){
-     self::$form['createAnother'] = $another;
-   }
-
-   public static function setPersistenceEmailTo($email){
-     self::$persistence['email']['emailTo'] = $email;
-   }
+    public function __destruct() {
+        self::$_instance = null;
+    }
 }
 ?>

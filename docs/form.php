@@ -10,8 +10,6 @@ use FormsEngine\FormsEngine;
 
 $engine = new FormsEngine();
 $form = $engine->renderer();
-
-var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="de">

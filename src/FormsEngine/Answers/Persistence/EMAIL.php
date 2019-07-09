@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Answers\Persistence;
 
-use FormsEngine\DynConfig;
+use FormsEngine\Config;
 use FormsEngine\Translations\Translations;
 use FormsEngine\Answers\Persistence\Persistence;
 use \PHPMailer\PHPMailer\PHPMailer;
@@ -16,8 +16,8 @@ class EMAIL implements Persistence {
     $mail = new PHPMailer(true);
     try {
         //Recipients
-        $mail->setFrom(DynConfig::getInstance()->get('peristence','email')->emailTo, 'FormsEngine');
-        $mail->addAddress(DynConfig::getInstance()->get('peristence','email')->emailTo);
+        $mail->setFrom(Config::getInstance()->get('peristence','email')->emailTo, 'FormsEngine');
+        $mail->addAddress(Config::getInstance()->get('peristence','email')->emailTo);
 
         // Content
         $mail->isHTML(true);

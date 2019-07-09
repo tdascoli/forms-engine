@@ -11,8 +11,8 @@ class API implements Load {
 
   public function load(){
     $serializedString='';
-    if (isset($_GET[$this->config['get']])){
-      $url = $this->config['url'].$_GET[$this->config['get']];
+    if (isset($_GET[$this->config->get])){
+      $url = $this->config->url.$_GET[$this->config->get];
       $response = \Httpful\Request::get($url)
           ->expectsJson()
           ->send();

@@ -4,13 +4,13 @@ namespace FormsEngine\Answers\Persistence;
 use \PhpOffice\PhpSpreadsheet\Spreadsheet;
 use \PhpOffice\PhpSpreadsheet\Reader;
 use \PhpOffice\PhpSpreadsheet\Writer;
-use FormsEngine\DynConfig;
+use FormsEngine\Config;
 
 class XLSX implements Persistence {
 
   public static function persist($name, $data){
     $file = $name.'.xlsx';
-    $path = DynConfig::getInstance()->get('form','dir');
+    $path = Config::getInstance()->get('form','dir');
     $pathFile = $path.$file;
 
     if (\file_exists($pathFile)){
@@ -34,7 +34,7 @@ class XLSX implements Persistence {
 
   public static function load($name){
     $file = $name.'.xlsx';
-    $path = DynConfig::getInstance()->get('form','dir');
+    $path = Config::getInstance()->get('form','dir');
     $pathFile = $path.$file;
 
     $records = '';

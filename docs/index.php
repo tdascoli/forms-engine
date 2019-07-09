@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-use FormsEngine\DynConfig;
+use FormsEngine\Config;
 use FormsEngine\FormsEngine;
 use FormsEngine\Questions\Element;
 use FormsEngine\Questions\Pagination\Page;
@@ -123,7 +123,7 @@ $_SESSION["sessionForm"] = $serializedString;
       <ul>
         <li>$serializedString isString <?= is_string($serializedString) ?></li>
         <li>$serializedObject isObject <?= is_object($serializedObject) ?></li>
-        <li>Config::formName <?= DynConfig::getInstance()->get('form','name') ?></li>
+        <li>Config::formName <?= Config::getInstance()->get('form','name') ?></li>
       </ul>
     </p>
     <?php

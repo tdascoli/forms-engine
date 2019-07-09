@@ -6,7 +6,7 @@ class SESSION implements Load {
   private $session;
 
   public function __construct($session){
-    $this->session = $session['session'];
+    $this->session = $session;
   }
 
   public function load(){

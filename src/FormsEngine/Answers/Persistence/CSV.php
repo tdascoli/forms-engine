@@ -3,7 +3,7 @@ namespace FormsEngine\Answers\Persistence;
 
 use \League\Csv\Reader;
 use \League\Csv\Writer;
-use FormsEngine\DynConfig;
+use FormsEngine\Config;
 
 class CSV implements Persistence {
 
@@ -35,7 +35,7 @@ class CSV implements Persistence {
 
   private static function prepareFile($name){
     $file = $name.'.csv';
-    $path = DynConfig::getInstance()->get('form','dir');
+    $path = Config::getInstance()->get('form','dir');
     $pathFile = $path.$file;
 
     $hasHeaders = false;

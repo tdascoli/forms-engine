@@ -1,7 +1,7 @@
 <?php
 namespace FormsEngine\Translations;
 
-use FormsEngine\DynConfig;
+use FormsEngine\Config;
 
 class Translations {
 
@@ -13,7 +13,7 @@ class Translations {
   }
 
   private function init(){
-    $this->i18n->setFilePath(DynConfig::getInstance()->get('langDir')."/lang_{LANGUAGE}.json");
+    $this->i18n->setFilePath(Config::getInstance()->get('langDir')."/lang_{LANGUAGE}.json");
     $this->i18n->init();
   }
 }

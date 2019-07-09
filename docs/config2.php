@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-use FormsEngine\DynConfig;
+use FormsEngine\Config;
 
 $configJson = '{
     "templateDir":"/Session/Templates/",
@@ -74,11 +74,11 @@ $config = unserialize($_SESSION['config']);
 
 <!-- content -->
 <div class="container">
-    <h5><?= DynConfig::getInstance()->get('templateDir') ?></h5>
+    <h5><?= Config::getInstance()->get('templateDir') ?></h5>
     <h5><?= $config->get('templateDir') ?></h5>
     <p>
     <?php
-        var_dump(DynConfig::getInstance());
+        var_dump(Config::getInstance());
     ?>
     </p>
     <hr />

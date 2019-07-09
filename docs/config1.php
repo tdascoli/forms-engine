@@ -7,10 +7,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-use FormsEngine\DynConfig;
+use FormsEngine\Config;
 
 $_SESSION['configFile'] = __DIR__ . '/config.json';
-$config = DynConfig::getInstance();
+$config = Config::getInstance();
 $_SESSION['config'] = serialize($config);
 
 ?>
@@ -49,7 +49,7 @@ $_SESSION['config'] = serialize($config);
 
 <!-- content -->
 <div class="container">
-    <h5><?= DynConfig::getInstance()->get('form','dir') ?></h5>
+    <h5><?= Config::getInstance()->get('form','dir') ?></h5>
     <p>
     <?php
         var_dump($config);
