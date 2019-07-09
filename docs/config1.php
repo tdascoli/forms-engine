@@ -49,7 +49,7 @@ $_SESSION['config'] = serialize($config);
 
 <!-- content -->
 <div class="container">
-    <h2>>?= $config->get('templateDir') ?></h2>
+    <h2><?= $config->get('templateDir') ?></h2>
     <p>
     <?php
         var_dump($config);
