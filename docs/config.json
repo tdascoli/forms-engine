@@ -10,6 +10,10 @@
         "createAnother":true,
         "addTimestamp":false
     },
+    "pagination": {
+      "active":true,
+      "reset":false
+    },
     "render" : {
         "load":"COOKIE",
         "config": {

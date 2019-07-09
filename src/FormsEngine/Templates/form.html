@@ -15,7 +15,7 @@
                 {{ include('page.html') }}
             {% endfor %}
         </div>
-        {% if pagination.active and not pagination.static %}
+        {% if pagination.active %}
             {{ include('pagination.html') }}
         {% endif %}
     </div>

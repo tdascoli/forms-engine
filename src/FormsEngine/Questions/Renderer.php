@@ -6,7 +6,6 @@ use FormsEngine\Config;
 use FormsEngine\Questions\Element\Title;
 use FormsEngine\Questions\Loader\Loader;
 use FormsEngine\Questions\Pagination\Page;
-use FormsEngine\Questions\Pagination\Pagination;
 
 // todo add/addRequired etc. make interface, also for Page
 
@@ -14,7 +13,6 @@ class Renderer {
 
   private $twig;
   private $pages;
-  private $pagination;
   private $formTitle;
   private $loader;
 
@@ -22,7 +20,6 @@ class Renderer {
     $loader = new \Twig\Loader\FilesystemLoader(Config::getInstance()->get('templateDir'));
     $this->twig = new \Twig\Environment($loader);
     $this->pages = new Sequence();
-    $this->pagination = new Pagination();
     $this->loader = new Loader(Config::getInstance()->get('render','load'),
                                Config::getInstance()->get('render','config'));
   }
@@ -34,10 +31,22 @@ class Renderer {
       $pages = $this->prepare();
 
       $params = array('pages' => $pages,
-                      'pagination' => $this->pagination->prepare(\sizeof($this->pages)),
                       'method' => Config::getInstance()->get('form','method'),
                       'formName' => Config::getInstance()->get('form','name'),
                       'formTitle' => $title);
+
+      $pagination = array('active' => Config::getInstance()->get('pagination','active'),
+                          'reset' => Config::getInstance()->get('pagination','reset'));
+      if (Config::getInstance()->get('pagination','active')){
+        $pagination = \array_merge($pagination,
+                                  array('translations' => array(
+                                    'back' => \L::pagination_back,
+                                    'next' => \L::pagination_next,
+                                    'reset' => \L::pagination_reset,
+                                    'submit' => \L::pagination_submit
+                                  )));
+      }
+      $params = \array_merge($params, array('pagination' => $pagination));
 
       if (Config::getInstance()->get('form','method')=='ajax'){
         $params = \array_merge($params,
