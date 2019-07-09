@@ -24,6 +24,8 @@ $cb2 = new Element\Option();
 $cb2->add('first2',1);
 $cb2->add('second2',2);
 $r->add(new Element\RadioGroup('Radio Group',$cb2));
+
+var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="de">

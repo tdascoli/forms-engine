@@ -5,7 +5,7 @@
     "form" : {
         "dir":"/home/dat/Documents/workspace/forms-engine/docs/forms/",
         "name":"CONFIG",
-        "method":"ajax",
+        "method":"post",
         "messageAfterSubmit":true,
         "createAnother":true,
         "addTimestamp":false
