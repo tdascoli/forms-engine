@@ -50,7 +50,7 @@ $_SESSION['config'] = serialize($config);
 <!-- content -->
 <div class="container">
     <h5><?= $config->get('templateDir') ?></h5>
-    <h5><?= DynConfig::getInstance('config.json')->get('templateDir') ?></h5>
+    <h5><?= DynConfig::getInstance()->get('templateDir') ?></h5>
     <p>
     <?php
         var_dump($config);
