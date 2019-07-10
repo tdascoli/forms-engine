@@ -3,8 +3,9 @@ namespace FormsEngine\Questions\Pagination;
 
 use PhpCollection\Sequence;
 use FormsEngine\Questions\Type;
+use FormsEngine\Questions\AbstractPage;
 
-class Page {
+class Page implements AbstractPage {
 
   private $elements;
   private $elementKeys;

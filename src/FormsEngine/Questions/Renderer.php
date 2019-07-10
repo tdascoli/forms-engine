@@ -7,9 +7,7 @@ use FormsEngine\Questions\Element\Title;
 use FormsEngine\Questions\Loader\Loader;
 use FormsEngine\Questions\Pagination\Page;
 
-// todo add/addRequired etc. make interface, also for Page
-
-class Renderer {
+class Renderer implements AbstractPage {
 
   private $twig;
   private $pages;
@@ -128,21 +126,6 @@ class Renderer {
     }
   }
 
-  public function addPage($page){
-      if (\is_a($page, 'FormsEngine\Questions\Pagination\Page')){
-        $this->pages->add($page);
-      }
-  }
-
-  public function addTitle($title, $description=null){
-    // todo throw/log
-    if ($this->formTitle == null){
-      if (\is_a($element, 'FormsEngine\Questions\Element\Title')){
-        $this->formTitle = new Title($title, $description);
-      }
-    }
-  }
-
   public function addRequired($element){
     $element->required();
     $this->add($element);
@@ -156,6 +139,21 @@ class Renderer {
       }
     }
     return $this->keys->all();
+  }
+
+  public function addPage($page){
+      if (\is_a($page, 'FormsEngine\Questions\Pagination\Page')){
+        $this->pages->add($page);
+      }
+  }
+
+  public function addTitle($title, $description=null){
+    // todo throw/log
+    if ($this->formTitle == null){
+      if (\is_a($element, 'FormsEngine\Questions\Element\Title')){
+        $this->formTitle = new Title($title, $description);
+      }
+    }
   }
 
   public function serialize() {
