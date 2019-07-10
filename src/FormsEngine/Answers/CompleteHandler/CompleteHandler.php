@@ -44,6 +44,7 @@ class CompleteHandler extends PersistenceTypeHandler {
         }
       }
     }
+    \var_dump($data);
     return $data;
   }
 

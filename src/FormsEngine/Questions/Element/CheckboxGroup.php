@@ -11,9 +11,9 @@ class CheckboxGroup extends Element {
   public function __construct($label, $options) {
     parent::__construct($label);
     $this->type = Type::CHECKBOX_GROUP()->getValue();
-      if ($options instanceof Option){
-        $this->options = $options->all();
-      }
+    if ($options instanceof Option){
+      $this->options = $options->all();
+    }
   }
 
 
@@ -47,6 +47,14 @@ class CheckboxGroup extends Element {
          }
      }
      return $class;
+   }
+
+   public function elementKeys(){
+     $keys = array();
+     foreach ($this->options as $option) {
+       \array_push($keys, $option['id']);
+     }
+     return $keys;
    }
 }
 ?>

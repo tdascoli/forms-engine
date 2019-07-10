@@ -2,6 +2,7 @@
 namespace FormsEngine\Questions\Pagination;
 
 use PhpCollection\Sequence;
+use FormsEngine\Questions\Type;
 
 class Page {
 
@@ -38,7 +39,12 @@ class Page {
     if (!is_a($element, 'FormsEngine\Questions\Element\Title')){
         $this->elements->add($element);
         // todo CheckboxGroup
-        $this->elementKeys->add($element->name);
+        if ($element->type == Type::CHECKBOX_GROUP()->getValue()){
+          $this->elementKeys->addAll($element->elementKeys());
+        }
+        else {
+          $this->elementKeys->add($element->name);
+        }
     }
   }
 
