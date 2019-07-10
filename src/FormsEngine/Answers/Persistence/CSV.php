@@ -36,6 +36,7 @@ class CSV implements Persistence {
   private static function prepareFile($name){
     $file = $name.'.csv';
     $path = Config::getInstance()->get('form','dir');
+    \var_dump($path);
     $pathFile = $path.$file;
 
     $hasHeaders = false;

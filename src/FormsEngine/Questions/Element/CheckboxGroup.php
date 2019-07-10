@@ -52,7 +52,13 @@ class CheckboxGroup extends Element {
    public function elementKeys(){
      $keys = array();
      foreach ($this->options as $option) {
-       \array_push($keys, $option['id']);
+       if (\is_object($option)){
+         $id = $option->id;
+       }
+       else {
+         $id = $option['id'];
+       }
+       \array_push($keys, $id);
      }
      return $keys;
    }

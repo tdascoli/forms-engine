@@ -1,5 +1,4 @@
 <?php
-
 require __DIR__ . '/../vendor/autoload.php';
 
 ini_set('display_errors', 1);
@@ -7,6 +6,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 use FormsEngine\FormsEngine;
+
+// Config
+$_SESSION['configFile'] = __DIR__ . '/config.json';
 
 $engine = new FormsEngine();
 $form = $engine->renderer();
@@ -44,6 +46,7 @@ $form = $engine->renderer();
     <!-- FormsEngine JS -->
     <!-- pagination:js -->
     <script src="js/formsEngine.pagination.js"></script>
+    <script src="js/ajax.js"></script>
     <!-- endinject -->
 </head>
 <body>

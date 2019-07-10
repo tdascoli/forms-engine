@@ -1,7 +1,4 @@
 <?php
-
-session_start();
-
 require __DIR__ . '/../vendor/autoload.php';
 
 ini_set('display_errors', 1);
@@ -13,14 +10,13 @@ use FormsEngine\FormsEngine;
 use FormsEngine\Questions\Element;
 use FormsEngine\Questions\Pagination\Page;
 
+session_start();
 // Config
-//$_SESSION['configFile'] = __DIR__ . '/config.json';
-$config = array(
-  'key' => 'configFile',
-  'value' => __DIR__ . '/config.json'
-);
+$_SESSION['configFile'] = __DIR__ . '/config.json';
+Config::setDirPrefix(__DIR__, "dir");
+Config::setDirPrefix(__DIR__, "langDir");
 
-$engine = new FormsEngine($config);
+$engine = new FormsEngine();
 
 $r = $engine->renderer();
 // Page 1

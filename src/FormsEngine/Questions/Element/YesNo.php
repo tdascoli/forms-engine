@@ -7,9 +7,10 @@ use FormsEngine\Translations\Translations;
 class YesNo extends ElementGroup {
 
   private $yesno;
-  private $name;
   private $booleans;
 
+  public $name;
+  
   private $yesnoBooleans = array('Yes' => true,'No' => false);
   private $yesnoStrings = array('Yes' => \L::element_yesno_yes,'No' => \L::element_yesno_no);
 

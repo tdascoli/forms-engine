@@ -11,16 +11,12 @@ class FormsEngine {
   private $renderer;
   private $translations;
 
-  public function __construct($config = null){
+  public function __construct(){
     $this->answers = new Answers();
     $this->renderer = new Renderer();
     $this->translations = new Translations();
 
     $this->answers->save();
-
-    if ($config!=null && \is_array($config)){
-       $_SESSION[$config['key']]=$config['value'];
-     }
   }
 
   public function answers(){
