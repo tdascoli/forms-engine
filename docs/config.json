@@ -16,9 +16,7 @@
     },
     "render" : {
         "load":"COOKIE",
-        "config": {
-          "cookie":"jsonForm"
-        }
+        "config": "jsonForm"
     },
     "persistence" : {
         "email": {
