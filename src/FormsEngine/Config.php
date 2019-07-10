@@ -63,7 +63,7 @@ class Config {
     }
 
     private function prepare($key, $value){
-      if (strripos($key,'dir') && $this->config->addDirPrefix){
+      if (stripos($key,'dir')>=0 && $this->config->addDirPrefix){
         return __DIR__ . $value;
       }
       return $value;
