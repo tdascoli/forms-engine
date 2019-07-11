@@ -9,7 +9,7 @@ class Page implements AbstractPage {
 
   private $elements;
   private $elementKeys;
-  // private $condition;
+  private $condition;
 
   public function __construct(){
     $this->elements = new Sequence();
