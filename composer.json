@@ -23,6 +23,8 @@
       "philipp15b/php-i18n": "^4.0",
       "phpmailer/phpmailer": "^6.0",
     "nategood/httpful": "^0.2.20",
-    "slim/slim": "^3.12"
+    "slim/slim": "^3.12",
+    "vlucas/phpdotenv": "^3.4",
+    "tuupola/slim-jwt-auth": "^3.4"
   }
 }

@@ -17,18 +17,17 @@ use Psr\Http\Message\ResponseInterface as Response;
 // Config
 $_SESSION['configFile'] = __DIR__ . '/../config.json';
 
-$app = new \Slim\App;
+$app = new Slim\App;
+
+$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
+    $name = $args['name'];
+    $response->getBody()->write("Hello, $name");
+    return $response;
+});
 
 $app->put('/record/{formId}', ServerCompleteHandler::class . ':save');
 
 $app->get('/record/{formId}[/{type}]', Collection::class . ':load');
-
-/*
-todo CHECK => WHEN ALL IS IN CONFIG, THEN:
-$app->put('/record', ServerCompleteHandler::class . ':save');
-
-$app->get('/record', Collection::class . ':load');
-*/
 
 $app->run();
 ?>
