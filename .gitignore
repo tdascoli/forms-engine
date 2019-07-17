@@ -1,6 +1,5 @@
 **/.env
 vendor/
 node_modules/
-docs/forms/*.csv
-docs/forms/*.xlsx
+docs/forms/**/*
 docs/langcache/

@@ -1,6 +1,7 @@
 <?php
 namespace FormsEngine\Answers\Collection;
 
+use FormsEngine\Config;
 use Psr\Container\ContainerInterface;
 use FormsEngine\Answers\Persistence\PersistenceType;
 
@@ -14,7 +15,7 @@ class Collection {
 
   public function load($request, $response, $args) {
     $formId = $args['formId'];
-    $type = PersistenceType::CSV()->getValue();
+    $type = Config::getInstance()->get('persistence','type');
     if (isset($args['type'])){
       $type = $args['type'];
     }

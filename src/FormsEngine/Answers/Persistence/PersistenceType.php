@@ -11,6 +11,7 @@ class PersistenceType extends Enum {
     const CSV       = 'CSV';
     const XLSX      = 'XLSX';
     const JSON      = 'JSON';
+    const JSONDB    = 'JSONDB';
     const EMAIL     = 'EMAIL';
     const MYSQL     = 'MYSQL';
 }

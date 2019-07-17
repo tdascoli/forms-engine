@@ -23,6 +23,7 @@
         "config": "jsonForm"
     },
     "persistence": {
+        "type": "JSONDB",
         "email": {
             "emailTo": "test@test.test"
         },

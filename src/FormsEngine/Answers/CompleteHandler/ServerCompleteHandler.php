@@ -1,6 +1,7 @@
 <?php
 namespace FormsEngine\Answers\CompleteHandler;
 
+use FormsEngine\Config;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -18,7 +19,8 @@ class ServerCompleteHandler extends PersistenceTypeHandler {
       $formId = $args['formId'];
       $body = $request->getBody();
       $form = json_decode($body);
-      $this->persist($formId, (array) $form, $this->getPersistenceType());
+      $type = Config::getInstance()->get('persistence','type');
+      $this->persist($formId, (array) $form, $type);
       // todo error!!!
       $response->withStatus(404);
       return $response;

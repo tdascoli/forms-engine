@@ -123,7 +123,7 @@ $_SESSION["sessionForm"] = $serializedString;
       <ul>
         <li>$serializedString isString <?= is_string($serializedString) ?></li>
         <li>$serializedObject isObject <?= is_object($serializedObject) ?></li>
-        <li>Config::formName <?= Config::getInstance()->get('form','name') ?></li>
+        <li>Config::persistenceType is <?= Config::getInstance()->get('persistence','type') ?></li>
       </ul>
     </p>
     <?php

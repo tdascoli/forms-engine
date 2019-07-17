@@ -4,6 +4,7 @@ namespace FormsEngine;
 use FormsEngine\Answers\Answers;
 use FormsEngine\Questions\Renderer;
 use FormsEngine\Translations\Translations;
+use FormsEngine\Answers\Persistence\PersistenceType;
 
 class FormsEngine {
 
@@ -16,6 +17,9 @@ class FormsEngine {
     $this->renderer = new Renderer();
     $this->translations = new Translations();
 
+    $this->answers->setPersistenceType(
+                    new PersistenceType(
+                        Config::getInstance()->get('persistence','type')));
     $this->answers->save();
   }
 
