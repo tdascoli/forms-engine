@@ -22,3 +22,17 @@ use FormsEngine\FormsEngine;
 
 $engine = new FormsEngine();
 ```
+
+Then add some Elements to create your form, and render it.
+
+```php
+use FormsEngine\FormsEngine;
+
+$engine = new FormsEngine();
+$r = $engine->renderer();
+
+$r->add(new Element\Title('My First FormsEngine'));
+$r->add(new Element\Text('Text Input Label','Text Input Placeholder','Text Input Helptext'));
+
+$r->render();
+```
