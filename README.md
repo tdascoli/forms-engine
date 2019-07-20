@@ -38,7 +38,7 @@ $r->render();
 
 ## Dependencies
 
-A List of all Dependencies and Documentation used by this Library.
+A List of all Dependencies used by this Library.
 
 **CSS**
 
@@ -47,21 +47,21 @@ A List of all Dependencies and Documentation used by this Library.
 
 **PHP**
 
-* [twig/twig](https://twig.symfony.com/)
+* [twig/twig](https://twig.symfony.com/) templating
 * [myclabs/php-enum](https://github.com/myclabs/php-enum)
-* [phpcollection/phpcollection](http://jmsyst.com/libs/php-collection)
-* [philipp15b/php-i18n](https://github.com/Philipp15b/php-i18n)
-* [slim/slim](http://www.slimframework.com/)
-* [nategood/httpful](http://phphttpclient.com/)
-* [league/csv](https://csv.thephpleague.com/)
-* [rakibtg/sleekdb](https://sleekdb.github.io/)
-* [phpmailer/phpmailer](https://github.com/PHPMailer/PHPMailer)
-* [phpoffice/phpspreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
+* [phpcollection/phpcollection](http://jmsyst.com/libs/php-collection) Sets, Sequences, Collections
+* [philipp15b/php-i18n](https://github.com/Philipp15b/php-i18n) i18n
+* [slim/slim](http://www.slimframework.com/) RESTful
+* [nategood/httpful](http://phphttpclient.com/) HTTP calls
+* [league/csv](https://csv.thephpleague.com/) CSV
+* [rakibtg/sleekdb](https://sleekdb.github.io/) JSONDB
+* [phpmailer/phpmailer](https://github.com/PHPMailer/PHPMailer) E-Mail
+* [phpoffice/phpspreadsheet](https://github.com/PHPOffice/PhpSpreadsheet) Excel
 
 **JS**
 
-* [Parsley.JS](http://parsleyjs.org/)
-* [JOII (JavaScript Object Inheritance Implementation](https://github.com/haroldiedema/joii)
+* [Parsley.JS](http://parsleyjs.org/) Input validation
+* [JOII (JavaScript Object Inheritance Implementation](https://github.com/haroldiedema/joii) JS Objects
 
 ## Elements `FormsEngine\Questions\Element`
 
@@ -83,16 +83,48 @@ All Elements have the following methods:
 * `attr($attr, $value)` add attributes
 
 **Private Methods**
+
 * `setId($id,$isName = false)` set id and optional also name attribute
 * `setName($name)` set name attribute
 * `static camelCase($str, array $noStrip = [])` get String camelCased, used for `setId` and `setName`
 
-### Text
+### Text, E-Mail, Number
+
+Extends from `Input`
 
 Usage
 
 ```php
-$element = new Text('Label','Placeholder','Helptext');
+$text   = new Text('Label','Placeholder','Helptext');
+
+$email  = new Email('Label','Placeholder','Helptext');
+
+$number = new Number('Label','Placeholder','Helptext');
+```
+
+Template/HTML (`type` is different according to Element)
+
+```html
+<div class="form-group">
+  <label for="label">Label</label>
+  <input type="text" class="form-control" id="label" name="label" placeholder="Placeholder" aria-describedby="label-helptext">
+  <small id="label-helptext" class="form-text text-muted">Helptext</small>
+</div>
+```
+
+Public Methods
+
+* `__construct($label, $placeholder = null, $helptext = null)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
+### Textarea
+
+Extends from `Text`
+
+Usage
+
+```php
+$element = new Textarea('Label','Placeholder','Helptext');
 ```
 
 Template/HTML
@@ -100,11 +132,37 @@ Template/HTML
 ```html
 <div class="form-group">
   <label for="label">Label</label>
-  <input type="text" class="form-control " id="label" name="label" placeholder="Placeholder" aria-describedby="label-helptext">
+  <input type="text" class="form-control typeahead" id="label" name="label" placeholder="Placeholder" aria-describedby="label-helptext" data-provide="typeahead" autocomplete="off">
   <small id="label-helptext" class="form-text text-muted">Helptext</small>
 </div>
 ```
 
 Public Methods
+
+* `__construct($label, $placeholder = null, $helptext = null)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
+### Typeahead
+
+Usage
+
+```php
+$options = array('first','second','third','fourth');
+
+$element = new Typeahead('Label',$options,'Placeholder','Helptext');
+```
+
+Template/HTML
+
+```html
+<div class="form-group">
+  <label for="label">Label</label>
+  <input type="text" class="form-control" id="label" name="label" placeholder="Placeholder" aria-describedby="label-helptext">
+  <small id="label-helptext" class="form-text text-muted">Helptext</small>
+</div>
+```
+
+Public Methods
+
 * `__construct($label, $placeholder = null, $helptext = null)` constructor
 * `render($twig)` render Method for Twig Template Engine
