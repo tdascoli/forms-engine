@@ -323,7 +323,7 @@ $array = new Typeahead('Label',$options,'Placeholder','Helptext');
 Usage, with `Option`. See `Option` for more information
 
 ```php
-$option = new Element\Option();
+$option = new Option();
 $option->add('Germany','GER');
 $option->add('Italy','ITA');
 $option->add('Switzerland','SUI');
