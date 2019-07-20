@@ -56,10 +56,12 @@ class Config {
         return self::$_instance;
     }
 
+    // todo path as path.subpath.subpath for more felxibility...
     /**
      * Get a config item.
      *
      * @param $path
+     * @param $subpath
      *
      * @return mixed
      */
