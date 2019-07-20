@@ -5,25 +5,26 @@ Library to build forms on basis of Bootstrap 4 templates. This library includes 
 [![Latest Version](https://img.shields.io/packagist/v/apollo29/forms-engine.svg?style=flat-square)](https://packagist.org/packages/apollo29/forms-engine)
 [![Build Status](https://travis-ci.com/tdascoli/forms-engine.svg?branch=develop)](https://travis-ci.com/tdascoli/forms-engine)
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [FormsEngine](#formsengine)
-	- [Install](#install)
-	- [Usage](#usage)
-	- [Dependencies](#dependencies)
-	- [Option](#option)
-	- [Elements `FormsEngine\Questions\Element`](#elements-formsenginequestionselement)
-		- [Text, E-Mail, Number, Date, DateTime](#text-e-mail-number-date-datetime)
-		- [Textarea](#textarea)
-		- [Typeahead](#typeahead)
-		- [Radio](#radio)
-		- [Radioroup](#radioroup)
-		- [Checkbox](#checkbox)
-		- [CheckboxGroup](#checkboxgroup)
-		- [Select](#select)
-		- [Paragraph](#paragraph)
-		- [Title](#title)
-		- [Button, Reset, Submit](#button-reset-submit)
+- [Install](#install)
+- [Usage](#usage)
+- [Dependencies](#dependencies)
+- [Option](#option)
+- [Elements `FormsEngine\Questions\Element`](#elements-formsenginequestionselement)
+	- [Text, E-Mail, Number, Date, DateTime](#text-e-mail-number-date-datetime)
+	- [Textarea](#textarea)
+	- [Hidden](#hidden)
+	- [Typeahead](#typeahead)
+	- [Radio](#radio)
+	- [RadioGroup](#radiogroup)
+	- [Checkbox](#checkbox)
+	- [CheckboxGroup](#checkboxgroup)
+	- [Select](#select)
+	- [YesNo](#yesno)
+	- [Paragraph](#paragraph)
+	- [Title](#title)
+	- [Button, Reset, Submit](#button-reset-submit)
 
 <!-- /TOC -->
 
@@ -195,6 +196,31 @@ Public Methods
 * `__construct($label, $placeholder = null, $helptext = null)` constructor
 * `render($twig)` render Method for Twig Template Engine
 
+### Hidden
+
+Extends from `Element`
+
+Usage
+
+```php
+$element = new Hidden('id','Value');
+```
+
+Template/HTML
+
+```html
+<input
+    type="hidden"
+    id="id"
+    name="id"
+    value="Value">
+```
+
+Public Methods
+
+* `__construct($id, $value = null)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
 ### Typeahead
 
 Extends from `Text`
@@ -254,7 +280,7 @@ Public Methods
 * `__construct($label, $value, $name, $checked = false)` constructor
 * `render($twig)` render Method for Twig Template Engine
 
-### Radioroup
+### RadioGroup
 
 Extends from `Element`
 
@@ -400,6 +426,25 @@ Template/HTML
 Public Methods
 
 * `__construct($label,$options,$nullable = false,$helptext = null)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
+### YesNo
+
+Renders a Yes/No `Radio` Element, with "Yes" / "No" or boolean values.
+
+Extends from `ElementGroup`
+
+Usage
+
+```php
+$element = new YesNo('Name',true);
+```
+
+Template/HTML, see `Radio` Element
+
+Public Methods
+
+* `__construct($name, $booleans = false)` constructor
 * `render($twig)` render Method for Twig Template Engine
 
 ### Paragraph
