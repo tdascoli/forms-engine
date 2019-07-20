@@ -13,13 +13,17 @@ Library to build forms on basis of Bootstrap 4 templates. This library includes 
 	- [Dependencies](#dependencies)
 	- [Option](#option)
 	- [Elements `FormsEngine\Questions\Element`](#elements-formsenginequestionselement)
-		- [Text, E-Mail, Number](#text-e-mail-number)
+		- [Text, E-Mail, Number, Date, DateTime](#text-e-mail-number-date-datetime)
 		- [Textarea](#textarea)
 		- [Typeahead](#typeahead)
 		- [Radio](#radio)
 		- [Radioroup](#radioroup)
 		- [Checkbox](#checkbox)
 		- [CheckboxGroup](#checkboxgroup)
+		- [Select](#select)
+		- [Paragraph](#paragraph)
+		- [Title](#title)
+		- [Button, Reset, Submit](#button-reset-submit)
 
 <!-- /TOC -->
 
@@ -111,7 +115,7 @@ $option->add('third',3);
 
 ## Elements `FormsEngine\Questions\Element`
 
-All Elements have the following methods:
+All Elements are - mostly - standard [HTML5 input fields](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input) and have the following methods:
 
 **Public Methods**
 
@@ -134,7 +138,7 @@ All Elements have the following methods:
 * `setName($name)` set name attribute
 * `static camelCase($str, array $noStrip = [])` get String camelCased, used for `setId` and `setName`
 
-### Text, E-Mail, Number
+### Text, E-Mail, Number, Date, DateTime
 
 Extends from `Input`
 
@@ -146,6 +150,9 @@ $text   = new Text('Label','Placeholder','Helptext');
 $email  = new Email('Label','Placeholder','Helptext');
 
 $number = new Number('Label','Placeholder','Helptext');
+
+$date     = new Date('Label','Placeholder','Helptext');
+$dateTime = new DateTime('Label','Placeholder','Helptext');
 ```
 
 Template/HTML (`type` is different according to Element)
@@ -360,3 +367,122 @@ Public Methods
 * `__construct($label, $options)` constructor
 * `render($twig)` render Method for Twig Template Engine
 * `elementKeys()` all `Option` Keys
+
+### Select
+
+Extends from `Element`
+
+Usage, see `Option` for more information
+
+```php
+$option = new Option();
+$option->add('first',1);
+$option->add('second',2);
+$option->add('third',3);
+
+$element = new Select('Label',$option,true,'Helptext');
+```
+
+Template/HTML
+
+```html
+<div class="form-group">
+  <label for="label">Label</label>
+  <select class="custom-select" id="label" name="label">
+    <!-- Renders all Option Elements -->
+    <option value="1">first</option>
+    <!-- /End -->
+  </select>
+  <small id="label-helptext" class="form-text text-muted">Helptext</small>
+</div>
+```
+
+Public Methods
+
+* `__construct($label,$options,$nullable = false,$helptext = null)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
+### Paragraph
+
+Extends from `Element`
+
+Usage
+
+```php
+$element = new Paragraph('Title','Description');
+```
+
+Template/HTML
+
+```html
+<h2>Title</h2>
+<p>Description</p>
+```
+
+Public Methods
+
+* `__construct($title=null,$description=null)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
+### Title
+
+There is only one `Title` Element allowed per Form.
+
+Extends from `Paragraph`
+
+Usage
+
+```php
+$element = new Title('Form Title','Description');
+```
+
+Template/HTML
+
+```html
+<h1>Form Title</h1>
+<p>Description</p>
+```
+
+Public Methods
+
+* `__construct($title,$description=null)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
+### Button, Reset, Submit
+
+See #26.
+
+Extends from `Element`
+
+Usage
+
+```php
+$button       = new Button('Button');
+
+$reste        = new Reset('Reset'); // Shorthand
+$resetButton  = new Button('Reset Button');
+
+$submit       = new Submit('Submit'); // Shorthand
+$submitButton = new Button('Submit Button');
+```
+
+Template/HTML
+
+```html
+<button type="button" class="btn btn-secondary">
+  Button
+</button>
+
+<button type="reset" class="btn btn-light">
+  Reset
+</button>
+
+<button type="submit" class="btn btn-primary">
+  Submit
+</button>
+```
+
+Public Methods
+
+* `__construct($label,$buttonType=null)` constructor
+* `render($twig)` render Method for Twig Template Engine
