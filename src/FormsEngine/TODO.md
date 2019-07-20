@@ -15,7 +15,7 @@
   * ~~"create another" link~~
   * ~~how to deliver pagination JS?~~
 * ~~make "CompleteHandler"~~ -> what to do after submit?? -> wrapper!! see arch.md
-* (?) refactoring Renderer Class
+* ~~(?) refactoring Renderer Class~~
 
 ### Element
 
@@ -52,7 +52,7 @@
 * ~~needs work...~~
 * (/) export functionalities (naming?)
     * json
-    * xml (?)
+    * ~~xml (no)~~
     * ~~csv - add titles~~
     * ~~plaintext (no)~~
     * ~~xlsx~~
