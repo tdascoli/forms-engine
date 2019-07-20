@@ -30,9 +30,9 @@ Library to build forms on basis of Bootstrap 4 templates. This library includes 
 	- [Paragraph](#paragraph)
 	- [Title](#title)
 	- [Button, Reset, Submit](#button-reset-submit)
-- [Form Definition `FormsEngine\Questions\Loader`](#form-definition-formsenginequestionsloader)
+- [De-/Serialization of form definitions `FormsEngine\Questions\Loader`](#de-serialization-of-form-definitions-formsenginequestionsloader)
 - [Pagination `FormsEngine\Questions\Pagination`](#pagination-formsenginequestionspagination)
-- [Persistence `FormsEngine\Answers\Persistence`](#persistence-formsengineanswerspersistence)
+- [API and Persistence `FormsEngine\Answers\Persistence`](#api-and-persistence-formsengineanswerspersistence)
 	- [CSV](#csv)
 	- [E-Mail](#e-mail)
 	- [JSON](#json)
@@ -621,7 +621,7 @@ Public Methods
 * `__construct($label,$buttonType=null)` constructor
 * `render($twig)` render Method for Twig Template Engine
 
-## Form Definition `FormsEngine\Questions\Loader`
+## De-/Serialization of form definitions `FormsEngine\Questions\Loader`
 
 *todo*
 
@@ -629,7 +629,7 @@ Public Methods
 
 *todo*
 
-## Persistence `FormsEngine\Answers\Persistence`
+## API and Persistence `FormsEngine\Answers\Persistence`
 
 *todo*
 
@@ -646,3 +646,20 @@ Public Methods
 ### XLSX
 
 ### Implement own Persistence
+
+```php
+namespace Somewhere\Persistence;
+
+use \FormsEngine\Answers\Persistence\Persistence;
+
+class TestPersistence implements Persistence {
+
+  public static function persist($name, $data){
+    echo 'Insert Data into '.$name.': '.\implode(',',$data);
+  }
+
+  public static function load($name){
+      echo 'Load Data from '.$name;
+  }
+}
+```
