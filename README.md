@@ -12,7 +12,7 @@ Library to build forms on basis of Bootstrap 4 templates. This library includes 
 - [Dependencies](#dependencies)
 - [Configuration](#configuration)
 	- [set Prefix directory](#set-prefix-directory)
-	- [Configuration usage](#configuration-usage)
+	- [get Configuration variable](#get-configuration-variable)
 - [Translations](#translations)
 - [Templates](#templates)
 - [Option `FormsEngine\Questions\Element\Option`](#option-formsenginequestionselementoption)
@@ -152,7 +152,7 @@ Config::setDirPrefix(__DIR__, "langDir");
 Config::setDirPrefix(__DIR__, "templateDir");
 ```
 
-### Configuration usage
+### get Configuration variable
 
 *todo*
 
