@@ -47,12 +47,22 @@ function compressPagination(){
   );
 }
 
+function doCss(){
+  return (
+    gulp.src(['src/FormsEngineCSS/typeahead/**/*'])
+      .pipe(concat('formsEngine.typeahead.css'))
+      .pipe(gulp.dest('dist'))
+  );
+}
+
 // define complex tasks
 var js = gulp.series(compressElements, compressPagination);
-var build = gulp.series(clean, gulp.parallel(js));
+var css = gulp.series(doCss);
+var build = gulp.series(clean, gulp.parallel(js, css));
 
 // export tasks
 exports.js = js;
+exports.css = css;
 exports.clean = clean;
 exports.build = build;
 exports.default = build;
