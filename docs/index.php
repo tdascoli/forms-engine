@@ -32,8 +32,16 @@ $cb2->add('first2',1);
 $cb2->add('second2',2);
 $cb2->add('third2',3);
 $r->add(new Element\RadioGroup('Radio Group',$cb2));
-$r->add(new Element\Typeahead('typeahead',array('first','second','third','fourth'),'placeholder','helptext to show'));
-
+$r->add(new Element\Typeahead('typeahead array',array('first','second','third','fourth'),'placeholder'));
+$cb3 = new Element\Option();
+$cb3->add('Antigua and Barbuda','ANU');
+$cb3->add('Austria','AUT');
+$cb3->add('Germany','GER');
+$cb3->add('Italy','ITA');
+$cb3->add('France','FRA');
+$cb3->add('Switzerland','SUI');
+$cb3->add('Sweden','SWE');
+$r->add(new Element\Typeahead('typeahead option',$cb3,'typeahead placeholder','typeahead helptext to show'));
 
 $serializedString = $r->serialize();
 $serializedObject = \json_decode($serializedString);
@@ -72,6 +80,8 @@ $_SESSION["sessionForm"] = $serializedString;
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/css/material.min.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-typeahead@2.10.6/dist/jquery.typeahead.min.css">
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -79,14 +89,16 @@ $_SESSION["sessionForm"] = $serializedString;
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-typeahead@2.10.6/dist/jquery.typeahead.min.js"></script>
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/daemonite-material@4.1.1/js/material.min.js"></script>
 
     <!-- validation -->
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.1/dist/parsley.min.js"></script>
 
-    <!-- FormsEngine JS + deps -->
+    <!-- FormsEngine JS/CSS -->
+    <link href="css/typeahead.css" rel="stylesheet">
+
     <script src="js/formsEngine.pagination.js"></script>
     <script src="js/ajax.js"></script>
 </head>

@@ -78,10 +78,13 @@ $r->render();
 
 A List of all Dependencies used by this Library.
 
-**CSS**
+**CSS/JS**
 
 * [bootstrap](https://getbootstrap.com/docs/4.3/components/forms/)
 * [material](https://daemonite.github.io/material/)
+* [jquery-typeahead](https://github.com/running-coder/jquery-typeahead)
+* [Parsley.JS](http://parsleyjs.org/) Input validation
+* [JOII (JavaScript Object Inheritance Implementation](https://github.com/haroldiedema/joii) used for JS Objects of `FormsEngine\Questions\Element`
 
 **PHP**
 
@@ -95,11 +98,6 @@ A List of all Dependencies used by this Library.
 * [rakibtg/sleekdb](https://sleekdb.github.io/) JSONDB
 * [phpmailer/phpmailer](https://github.com/PHPMailer/PHPMailer) E-Mail
 * [phpoffice/phpspreadsheet](https://github.com/PHPOffice/PhpSpreadsheet) Excel
-
-**JS**
-
-* [Parsley.JS](http://parsleyjs.org/) Input validation
-* [JOII (JavaScript Object Inheritance Implementation](https://github.com/haroldiedema/joii) used for JS Objects of `FormsEngine\Questions\Element`
 
 ## Configuration
 
@@ -171,7 +169,7 @@ Config::getInstance()->get('form','name')
 
 ## Option `FormsEngine\Questions\Element\Option`
 
-Used for `RadioGroup`, `CheckboxGroup` and `Select` Elements. For `Typeahead` see #39
+Used for `RadioGroup`, `CheckboxGroup`, `Typeahead` and `Select` Elements.
 
 Usage
 
@@ -314,20 +312,31 @@ Public Methods
 
 Extends from `Text`
 
-Usage
+Usage, with Array
 
 ```php
 $options = array('first','second','third','fourth');
 
-$element = new Typeahead('Label',$options,'Placeholder','Helptext');
+$array = new Typeahead('Label',$options,'Placeholder','Helptext');
+```
+
+Usage, with `Option`. See `Option` for more information
+
+```php
+$option = new Element\Option();
+$option->add('Germany','GER');
+$option->add('Italy','ITA');
+$option->add('Switzerland','SUI');
+
+$option = new Typeahead('Label',$option,'Placeholder','Helptext');
 ```
 
 Template/HTML
 
 ```html
-<div class="form-group">
+<div class="form-group typeahead__container">
   <label for="label">Label</label>
-  <input type="text" class="form-control typeahead" id="label" name="label" placeholder="Placeholder" aria-describedby="label-helptext" data-provide="typeahead" autocomplete="off">
+  <input type="text" class="form-control" id="label" name="label" placeholder="Placeholder" aria-describedby="label-helptext" autocomplete="off">
   <small id="label-helptext" class="form-text text-muted">Helptext</small>
 </div>
 ```

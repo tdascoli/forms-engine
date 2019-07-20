@@ -7,6 +7,7 @@ class Typeahead extends Text {
 
   public $options;
   public $script;
+  private $config;
 
   public function __construct($label,
                               $options,
@@ -14,12 +15,9 @@ class Typeahead extends Text {
                               $helptext = null) {
       parent::__construct($label, $placeholder, $helptext);
       $this->type = Type::TYPEAHEAD()->getValue();
-      if (\is_array($options)){
-        $this->options = $options;
-      }
-      $this->attr('data-provide','typeahead');
-      $this->attr('autocomplete','off');
-      $this->addStyle('typeahead');
+      $this->options = $options;
+      $this->config = array('minLength' => '1');
+      //$this->config['selector']=array('container' => 'form-group');
       $this->prepareScript();
   }
 
@@ -34,8 +32,14 @@ class Typeahead extends Text {
   }
 
   private function prepareScript(){
-    $this->script = 'var '.$this->id.'Data = '.json_encode($this->options).';'.
-                    '$("#'.$this->id.'").typeahead({ source:'.$this->id.'Data });';
+    if (\is_array($this->options)){
+      $this->config['source'] = $this->options;
+    }
+    else if ($this->options instanceof Option){
+      $this->config['source'] = $this->options->all();
+      $this->config['display']='label';
+    }
+    $this->script = '$("#'.$this->id.'").typeahead('.\json_encode($this->config, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT).');'."\n";
   }
 
   /**
