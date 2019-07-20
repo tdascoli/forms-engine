@@ -10,6 +10,7 @@ Library to build forms on basis of Bootstrap 4 templates. This library includes 
 - [Install](#install)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
+- [Configuration](#configuration)
 - [Option](#option)
 - [Elements `FormsEngine\Questions\Element`](#elements-formsenginequestionselement)
 	- [Text, E-Mail, Number, Date, DateTime](#text-e-mail-number-date-datetime)
@@ -84,7 +85,11 @@ A List of all Dependencies used by this Library.
 **JS**
 
 * [Parsley.JS](http://parsleyjs.org/) Input validation
-* [JOII (JavaScript Object Inheritance Implementation](https://github.com/haroldiedema/joii) JS Objects
+* [JOII (JavaScript Object Inheritance Implementation](https://github.com/haroldiedema/joii) used for JS Objects of `FormsEngine\Questions\Element` 
+
+## Configuration
+
+*todo*
 
 ## Option
 
