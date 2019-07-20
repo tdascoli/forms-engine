@@ -11,6 +11,8 @@ Library to build forms on basis of Bootstrap 4 templates. This library includes 
 - [Usage](#usage)
 - [Dependencies](#dependencies)
 - [Configuration](#configuration)
+	- [set Prefix directory](#set-prefix-directory)
+	- [Configuration usage](#configuration-usage)
 - [Translations](#translations)
 - [Templates](#templates)
 - [Option](#option)
@@ -101,7 +103,62 @@ A List of all Dependencies used by this Library.
 
 ## Configuration
 
+Set a session var with name `configFile` and the path and json-filename of your own `config.json`. See below the standard`config.json` as an example. If your happy with the standard `config.json`, you don't need to set the session var.
+
+```php
+$_SESSION['configFile'] = __DIR__ . '/config.json';
+```
+
+**config.json**
+
+```json
+{
+    "addDirPrefix":true,
+    "templateDir":"/Templates/",
+    "langDir":"/Translations/",
+    "form" : {
+        "dir":"/forms/",
+        "name":"defaultForm",
+        "method":"ajax",
+        "messageAfterSubmit":true,
+        "createAnother":true,
+        "addTimestamp":false
+    },
+    "pagination": {
+      "active":true,
+      "reset":false
+    },
+    "render" : {
+        "load":"COOKIE",
+        "config":"jsonForm"
+    },
+    "persistence" : {
+        "type":"JSONDB",
+        "email": {
+            "emailTo":"test@test.test"
+        },
+        "externalConfigs":[]
+    }
+}
+```
+
+### set Prefix directory
+
 *todo*
+
+```php
+Config::setDirPrefix(__DIR__, "dir");
+Config::setDirPrefix(__DIR__, "langDir");
+Config::setDirPrefix(__DIR__, "templateDir");
+```
+
+### Configuration usage
+
+*todo*
+
+```php
+Config::getInstance()->get('form','name')
+```
 
 ## Translations
 
@@ -530,7 +587,7 @@ Usage
 ```php
 $button       = new Button('Button');
 
-$reste        = new Reset('Reset'); // Shorthand
+$reset        = new Reset('Reset'); // Shorthand
 $resetButton  = new Button('Reset Button');
 
 $submit       = new Submit('Submit'); // Shorthand
