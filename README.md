@@ -261,7 +261,7 @@ Extends from `Input`
 Usage
 
 ```php
-$element = new Textarea('Label','Placeholder','Helptext');
+$element = new Textarea('Label','Helptext');
 ```
 
 Template/HTML
@@ -269,14 +269,20 @@ Template/HTML
 ```html
 <div class="form-group">
   <label for="label">Label</label>
-  <input type="text" class="form-control typeahead" id="label" name="label" placeholder="Placeholder" aria-describedby="label-helptext" data-provide="typeahead" autocomplete="off">
+  <textarea
+    class="form-control"
+    id="label"
+    name="label"
+    rows="3"
+    aria-describedby="label-helptext">
+  </textarea>
   <small id="label-helptext" class="form-text text-muted">Helptext</small>
 </div>
 ```
 
 Public Methods
 
-* `__construct($label, $placeholder = null, $helptext = null)` constructor
+* `__construct($label, $helptext = null)` constructor
 * `render($twig)` render Method for Twig Template Engine
 
 ### Hidden
@@ -321,7 +327,7 @@ Template/HTML
 ```html
 <div class="form-group">
   <label for="label">Label</label>
-  <input type="text" class="form-control" id="label" name="label" placeholder="Placeholder" aria-describedby="label-helptext">
+  <input type="text" class="form-control typeahead" id="label" name="label" placeholder="Placeholder" aria-describedby="label-helptext" data-provide="typeahead" autocomplete="off">
   <small id="label-helptext" class="form-text text-muted">Helptext</small>
 </div>
 ```

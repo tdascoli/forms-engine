@@ -6,9 +6,8 @@ use FormsEngine\Questions\Type;
 class Textarea extends Input {
 
   public function __construct($label,
-                              $placeholder = null,
                               $helptext = null) {
-      parent::__construct($label, $placeholder, $helptext);
+      parent::__construct($label, null, $helptext);
       $this->type = Type::TEXTAREA()->getValue();
   }
 
