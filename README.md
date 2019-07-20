@@ -15,7 +15,7 @@ Library to build forms on basis of Bootstrap 4 templates. This library includes 
 	- [Configuration usage](#configuration-usage)
 - [Translations](#translations)
 - [Templates](#templates)
-- [Option](#option)
+- [Option `FormsEngine\Questions\Element\Option`](#option-formsenginequestionselementoption)
 - [Elements `FormsEngine\Questions\Element`](#elements-formsenginequestionselement)
 	- [Text, E-Mail, Number, Date, DateTime](#text-e-mail-number-date-datetime)
 	- [Textarea](#textarea)
@@ -169,7 +169,7 @@ Config::getInstance()->get('form','name')
 
 *todo*
 
-## Option
+## Option `FormsEngine\Questions\Element\Option`
 
 Used for `RadioGroup`, `CheckboxGroup` and `Select` Elements. For `Typeahead` see #39
 
