@@ -63,6 +63,34 @@ A List of all Dependencies used by this Library.
 * [Parsley.JS](http://parsleyjs.org/) Input validation
 * [JOII (JavaScript Object Inheritance Implementation](https://github.com/haroldiedema/joii) JS Objects
 
+## Option
+
+Used for `RadioGroup`, `CheckboxGroup` and `Select` Elements. For `Typeahead` see #39
+
+Usage
+
+```php
+$option = new Option();
+
+$option->add('first',1);
+$option->add('second',2);
+$option->add('third',3);
+```
+
+**Public Methods**
+
+* `__construct()` constructor
+* `add($label, $value, $selected = false)` add values to `Option` Element
+* `addAll($options)` add an Array of `Option` Elements
+* `all()` get All Elements
+* `static create($label, $value, $selected = false)` returns an `Option` Element
+* `serialize()` get serialized Element for persistence, array with all attributes and values.
+* `static deserialize($object)` deserialize Object to Element
+
+**Private Methods**
+
+* `static camelCase($str, array $noStrip = [])` get String camelCased, used for `id`
+
 ## Elements `FormsEngine\Questions\Element`
 
 All Elements have the following methods:
@@ -119,7 +147,7 @@ Public Methods
 
 ### Textarea
 
-Extends from `Text`
+Extends from `Input`
 
 Usage
 
@@ -144,6 +172,8 @@ Public Methods
 
 ### Typeahead
 
+Extends from `Text`
+
 Usage
 
 ```php
@@ -164,5 +194,151 @@ Template/HTML
 
 Public Methods
 
-* `__construct($label, $placeholder = null, $helptext = null)` constructor
+* `__construct($label, $options, $placeholder = null, $helptext = null)` constructor
 * `render($twig)` render Method for Twig Template Engine
+
+### Radio
+
+Extends from `Element`
+
+Usage
+
+```php
+$element = new Radio('Label','Value','Name',true);
+```
+
+Template/HTML
+
+```html
+<div class="form-group">
+  <div class="custom-control custom-radio">
+    <input
+      type="radio"
+      class="custom-control-input"
+      id="Label"
+      value="Value"
+      name="Name"
+      checked="checked">
+    <label class="custom-control-label" for="Label">Label</label>
+  </div>
+</div>
+```
+
+Public Methods
+
+* `__construct($label, $value, $name, $checked = false)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
+### Radioroup
+
+Extends from `Element`
+
+Usage, see `Option` for more information
+
+```php
+$option = new Option();
+$option->add('first',1);
+$option->add('second',2);
+$option->add('third',3);
+
+$element = new RadioGroup('Label',$option,'Name');
+```
+
+Template/HTML
+
+```html
+<div class="form-group">
+  <label for="label">Label</label>
+  <div class="mt-2" id="label">
+    <!-- Renders all Option Elements -->
+    <div class="custom-control custom-radio">
+        <input
+            type="radio"
+            class="custom-control-input"
+            id="first"
+            name="Name"
+            value="1">
+        <label class="custom-control-label" for="first">first</label>
+    </div>
+    <!-- /End -->
+  </div>
+</div>
+```
+
+Public Methods
+
+* `__construct($label, $options, $name = null)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
+### Checkbox
+
+Extends from `Element`
+
+Usage
+
+```php
+$element = new Checkbox('Label','Value',true);
+```
+
+Template/HTML
+
+```html
+<div class="form-group">
+  <div class="custom-control custom-checkbox">
+    <input
+      type="checkbox"
+      class="custom-control-input"
+      id="Label"
+      value="Value"
+      checked="checked">
+    <label class="custom-control-label" for="Label">Label</label>
+  </div>
+</div>
+```
+
+Public Methods
+
+* `__construct($label, $value, $checked = false)` constructor
+* `render($twig)` render Method for Twig Template Engine
+
+### CheckboxGroup
+
+Extends from `Element`
+
+Usage, see `Option` for more information
+
+```php
+$option = new Option();
+$option->add('first',1);
+$option->add('second',2);
+$option->add('third',3);
+
+$element = new CheckboxGroup('Label',$option);
+```
+
+Template/HTML
+
+```html
+<div class="form-group">
+  <label for="label">Label</label>
+  <div class="mt-2" id="label">
+    <!-- Renders all Option Elements -->
+    <div class="custom-control custom-checkbox">
+        <input
+            type="checkbox"
+            class="custom-control-input"
+            id="first"
+            name="first"
+            value="1">
+        <label class="custom-control-label" for="first">first</label>
+    </div>
+    <!-- /End -->
+  </div>
+</div>
+```
+
+Public Methods
+
+* `__construct($label, $options)` constructor
+* `render($twig)` render Method for Twig Template Engine
+* `elementKeys()` all `Option` Keys
