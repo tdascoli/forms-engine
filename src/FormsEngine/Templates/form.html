@@ -5,6 +5,7 @@
   {% if method == 'post' %}method="post"{% endif %}
   {% if method == 'ajax' %}action="/api/record/{{ formName }}"{% endif %}
   id="{{ formName }}"
+  name="{{ formName }}"
   class="forms-engine__form"
   novalidate>
     <div class="card mb-3">

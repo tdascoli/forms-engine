@@ -63,13 +63,18 @@ setcookie("jsonForm", $serializedString, time()+300);
 
 $_SESSION["sessionForm"] = $serializedString;
 ?>
-<!DOCTYPE html>
+<!doctype html>
+<html lang="de">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>FormsEngine</title>
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
 
     <!-- CSS -->
     <!-- Add Material font (Roboto) and Material icon as needed -->
@@ -97,12 +102,19 @@ $_SESSION["sessionForm"] = $serializedString;
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.1/dist/parsley.min.js"></script>
 
     <!-- FormsEngine JS/CSS -->
-    <link href="css/typeahead.css" rel="stylesheet">
+    <!-- styles:css -->
+    <link rel="stylesheet" href="css/formsEngine.typeahead.css">
+    <!-- endinject -->
 
-    <script src="js/formsEngine.pagination.js"></script>
-    <script src="js/ajax.js"></script>
+    <!-- inject:js -->
+    <script src="js/formsEngine.ajax.min.js"></script>
+    <script src="js/formsEngine.pagination.min.js"></script>
+    <!-- endinject -->
 </head>
 <body>
+<!--[if IE]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">

@@ -30,14 +30,18 @@ $cb2->add('first2',1);
 $cb2->add('second2',2);
 $r->add(new Element\RadioGroup('Radio Group',$cb2));
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>FormsEngine</title>
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
 
     <!-- CSS -->
     <!-- Add Material font (Roboto) and Material icon as needed -->
@@ -62,9 +66,10 @@ $r->add(new Element\RadioGroup('Radio Group',$cb2));
     <!-- validation -->
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.1/dist/parsley.min.js"></script>
 
-    <!-- FormsEngine JS + deps -->
-    <script src="js/formsEngine.pagination.js"></script>
-    <script src="js/ajax.js"></script>
+    <!-- FormsEngine CSS -->
+    <!-- styles:css -->
+    <link rel="stylesheet" href="css/formsEngine.typeahead.css">
+    <!-- endinject -->
 </head>
 <body>
 
@@ -77,8 +82,8 @@ $r->add(new Element\RadioGroup('Radio Group',$cb2));
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Documentation <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Documentation</a>
                 </li>
             </ul>
         </div>
@@ -90,7 +95,13 @@ $r->add(new Element\RadioGroup('Radio Group',$cb2));
     <?php
         $r->render();
     ?>
+    <button type="button" onclick="testsubmit()">test</button>
 </div>
 
+<!-- FormsEngine JS -->
+<!-- inject:js -->
+<script src="js/formsEngine.ajax.min.js"></script>
+<script src="js/formsEngine.pagination.min.js"></script>
+<!-- endinject -->
 </body>
 </html>
