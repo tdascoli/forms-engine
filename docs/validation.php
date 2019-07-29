@@ -95,12 +95,11 @@ $r->add(new Element\RadioGroup('Radio Group',$cb2));
     <?php
         $r->render();
     ?>
-    <button type="button" onclick="testsubmit()">test</button>
+    <button type="button" onclick="test()">test</button>
 </div>
 
 <!-- FormsEngine JS -->
 <!-- inject:js -->
-<script src="js/formsEngine.ajax.min.js"></script>
 <script src="js/formsEngine.pagination.min.js"></script>
 <!-- endinject -->
 </body>

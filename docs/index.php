@@ -107,7 +107,6 @@ $_SESSION["sessionForm"] = $serializedString;
     <!-- endinject -->
 
     <!-- inject:js -->
-    <script src="js/formsEngine.ajax.min.js"></script>
     <script src="js/formsEngine.pagination.min.js"></script>
     <!-- endinject -->
 </head>

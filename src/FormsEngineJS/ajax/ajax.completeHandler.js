@@ -1,5 +1,6 @@
 // ajax.completeHandler.js
 function formJSON(form) {
+    var allowedInputElements = ['input','textarea','select'];
     var o = {};
     for (var i = 0; i < form.length; i++) {
       var element = form[i];
@@ -19,12 +20,22 @@ function formJSON(form) {
     return o;
 };
 
+
+function onSuccess(){
+  $('.forms-engine__form').hide();
+  $('.forms-engine__message').show();
+  $('.forms-engine__message').toggleClass('d-none');
+}
+
+function onError(){
+  $('.forms-engine__exception').show();
+  $('.forms-engine__exception').toggleClass('d-none');
+}
+
 var submit = function(event){
   event.preventDefault();
   var data = formJSON(this.elements);
   var url = this.getAttribute('action');
-
-  console.log(url, JSON.stringify(data));
 
   fetch(url, {
     method: 'put',
@@ -34,7 +45,15 @@ var submit = function(event){
     body: JSON.stringify(data)
   })
   .then(response => response.json())
+  .then(data => {
+    // do stuff with the data
+    console.log(data);
+  });
+  /*
+  .then(response => response.ok)
+  .then(data => console.log('data:',data))
   .catch(error => console.log('error is', error));
+  */
 };
 
 var testsubmit = function(){
@@ -45,6 +64,5 @@ var testsubmit = function(){
 };
 
 const form = document.getElementsByClassName('forms-engine__form').item(0);
-const allowedInputElements = ['input','textarea','select'];
 
 form.onsubmit = submit;

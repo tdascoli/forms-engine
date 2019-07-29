@@ -49,7 +49,7 @@ function compressElements(){
 
 function compressPagination(){
   return (
-    gulp.src(['src/FormsEngineJS/pagination/pagination.js'])
+    gulp.src(['src/FormsEngineJS/pagination/pagination.js','src/FormsEngineJS/pagination/ajax.js'])
       .pipe(concat('formsEngine.pagination.js'))
       .pipe(gulp.dest('dist'))
       .pipe(minify({
@@ -100,7 +100,7 @@ function copyCssForDocs(){
 }
 
 // define complex tasks
-var js = gulp.series(compressElements, compressPagination, compressAjax);
+var js = gulp.series(compressElements, compressPagination); //, compressAjax);
 var docs = gulp.series(cleanDocs, copyJsForDocs, copyCssForDocs, injectAll);
 var css = gulp.series(doCss);
 var build = gulp.series(clean, gulp.parallel(js, css), docs);
