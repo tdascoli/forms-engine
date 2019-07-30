@@ -1,6 +1,6 @@
 {
   "name": "forms-engine.js",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "JS FormsEngine",
   "main": "index.js",
   "directories": {
@@ -20,13 +20,11 @@
   },
   "homepage": "https://github.com/tdascoli/forms-engine#readme",
   "devDependencies": {
+    "del": "^4.1.1",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-minify": "^3.1.0",
-    "gulp-inject": "^5.0.2"
-  },
-  "dependencies": {
-    "del": "^4.1.1",
+    "gulp-inject": "^5.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.4.0"
   }
