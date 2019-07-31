@@ -1,5 +1,6 @@
 {
     "addDirPrefix":true,
+    "dirPrefix": {},
     "templateDir":"/Templates/",
     "langDir":"/Translations/",
     "form" : {
