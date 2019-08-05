@@ -16,9 +16,11 @@ class API implements Load {
       $response = \Httpful\Request::get($url)
           ->expectsJson()
           ->send();
-      $serializedString = json_encode($response->body);
-      // todo
-      if ($serializedString=='null'){
+
+      if ($response->body!=NULL){
+          $serializedString = json_encode($response->body[0]->form);
+      }
+      else {
         $serializedString='';
       }
     }
