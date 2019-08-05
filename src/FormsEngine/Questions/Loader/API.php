@@ -18,7 +18,7 @@ class API implements Load {
           ->send();
 
       if ($response->body!=NULL){
-          $serializedString = json_encode($response->body[0]->form);
+          $serializedString = json_encode($response->body);
       }
       else {
         $serializedString='';
