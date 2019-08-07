@@ -26,7 +26,7 @@ class Answers extends CompleteHandler {
     }
     $data = \json_decode($this->load($name, $type), true);
 
-    if ($data!=NULL){
+    if ($data!=null){
       $keys = array_keys($data[0]);
       $params = array('keys' => $keys, 'data' => $data, 'name' => $name);
 
@@ -46,7 +46,7 @@ class Answers extends CompleteHandler {
         $class = $type;
         return $class::load($name);
     }
-    return NULL;
+    return null;
   }
 
   public function check(){
