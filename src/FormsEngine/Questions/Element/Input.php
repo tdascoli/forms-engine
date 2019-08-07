@@ -16,7 +16,7 @@ class Input extends Element {
   }
 
   public function render($twig){
-    $template = $twig->load('input.html');
+    $template = $twig->load('Element/input.html');
     return $template->render(parent::prepare());
   }
 

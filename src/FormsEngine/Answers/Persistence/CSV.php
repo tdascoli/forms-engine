@@ -28,7 +28,7 @@ class CSV implements Persistence {
     if (\file_exists($file['fileName'])){
       $reader = Reader::createFromPath($file['fileName'], 'r');
       $reader->setHeaderOffset(0);
-      $records = json_encode($reader, JSON_PRETTY_PRINT);
+      $records = \json_encode($reader, JSON_PRETTY_PRINT);
     }
     return $records;
   }

@@ -18,7 +18,7 @@ class CheckboxGroup extends Element {
 
 
   public function render($twig){
-    $template = $twig->load('checkbox-group.html');
+    $template = $twig->load('Element/checkbox-group.html');
     return $template->render($this->prepare());
   }
 

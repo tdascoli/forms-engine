@@ -16,7 +16,7 @@ class Radio extends Element {
   }
 
   public function render($twig){
-    $template = $twig->load('custom-input.html');
+    $template = $twig->load('Element/custom-input.html');
     return $template->render($this->prepare());
   }
 

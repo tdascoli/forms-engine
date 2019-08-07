@@ -11,7 +11,7 @@ class Title extends Paragraph {
   }
 
   public function render($twig){
-    $template = $twig->load('title.html');
+    $template = $twig->load('Element/title.html');
     return $template->render(parent::prepare());
   }
 

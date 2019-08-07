@@ -26,7 +26,7 @@ class Paragraph extends Element {
   }
 
   public function render($twig){
-    $template = $twig->load('paragraph.html');
+    $template = $twig->load('Element/paragraph.html');
     return $template->render(parent::prepare());
   }
 

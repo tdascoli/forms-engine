@@ -14,7 +14,7 @@ class Hidden extends Element {
   }
 
   public function render($twig){
-    $template = $twig->load('plain-input.html');
+    $template = $twig->load('Element/plain-input.html');
     return $template->render(parent::prepare());
   }
 }

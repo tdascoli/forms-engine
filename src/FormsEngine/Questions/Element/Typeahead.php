@@ -17,7 +17,6 @@ class Typeahead extends Text {
       $this->type = Type::TYPEAHEAD()->getValue();
       $this->options = $options;
       $this->config = array('minLength' => '1');
-      //$this->config['selector']=array('container' => 'form-group');
       $this->prepareScript();
   }
 
