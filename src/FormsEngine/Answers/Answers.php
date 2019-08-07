@@ -18,14 +18,17 @@ class Answers extends CompleteHandler {
     }
   }
 
+  // todo: param name?
   public function list(){
     $type = Config::getInstance()->get('persistence','type');
     $name = Config::getInstance()->get('form','name');
-    $data = \json_decode($this->load($name, $type));
+    $data = \json_decode($this->load($name, $type), true);
 
     if ($data!=NULL){
-      $keys = array_keys(\get_object_vars($data[0]));
-      var_dump($data);
+      $keys = array_keys($data[0]);
+      $params = array('keys' => $keys, 'data' => $data, 'name' => $name);
+
+      echo $this->twig->render('Answers/table.html',$params);
     }
   }
 

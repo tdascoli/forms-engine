@@ -1,0 +1,25 @@
+<div class="card mb-3">
+    <div class="card-header">
+      <h5 class="card-title">{{ name }}</h5>
+    </div>
+    <div class="card-body">
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            {% for key in keys %}
+            <th scope="col">{{ key|e }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+              {% for value in row %}
+                <td>{{ value }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
