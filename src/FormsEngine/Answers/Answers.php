@@ -19,9 +19,11 @@ class Answers extends CompleteHandler {
   }
 
   // todo: param name?
-  public function list(){
+  public function list($name = null){
     $type = Config::getInstance()->get('persistence','type');
-    $name = Config::getInstance()->get('form','name');
+    if ($name==null){
+      $name = Config::getInstance()->get('form','name');
+    }
     $data = \json_decode($this->load($name, $type), true);
 
     if ($data!=NULL){
@@ -29,6 +31,9 @@ class Answers extends CompleteHandler {
       $params = array('keys' => $keys, 'data' => $data, 'name' => $name);
 
       echo $this->twig->render('Answers/table.html',$params);
+    }
+    else {
+      echo $this->twig->render('message.html',['message'=>\L::message_noData]);
     }
   }
 

@@ -86,7 +86,12 @@ $a = $engine->answers();
 <div class="container">
     <h3 class="mt-3">Answers</h3>
     <?php
-      $a->list();
+      if (!empty($_GET['form'])){
+        $a->list($_GET['form']);
+      }
+      else {
+        $a->list();
+      }
     ?>
 </div>
 

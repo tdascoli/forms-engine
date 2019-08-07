@@ -10,6 +10,7 @@
   "message": {
     "stored":"Ihre Daten wurden gespeichert.",
     "noForm":"Kein Formular vorhanden.",
+    "noData":"Keine Daten vorhanden.",
     "email": {
       "subject":"Neue Daten von FormsEngine",
       "exception":"Nachricht konnte nicht gesendet werden. Fehler:"
