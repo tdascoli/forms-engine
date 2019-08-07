@@ -11,7 +11,7 @@
 * (/) add if/else functionalities for fields/elements
 * ~~add paging (Abschnitt)~~ (/)  (and if/else)
   * ~~static pagination~~
-  * (/) refactoring template with elements?!
+  * ~~(/) refactoring template with elements?!~~
   * ~~"create another" link~~
   * ~~how to deliver pagination JS?~~
 * ~~make "CompleteHandler"~~ -> what to do after submit?? -> wrapper!! see arch.md
@@ -71,7 +71,7 @@
 
 ## docs
 
-* (/) create docs page and structure
+* ~~(/) create docs page and structure~~
 * ~~maybe add to heroku as gh-pages or make it static on gh-pages~~
 
 ## other
