@@ -49,7 +49,7 @@ function compressElements(){
 
 function compressPagination(){
   return (
-    gulp.src(['src/FormsEngineJS/pagination/pagination.js','src/FormsEngineJS/pagination/ajax.js'])
+    gulp.src(['src/FormsEngineJS/questions/pagination/pagination.js','src/FormsEngineJS/questions/pagination/ajax.js'])
       .pipe(concat('formsEngine.pagination.js'))
       .pipe(gulp.dest('dist'))
       .pipe(minify({
@@ -64,7 +64,7 @@ function compressPagination(){
 
 function compressAjax(){
   return (
-    gulp.src(['src/FormsEngineJS/ajax/*.js'])
+    gulp.src(['src/FormsEngineJS/answers/completeHandler/*.js'])
       .pipe(concat('formsEngine.ajax.js'))
       .pipe(gulp.dest('dist'))
       .pipe(minify({
