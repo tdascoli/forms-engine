@@ -7,3 +7,15 @@ console.log(
     template.render({baked_good: 'cupcake'})
 );
 // outputs: "The cupcake is a lie."
+
+var Renderer = Class({
+
+    twig: 'Twig Class???',
+    pages:[],
+    formTitle:'',
+    loader:'Loader Class',
+
+    __construct: function(){
+
+  }
+});
