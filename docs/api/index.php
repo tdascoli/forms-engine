@@ -17,13 +17,19 @@ use Psr\Http\Message\ResponseInterface as Response;
 // Config
 $_SESSION['configFile'] = __DIR__ . '/../config.json';
 
+// ENV
+$dotenv = Dotenv\Dotenv::create(__DIR__);
+$dotenv->load();
+
 $app = new Slim\App;
 
-$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
-    return $response;
-});
+// Basic Auth
+$app->add(new Tuupola\Middleware\HttpBasicAuthentication([
+    "secure" => true,
+    "users" => [
+        getenv('API_USERNAME') => getenv('API_PASSWORD')
+    ]
+]));
 
 $app->put('/record/{formId}', ServerCompleteHandler::class . ':save');
 

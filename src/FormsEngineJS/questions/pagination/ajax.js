@@ -46,6 +46,8 @@ $( document ).ready(function() {
           success: onSuccess,
           error: onError,
           processData: false,
+          username: 'test',
+          password: 'test',
           type: 'PUT',
           url: url
       });
