@@ -34,23 +34,23 @@ $( document ).ready(function() {
     $('.forms-engine__exception').hide();
 
     $('.forms-engine__form').submit(function(event) {
-      $('.forms-engine__exception').hide();
+        $('.forms-engine__exception').hide();
 
-      event.preventDefault();
-      var data = $(this).formJSON();
-      var url = $(this).attr('action');
-
-      $.ajax({
-          contentType: 'application/json',
-          data: JSON.stringify(data),
-          success: onSuccess,
-          error: onError,
-          processData: false,
-          username: 'test',
-          password: 'test',
-          type: 'PUT',
-          url: url
-      });
+        event.preventDefault();
+        var data = $(this).formJSON();
+        var url = $(this).attr('action');
+        /* https://github.com/motdotla/dotenv */
+        $.ajax({
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: onSuccess,
+            error: onError,
+            processData: false,
+            username: 'test',
+            password: 'test',
+            type: 'PUT',
+            url: url
+        });
     });
   }
 
