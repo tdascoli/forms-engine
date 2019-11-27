@@ -39,7 +39,7 @@ $( document ).ready(function() {
         event.preventDefault();
         var data = $(this).formJSON();
         var url = $(this).attr('action');
-        /* https://github.com/motdotla/dotenv */
+        /* https://stackoverflow.com/questions/16689496/cross-domain-ajax-request-basic-authentication */
         $.ajax({
             contentType: 'application/json',
             data: JSON.stringify(data),
