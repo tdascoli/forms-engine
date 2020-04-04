@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/tdascoli/forms-engine#readme",
   "devDependencies": {
+    "kind-of": ">=6.0.3",
     "del": "^4.1.1",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
